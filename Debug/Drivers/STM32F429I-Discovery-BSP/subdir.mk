@@ -1,0 +1,27 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+# Toolchain: GNU Tools for STM32 (10.3-2021.10)
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+C_SRCS += \
+../Drivers/STM32F429I-Discovery-BSP/stm32f429i_discovery.c 
+
+C_DEPS += \
+./Drivers/STM32F429I-Discovery-BSP/stm32f429i_discovery.d 
+
+OBJS += \
+./Drivers/STM32F429I-Discovery-BSP/stm32f429i_discovery.o 
+
+
+# Each subdirectory must supply rules for building sources it contributes
+Drivers/STM32F429I-Discovery-BSP/%.o Drivers/STM32F429I-Discovery-BSP/%.su: ../Drivers/STM32F429I-Discovery-BSP/%.c Drivers/STM32F429I-Discovery-BSP/subdir.mk
+	arm-none-eabi-gcc "$<" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I"C:/Users/silvi/STM32CubeIDE/workspace_1.9.0/AirQualityMonitor__MES__Final_Project/Drivers/STM32F429I-Discovery-BSP/Components/stm32-ili9341-main" -I"C:/Users/silvi/STM32CubeIDE/workspace_1.9.0/AirQualityMonitor__MES__Final_Project/Drivers/STM32F429I-Discovery-BSP/Components/stm32-stmpe811-main" -I"C:/Users/silvi/STM32CubeIDE/workspace_1.9.0/AirQualityMonitor__MES__Final_Project/Drivers/STM32F429I-Discovery-BSP/Components" -I"C:/Users/silvi/STM32CubeIDE/workspace_1.9.0/AirQualityMonitor__MES__Final_Project/Drivers/STM32F429I-Discovery-BSP/Components/Common" -I"C:/Users/silvi/STM32CubeIDE/workspace_1.9.0/AirQualityMonitor__MES__Final_Project/Drivers/STM32F429I-Discovery-BSP" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../TouchGFX/App -I../TouchGFX/target/generated -I../TouchGFX/target -I../Middlewares/ST/touchgfx/framework/include -I../TouchGFX/generated/fonts/include -I../TouchGFX/generated/gui_generated/include -I../TouchGFX/generated/images/include -I../TouchGFX/generated/texts/include -I../TouchGFX/generated/videos/include -I../TouchGFX/gui/include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "$@"
+
+clean: clean-Drivers-2f-STM32F429I-2d-Discovery-2d-BSP
+
+clean-Drivers-2f-STM32F429I-2d-Discovery-2d-BSP:
+	-$(RM) ./Drivers/STM32F429I-Discovery-BSP/stm32f429i_discovery.d ./Drivers/STM32F429I-Discovery-BSP/stm32f429i_discovery.o ./Drivers/STM32F429I-Discovery-BSP/stm32f429i_discovery.su
+
+.PHONY: clean-Drivers-2f-STM32F429I-2d-Discovery-2d-BSP
+
