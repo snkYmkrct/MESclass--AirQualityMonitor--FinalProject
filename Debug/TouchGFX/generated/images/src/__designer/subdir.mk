@@ -5,16 +5,16 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-../TouchGFX/generated/images/src/__designer/image_Blue_Buttons_Round_small.cpp \
-../TouchGFX/generated/images/src/__designer/image_Blue_Buttons_Round_small_pressed.cpp 
+../TouchGFX/generated/images/src/__designer/image_Dark_Buttons_Round_small.cpp \
+../TouchGFX/generated/images/src/__designer/image_Dark_Buttons_Round_small_pressed.cpp 
 
 OBJS += \
-./TouchGFX/generated/images/src/__designer/image_Blue_Buttons_Round_small.o \
-./TouchGFX/generated/images/src/__designer/image_Blue_Buttons_Round_small_pressed.o 
+./TouchGFX/generated/images/src/__designer/image_Dark_Buttons_Round_small.o \
+./TouchGFX/generated/images/src/__designer/image_Dark_Buttons_Round_small_pressed.o 
 
 CPP_DEPS += \
-./TouchGFX/generated/images/src/__designer/image_Blue_Buttons_Round_small.d \
-./TouchGFX/generated/images/src/__designer/image_Blue_Buttons_Round_small_pressed.d 
+./TouchGFX/generated/images/src/__designer/image_Dark_Buttons_Round_small.d \
+./TouchGFX/generated/images/src/__designer/image_Dark_Buttons_Round_small_pressed.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -24,7 +24,7 @@ TouchGFX/generated/images/src/__designer/%.o TouchGFX/generated/images/src/__des
 clean: clean-TouchGFX-2f-generated-2f-images-2f-src-2f-__designer
 
 clean-TouchGFX-2f-generated-2f-images-2f-src-2f-__designer:
-	-$(RM) ./TouchGFX/generated/images/src/__designer/image_Blue_Buttons_Round_small.d ./TouchGFX/generated/images/src/__designer/image_Blue_Buttons_Round_small.o ./TouchGFX/generated/images/src/__designer/image_Blue_Buttons_Round_small.su ./TouchGFX/generated/images/src/__designer/image_Blue_Buttons_Round_small_pressed.d ./TouchGFX/generated/images/src/__designer/image_Blue_Buttons_Round_small_pressed.o ./TouchGFX/generated/images/src/__designer/image_Blue_Buttons_Round_small_pressed.su
+	-$(RM) ./TouchGFX/generated/images/src/__designer/image_Dark_Buttons_Round_small.d ./TouchGFX/generated/images/src/__designer/image_Dark_Buttons_Round_small.o ./TouchGFX/generated/images/src/__designer/image_Dark_Buttons_Round_small.su ./TouchGFX/generated/images/src/__designer/image_Dark_Buttons_Round_small_pressed.d ./TouchGFX/generated/images/src/__designer/image_Dark_Buttons_Round_small_pressed.o ./TouchGFX/generated/images/src/__designer/image_Dark_Buttons_Round_small_pressed.su
 
 .PHONY: clean-TouchGFX-2f-generated-2f-images-2f-src-2f-__designer
 

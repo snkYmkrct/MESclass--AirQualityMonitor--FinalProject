@@ -6,24 +6,26 @@
 #include <BitmapDatabase.hpp>
 #include <texts/TextKeysAndLanguages.hpp>
 
-Screen1ViewBase::Screen1ViewBase()
+Screen1ViewBase::Screen1ViewBase() :
+    buttonCallback(this, &Screen1ViewBase::buttonCallbackHandler)
 {
 
-    __background.setPosition(0, 0, 240, 320);
+    __background.setPosition(0, 0, 320, 240);
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
 
-    box1.setPosition(0, 0, 240, 320);
-    box1.setColor(touchgfx::Color::getColorFromRGB(183, 139, 240));
+    box1.setPosition(0, 0, 320, 240);
+    box1.setColor(touchgfx::Color::getColorFromRGB(188, 149, 240));
 
-    buttonWithLabel1.setXY(35, 220);
-    buttonWithLabel1.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_SMALL_ID), touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_SMALL_PRESSED_ID));
+    buttonWithLabel1.setXY(75, 151);
+    buttonWithLabel1.setBitmaps(touchgfx::Bitmap(BITMAP_DARK_BUTTONS_ROUND_SMALL_ID), touchgfx::Bitmap(BITMAP_DARK_BUTTONS_ROUND_SMALL_PRESSED_ID));
     buttonWithLabel1.setLabelText(touchgfx::TypedText(T___SINGLEUSE_HV1F));
     buttonWithLabel1.setLabelColor(touchgfx::Color::getColorFromRGB(229, 204, 237));
     buttonWithLabel1.setLabelColorPressed(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    buttonWithLabel1.setAction(buttonCallback);
 
-    boxWithBorder1.setPosition(95, 92, 50, 50);
-    boxWithBorder1.setColor(touchgfx::Color::getColorFromRGB(184, 66, 66));
-    boxWithBorder1.setBorderColor(touchgfx::Color::getColorFromRGB(176, 182, 194));
+    boxWithBorder1.setPosition(135, 54, 50, 50);
+    boxWithBorder1.setColor(touchgfx::Color::getColorFromRGB(199, 38, 169));
+    boxWithBorder1.setBorderColor(touchgfx::Color::getColorFromRGB(161, 144, 166));
     boxWithBorder1.setBorderSize(5);
 
     add(__background);
@@ -35,4 +37,22 @@ Screen1ViewBase::Screen1ViewBase()
 void Screen1ViewBase::setupScreen()
 {
 
+}
+
+void Screen1ViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
+{
+    if (&src == &buttonWithLabel1)
+    {
+        //Interaction1
+        //When buttonWithLabel1 clicked execute C++ code
+        //Execute C++ code
+        if (boxWithBorder1.isVisible()){
+        boxWithBorder1.setVisible(false);
+        boxWithBorder1.invalidate();
+        }
+        else {
+        boxWithBorder1.setVisible(true);
+        boxWithBorder1.invalidate();
+        }
+    }
 }

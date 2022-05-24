@@ -7,23 +7,23 @@
           {
             "Type": "Box",
             "Name": "box1",
-            "Width": 240,
-            "Height": 320,
+            "Width": 320,
+            "Height": 240,
             "Color": {
-              "Red": 183,
-              "Green": 139,
+              "Red": 188,
+              "Green": 149,
               "Blue": 240
             }
           },
           {
             "Type": "ButtonWithLabel",
             "Name": "buttonWithLabel1",
-            "X": 35,
-            "Y": 220,
+            "X": 75,
+            "Y": 151,
             "Width": 170,
             "Height": 60,
-            "Pressed": "__designer\\Blue_Buttons_Round_small_pressed.png",
-            "Released": "__designer\\Blue_Buttons_Round_small.png",
+            "Pressed": "__designer\\Dark_Buttons_Round_small_pressed.png",
+            "Released": "__designer\\Dark_Buttons_Round_small.png",
             "TextId": "__SingleUse_HV1F",
             "ReleasedColor": {
               "Red": 229,
@@ -41,24 +41,36 @@
           {
             "Type": "BoxWithBorder",
             "Name": "boxWithBorder1",
-            "X": 95,
-            "Y": 92,
+            "X": 135,
+            "Y": 54,
             "Width": 50,
             "Height": 50,
             "Color": {
-              "Red": 184,
-              "Green": 66,
-              "Blue": 66
+              "Red": 199,
+              "Green": 38,
+              "Blue": 169
             },
             "BorderColor": {
-              "Red": 176,
-              "Green": 182,
-              "Blue": 194
+              "Red": 161,
+              "Green": 144,
+              "Blue": 166
             },
             "BorderSize": 5
           }
         ],
-        "Interactions": []
+        "Interactions": [
+          {
+            "InteractionName": "Interaction1",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "buttonWithLabel1"
+            },
+            "Action": {
+              "Type": "ActionExecuteCode",
+              "Code": "if (boxWithBorder1.isVisible()){\r\nboxWithBorder1.setVisible(false);\r\nboxWithBorder1.invalidate();\r\n}\r\nelse {\r\nboxWithBorder1.setVisible(true);\r\nboxWithBorder1.invalidate();\r\n}"
+            }
+          }
+        ]
       }
     ],
     "CustomContainerDefinitions": [],
@@ -70,7 +82,7 @@
     "SelectedColorDepth": 16,
     "StartupScreenName": "Screen1",
     "SelectedStartupLanguage": "GB",
-    "Skin": "Blue",
+    "Skin": "Dark",
     "TouchGfxPath": "../Middlewares/ST/touchgfx",
     "UIPath": ".",
     "AvailableColorDepths": [
@@ -105,7 +117,7 @@
     "LandscapeSkinY": 0,
     "PortraitSkinX": 0,
     "PortraitSkinY": 0,
-    "DisplayOrientation": "Portrait",
+    "DisplayOrientation": "Landscape",
     "Family": "STM32F4",
     "Platform": "m4",
     "ProjectFile": "../AirQualityMonitor__MES__Final_Project.ioc",
