@@ -14,7 +14,10 @@
   * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
-  */
+   *  Created on: May 23, 2022
+   *      User code author: snkYmkrct
+  ******************************************************************************
+ **/
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"

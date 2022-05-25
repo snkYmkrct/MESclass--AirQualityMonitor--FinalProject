@@ -6,13 +6,52 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="t1w" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB" />
+      </Text>
+      <Text Id="__SingleUse_TIKO" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">&gt; 10 um  &lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_SFP5" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">&gt; 5.0 um  &lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_LIU5" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">&gt; 2.5 um  &lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_8CMW" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">&gt; 1.0 um  &lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_PL7V" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">&gt; 0.5 um  &lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_SRW8" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">&gt; 0.3 um  &lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_DDBN" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">PM 10 en &lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_67DT" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">PM 2.5 en &lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_QUZN" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">PM 1.0 en &lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_JSY4" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">PM 10 st &lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_E509" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">PM 2.5 st &lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_7DYV" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">PM 1.0 st &lt;value&gt;</Translation>
+      </Text>
       <Text Id="__SingleUse_HV1F" Alignment="Center" TypographyId="Default">
         <Translation Language="GB">Click Me</Translation>
       </Text>
     </TextGroup>
   </Texts>
   <Typographies>
-    <Typography Id="Default" Font="verdana.ttf" Size="20" Bpp="4" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="Default" Font="verdana.ttf" Size="15" Bpp="4" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="!-~" />
     <Typography Id="Large" Font="verdana.ttf" Size="40" Bpp="4" Direction="LTR" FallbackCharacter="?" />
     <Typography Id="Small" Font="verdana.ttf" Size="10" Bpp="4" Direction="LTR" FallbackCharacter="?" />
   </Typographies>
