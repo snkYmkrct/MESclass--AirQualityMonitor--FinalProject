@@ -25,7 +25,11 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include <stdio.h>
 #include "ili9341.h"
+#include "console.h"
+#include "consoleIo.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -55,12 +59,17 @@ SPI_HandleTypeDef hspi5;
 
 TIM_HandleTypeDef htim1;
 
+UART_HandleTypeDef huart5;
 UART_HandleTypeDef huart1;
 
 SDRAM_HandleTypeDef hsdram1;
 
 /* USER CODE BEGIN PV */
+uint8_t isConsoleStarted = 0u;
 
+// global variable that is set by the interrupt when button is pressed
+// To the compiler :  Can't touch this!
+volatile GPIO_PinState MyButtonPressed = 0u;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -74,13 +83,26 @@ static void MX_LTDC_Init(void);
 static void MX_SPI5_Init(void);
 static void MX_TIM1_Init(void);
 static void MX_USART1_UART_Init(void);
+static void MX_UART5_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+int __io_putchar(int ch) {
+	HAL_UART_Transmit(&huart5, (uint8_t*)&ch, 1, HAL_MAX_DELAY);
 
+	return ch;
+}
+
+int __io_getchar(void) {
+	uint8_t ch = 0;
+
+	HAL_UART_Receive(&huart5, &ch, 1, HAL_MAX_DELAY);
+
+	return ch;
+}
 /* USER CODE END 0 */
 
 /**
@@ -106,7 +128,7 @@ int main(void)
   SystemClock_Config();
 
   /* USER CODE BEGIN SysInit */
-
+  setvbuf(stdin, NULL, _IONBF, 0);  // to make scanf work
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
@@ -119,8 +141,12 @@ int main(void)
   MX_SPI5_Init();
   MX_TIM1_Init();
   MX_USART1_UART_Init();
+  MX_UART5_Init();
   MX_TouchGFX_Init();
   /* USER CODE BEGIN 2 */
+
+  MyButtonPressed = HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin);
+  ConsoleInit();
 
   /* USER CODE END 2 */
 
@@ -128,6 +154,17 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  if (isConsoleStarted){
+		  ConsoleProcess();
+	  }
+
+	  if (MyButtonPressed == GPIO_PIN_SET){
+		  ConsoleIoSendString(STR_ENDLINE);
+		  ConsoleIoSendString(CONSOLE_PROMPT);
+		  isConsoleStarted = 1u;
+		  MyButtonPressed = GPIO_PIN_RESET;
+	  }
+
     /* USER CODE END WHILE */
 
   MX_TouchGFX_Process();
@@ -439,6 +476,39 @@ static void MX_TIM1_Init(void)
 }
 
 /**
+  * @brief UART5 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_UART5_Init(void)
+{
+
+  /* USER CODE BEGIN UART5_Init 0 */
+
+  /* USER CODE END UART5_Init 0 */
+
+  /* USER CODE BEGIN UART5_Init 1 */
+
+  /* USER CODE END UART5_Init 1 */
+  huart5.Instance = UART5;
+  huart5.Init.BaudRate = 115200;
+  huart5.Init.WordLength = UART_WORDLENGTH_8B;
+  huart5.Init.StopBits = UART_STOPBITS_1;
+  huart5.Init.Parity = UART_PARITY_NONE;
+  huart5.Init.Mode = UART_MODE_TX_RX;
+  huart5.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart5.Init.OverSampling = UART_OVERSAMPLING_16;
+  if (HAL_UART_Init(&huart5) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN UART5_Init 2 */
+
+  /* USER CODE END UART5_Init 2 */
+
+}
+
+/**
   * @brief USART1 Initialization Function
   * @param None
   * @retval None
@@ -556,8 +626,14 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : B1_Pin MEMS_INT1_Pin MEMS_INT2_Pin TP_INT1_Pin */
-  GPIO_InitStruct.Pin = B1_Pin|MEMS_INT1_Pin|MEMS_INT2_Pin|TP_INT1_Pin;
+  /*Configure GPIO pin : B1_Pin */
+  GPIO_InitStruct.Pin = B1_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(B1_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : MEMS_INT1_Pin MEMS_INT2_Pin TP_INT1_Pin */
+  GPIO_InitStruct.Pin = MEMS_INT1_Pin|MEMS_INT2_Pin|TP_INT1_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_EVT_RISING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
@@ -615,10 +691,25 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOG, &GPIO_InitStruct);
 
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI0_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI0_IRQn);
+
 }
 
 /* USER CODE BEGIN 4 */
 
+// function that handles the interrupts on pin PA1 - user button on the board
+// implementation of a __weak function in the HAL
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
+
+	if (GPIO_Pin == B1_Pin){
+		// set the global variable when board button B1 is pressed
+		// Stop! Hammer time!
+		MyButtonPressed = GPIO_PIN_SET;
+	}
+
+}
 /* USER CODE END 4 */
 
 /**

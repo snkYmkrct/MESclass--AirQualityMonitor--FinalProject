@@ -45,6 +45,7 @@ RM := rm -rf
 -include Drivers/STM32F429I-Discovery-BSP/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/Peripherals/Aiq_PMSA003I_i2c/subdir.mk
+-include Core/Src/Console/subdir.mk
 -include Core/Src/subdir.mk
 -include objects.mk
 

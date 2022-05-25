@@ -31,6 +31,7 @@ CPP_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
+Core/Src/Console \
 Core/Src/Peripherals/Aiq_PMSA003I_i2c \
 Core/Src \
 Core/Startup \
