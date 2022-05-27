@@ -44,6 +44,7 @@ RM := rm -rf
 -include Drivers/STM32F429I-Discovery-BSP/Components/stm32-ili9341-main/subdir.mk
 -include Drivers/STM32F429I-Discovery-BSP/subdir.mk
 -include Core/Startup/subdir.mk
+-include Core/Src/Peripherals/Battery_monitor_LC709203F/subdir.mk
 -include Core/Src/Peripherals/Aiq_PMSA003I_i2c/subdir.mk
 -include Core/Src/Console/subdir.mk
 -include Core/Src/subdir.mk
@@ -111,7 +112,7 @@ main-build: AirQualityMonitor__MES__Final_Project.elf secondary-outputs
 
 # Tool invocations
 AirQualityMonitor__MES__Final_Project.elf AirQualityMonitor__MES__Final_Project.map: $(OBJS) $(USER_OBJS) C:\Users\silvi\STM32CubeIDE\workspace_1.9.0\AirQualityMonitor__MES__Final_Project\STM32F429ZITX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-g++ -o "AirQualityMonitor__MES__Final_Project.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\silvi\STM32CubeIDE\workspace_1.9.0\AirQualityMonitor__MES__Final_Project\STM32F429ZITX_FLASH.ld" -Wl,-Map="AirQualityMonitor__MES__Final_Project.map" -Wl,--gc-sections -static -L"C:\Users\silvi\STM32CubeIDE\workspace_1.9.0\AirQualityMonitor__MES__Final_Project\Middlewares\ST\touchgfx\lib\core\cortex_m4f\gcc" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+	arm-none-eabi-g++ -o "AirQualityMonitor__MES__Final_Project.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\silvi\STM32CubeIDE\workspace_1.9.0\AirQualityMonitor__MES__Final_Project\STM32F429ZITX_FLASH.ld" -Wl,-Map="AirQualityMonitor__MES__Final_Project.map" -Wl,--gc-sections -static -L"C:\Users\silvi\STM32CubeIDE\workspace_1.9.0\AirQualityMonitor__MES__Final_Project\Middlewares\ST\touchgfx\lib\core\cortex_m4f\gcc" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

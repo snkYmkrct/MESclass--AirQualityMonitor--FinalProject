@@ -53,7 +53,7 @@ uint8_t aiq_PMSA003I_i2c_read(PM25_AQI_Data *data) {
     return 0u;
   }
 
-  if (HAL_I2C_IsDeviceReady(&hi2c3, 0x24 ,1, HAL_MAX_DELAY) != HAL_OK){
+  if (HAL_I2C_IsDeviceReady(&hi2c3, PMSA003I_I2CADDR ,1, HAL_MAX_DELAY) != HAL_OK){
 	  return 0u;
   }
 

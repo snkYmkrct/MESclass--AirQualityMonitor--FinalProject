@@ -2,6 +2,7 @@
 "./Core/Src/Console/consoleCommands.o"
 "./Core/Src/Console/consoleIo.o"
 "./Core/Src/Peripherals/Aiq_PMSA003I_i2c/aiq_PMSA003I_i2c.o"
+"./Core/Src/Peripherals/Battery_monitor_LC709203F/battery_monitor_LC709203F.o"
 "./Core/Src/main.o"
 "./Core/Src/stm32f4xx_hal_msp.o"
 "./Core/Src/stm32f4xx_hal_timebase_tim.o"

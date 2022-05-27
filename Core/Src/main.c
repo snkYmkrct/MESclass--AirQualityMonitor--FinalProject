@@ -30,6 +30,8 @@
 #include "console.h"
 #include "consoleIo.h"
 
+#include "battery_monitor_LC709203F.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -148,6 +150,23 @@ int main(void)
   MyButtonPressed = HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin);
   ConsoleInit();
 
+
+  if (!battery_monitor_LC709203F_begin()) {
+    printf("\r\nCouldnt find Adafruit LC709203F?\r\nMake sure a battery is plugged in!\r\n");
+  }
+
+  printf("\r\nFound LC709203F\r\n");
+  printf("Version: 0x");
+  printf("%d \r\n", battery_monitor_LC709203F_getICversion());
+
+  battery_monitor_LC709203F_setThermistorB(3950);
+  printf("Thermistor B = %d \r\n", battery_monitor_LC709203F_getThermistorB());
+
+  battery_monitor_LC709203F_setPackSize(LC709203F_APA_3000MAH);
+
+  battery_monitor_LC709203F_setAlarmVoltage(3.8);
+
+  printf("ready to go \r\n");
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -164,6 +183,14 @@ int main(void)
 		  isConsoleStarted = 1u;
 		  MyButtonPressed = GPIO_PIN_RESET;
 	  }
+
+/*
+	  printf("Batt Voltage: %f  \r\n", battery_monitor_LC709203F_cellVoltage());
+	  printf("Batt Percent: %f  \r\n ", battery_monitor_LC709203F_cellPercent());
+	  printf("Batt Temp:  %f  \r\n", battery_monitor_LC709203F_getCellTemperature());
+
+	  HAL_Delay(2000);  // dont query too often!
+*/
 
     /* USER CODE END WHILE */
 
