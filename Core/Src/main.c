@@ -184,13 +184,13 @@ int main(void)
 		  MyButtonPressed = GPIO_PIN_RESET;
 	  }
 
-/*
-	  printf("Batt Voltage: %f  \r\n", battery_monitor_LC709203F_cellVoltage());
-	  printf("Batt Percent: %f  \r\n ", battery_monitor_LC709203F_cellPercent());
-	  printf("Batt Temp:  %f  \r\n", battery_monitor_LC709203F_getCellTemperature());
 
-	  HAL_Delay(2000);  // dont query too often!
-*/
+	  printf("Batt Voltage: %.3f  \r\n", battery_monitor_LC709203F_cellVoltage());
+	  printf("Batt Percent: %.3f %% \r\n\r\n", battery_monitor_LC709203F_cellPercent());
+	  //printf("Batt Temp:  %f  \r\n", battery_monitor_LC709203F_getCellTemperature());
+
+	  HAL_Delay(3000);  // dont query too often!
+
 
     /* USER CODE END WHILE */
 

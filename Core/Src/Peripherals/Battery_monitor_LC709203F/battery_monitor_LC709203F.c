@@ -74,7 +74,7 @@ bool battery_monitor_LC709203F_begin() {
   if (!battery_monitor_LC709203F_setPowerMode(LC709203F_POWER_OPERATE))
     return false;
 
-  if (!battery_monitor_LC709203F_setPackSize(LC709203F_APA_3000MAH))
+  if (!battery_monitor_LC709203F_setPackSize(LC709203F_APA_1000MAH))
     return false;
 
   // use 4.2V profile
@@ -247,17 +247,24 @@ bool battery_monitor_LC709203F_readWord(uint8_t command, uint16_t *data) {
   reply[1] = command;                       // command / register
   reply[2] = reply[0] | 0x1;                // read byte
 
-  if (HAL_I2C_IsDeviceReady(&hi2c3, LC709203F_I2CADDR ,1, 100) != HAL_OK){
+  if (HAL_I2C_IsDeviceReady(&hi2c3, LC709203F_I2CADDR ,1, HAL_MAX_DELAY) != HAL_OK){
+	  return false;
+  }
+  /*
+  if (HAL_I2C_Master_Transmit(&hi2c3, LC709203F_I2CADDR, &command, 1, HAL_MAX_DELAY)  != HAL_OK){
 	  return false;
   }
 
-  if (HAL_I2C_Master_Transmit(&hi2c3, LC709203F_I2CADDR, &command, 1, 100)  != HAL_OK){
-	  return false;
-  }
+  /// doesn't work like this, because a repeated start condition is necessary ... only hal_mem_read can do that
 
-  if (HAL_I2C_Master_Receive (&hi2c3, LC709203F_I2CADDR, reply + 3, 3, 100) != HAL_OK){
+  if (HAL_I2C_Master_Receive (&hi2c3, reply[2], reply + 3, 3, HAL_MAX_DELAY) != HAL_OK){
 	  return false;
-  }
+  }*/
+
+
+  if (HAL_I2C_Mem_Read(&hi2c3, reply[2], reply[1], I2C_MEMADD_SIZE_8BIT, reply+3, 3, HAL_MAX_DELAY) != HAL_OK)  {
+         return false;
+     }
 
   uint8_t crc = crc8(reply, 5);
   // CRC failure?
@@ -287,11 +294,11 @@ bool battery_monitor_LC709203F_writeWord(uint8_t command, uint16_t data) {
   send[3] = data >> 8;
   send[4] = crc8(send, 4);
 
-  if (HAL_I2C_IsDeviceReady(&hi2c3, LC709203F_I2CADDR ,1, 100) != HAL_OK){
+  if (HAL_I2C_IsDeviceReady(&hi2c3, LC709203F_I2CADDR ,1, HAL_MAX_DELAY) != HAL_OK){
 	  return false;
   }
 
-  if (HAL_I2C_Master_Transmit(&hi2c3, LC709203F_I2CADDR, send + 1, 4, 100)  != HAL_OK){
+  if (HAL_I2C_Master_Transmit(&hi2c3, LC709203F_I2CADDR, send + 1, 4, HAL_MAX_DELAY)  != HAL_OK){
 	  return false;
   }
   return true;
