@@ -260,7 +260,6 @@ bool battery_monitor_LC709203F_setAlarmVoltage(float voltage) {
  *    @brief  Set the power mode, LC709203F_POWER_OPERATE or
  * LC709203F_POWER_SLEEP
  *    @param t The power mode desired
- *    @return True on successful I2C write
  *    @return true on successful I2C write
  */
 bool battery_monitor_LC709203F_setPowerMode(lc709203_powermode_t t) {
