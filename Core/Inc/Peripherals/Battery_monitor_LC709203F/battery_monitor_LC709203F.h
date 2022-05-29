@@ -95,8 +95,7 @@ typedef enum {
   bool battery_monitor_LC709203F_setAlarmRSOC(uint8_t percent);
   bool battery_monitor_LC709203F_setAlarmVoltage(float voltage);
 
-  bool battery_monitor_LC709203F_readWord(uint8_t address, uint16_t *data);
-  bool battery_monitor_LC709203F_writeWord(uint8_t command, uint16_t data);
+
 
 
 #endif /* INC_PERIPHERALS_BATTERY_MONITOR_LC709203F_BATTERY_MONITOR_LC709203F_H_ */

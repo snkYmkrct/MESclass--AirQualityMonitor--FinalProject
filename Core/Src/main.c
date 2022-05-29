@@ -26,10 +26,12 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <stdio.h>
+#include <stdbool.h>
 #include "ili9341.h"
 #include "console.h"
 #include "consoleIo.h"
-
+#include "aiq_PMSA003I_i2c.h"
+#include "scd4x_i2c.h"
 #include "battery_monitor_LC709203F.h"
 
 /* USER CODE END Includes */
@@ -150,23 +152,45 @@ int main(void)
   MyButtonPressed = HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin);
   ConsoleInit();
 
+  PM25_AQI_Data data = {0};
+
+  int16_t error = 0;
+
+  // Clean up potential SCD40 states
+  scd4x_wake_up();
+  scd4x_stop_periodic_measurement();
+  scd4x_reinit();
+
+  uint16_t serial_0;
+  uint16_t serial_1;
+  uint16_t serial_2;
+  error = scd4x_get_serial_number(&serial_0, &serial_1, &serial_2);
+  if (error) {
+      printf("Error executing scd4x_get_serial_number(): %i \r\n", error);
+  } else {
+      printf("serial: 0x%04x%04x%04x\r\n", serial_0, serial_1, serial_2);
+  }
+
+  // Start Measurement
+
+  error = scd4x_start_periodic_measurement();
+  if (error) {
+      printf("Error executing scd4x_start_periodic_measurement(): %i \r\n",
+             error);
+  }
+
+  printf("Waiting for first measurement... (5 sec)\r\n");
 
   if (!battery_monitor_LC709203F_begin()) {
-    printf("\r\nCouldnt find Adafruit LC709203F?\r\nMake sure a battery is plugged in!\r\n");
+    printf("\r\nCouldnt find Adafruit LC709203F ?\r\nMake sure a battery is plugged in!\r\n");
   }
 
   printf("\r\nFound LC709203F\r\n");
   printf("Version: 0x");
   printf("%d \r\n", battery_monitor_LC709203F_getICversion());
-
-  battery_monitor_LC709203F_setThermistorB(3950);
-  printf("Thermistor B = %d \r\n", battery_monitor_LC709203F_getThermistorB());
-
-  battery_monitor_LC709203F_setPackSize(LC709203F_APA_3000MAH);
-
   battery_monitor_LC709203F_setAlarmVoltage(3.8);
 
-  printf("ready to go \r\n");
+  printf("battery monitor ready to go \r\n");
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -184,12 +208,64 @@ int main(void)
 		  MyButtonPressed = GPIO_PIN_RESET;
 	  }
 
-
+	  printf("\r\n=======================================\r\n");
 	  printf("Batt Voltage: %.3f  \r\n", battery_monitor_LC709203F_cellVoltage());
-	  printf("Batt Percent: %.3f %% \r\n\r\n", battery_monitor_LC709203F_cellPercent());
-	  //printf("Batt Temp:  %f  \r\n", battery_monitor_LC709203F_getCellTemperature());
+	  printf("Batt Percent: %.3f %% \r\n", battery_monitor_LC709203F_cellPercent());
+	  printf("=======================================\r\n");
 
-	  HAL_Delay(3000);  // dont query too often!
+      bool data_ready_flag = false;
+      uint16_t co2;
+      int32_t temperature;
+      int32_t humidity;
+      error = scd4x_get_data_ready_flag(&data_ready_flag);
+      if (error) {
+          printf("Error executing scd4x_get_data_ready_flag(): %i \r\n", error);
+      }
+      else{
+		  if (data_ready_flag) {
+			  error = scd4x_read_measurement(&co2, &temperature, &humidity);
+			  if (error) {
+				  printf("Error executing scd4x_read_measurement(): %i \r\n", error);
+			  } else if (co2 == 0) {
+				  printf("Invalid sample detected, skipping.\r\n");
+			  } else {
+				  printf(" \r\nCO2: %u \r\n", co2);
+				  printf("Temperature: %.2f °C \r\n", (float)temperature/1000);
+				  printf("Humidity: %.2f %% \r\n", (float)humidity/1000);
+			  }
+		  }
+      }
+
+
+
+
+
+	  if (aiq_PMSA003I_i2c_read(&data)){
+		  printf("\r\nAQI reading success\r\n");
+		  printf("---------------------------------------\r\n");
+		  printf("Concentration Units (standard)\r\n");
+		  printf("---------------------------------------\r\n");
+		  printf("PM 1.0: %d \r\n", data.pm10_standard);
+		  printf("PM 2.5: %d \r\n", data.pm25_standard);
+		  printf("PM 10: %d \r\n", data.pm100_standard);
+
+		  printf("\r\nConcentration Units (environmental)\r\n");
+		  printf("---------------------------------------\r\n");
+		  printf("PM 1.0: %d \r\n", data.pm10_env);
+		  printf("PM 2.5: %d \r\n", data.pm25_env);
+		  printf("PM 10: %d \r\n", data.pm100_env);
+
+		  printf("\r\n---------------------------------------\r\n");
+		  printf("Particles > 0.3um / 0.1L air: %d \r\n", data.particles_03um);
+		  printf("Particles > 0.5um / 0.1L air: %d \r\n", data.particles_05um);
+		  printf("Particles > 1.0um / 0.1L air: %d \r\n", data.particles_10um);
+		  printf("Particles > 2.5um / 0.1L air: %d \r\n", data.particles_25um);
+		  printf("Particles > 5.0um / 0.1L air: %d \r\n", data.particles_50um);
+		  printf("Particles > 10 um / 0.1L air: %d \r\n", data.particles_100um);
+		  printf("\r\n---------------------------------------\r\n");
+	  }
+
+	  HAL_Delay(30000);  // dont query too often!
 
 
     /* USER CODE END WHILE */

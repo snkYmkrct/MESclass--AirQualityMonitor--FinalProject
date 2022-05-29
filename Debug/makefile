@@ -44,6 +44,7 @@ RM := rm -rf
 -include Drivers/STM32F429I-Discovery-BSP/Components/stm32-ili9341-main/subdir.mk
 -include Drivers/STM32F429I-Discovery-BSP/subdir.mk
 -include Core/Startup/subdir.mk
+-include Core/Src/Peripherals/CO2_SCD4x_i2c/subdir.mk
 -include Core/Src/Peripherals/Battery_monitor_LC709203F/subdir.mk
 -include Core/Src/Peripherals/Aiq_PMSA003I_i2c/subdir.mk
 -include Core/Src/Console/subdir.mk

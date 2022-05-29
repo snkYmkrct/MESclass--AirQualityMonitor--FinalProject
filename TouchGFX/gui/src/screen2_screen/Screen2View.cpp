@@ -45,7 +45,7 @@ void Screen2View::handleTickEvent()
     {
 	#ifdef USE_HAL_DRIVER
 		PM25_AQI_Data data = {0};
-		if (aiq_PMSA003I_i2c_read(&data)){
+/*		if (aiq_PMSA003I_i2c_read(&data)){
 			Unicode::snprintf(txtBuffer[0], 10, "%d", data.pm10_standard);
 			textArea1.resizeToCurrentText();
 			textArea1.invalidate();
@@ -85,7 +85,7 @@ void Screen2View::handleTickEvent()
 			textArea6_1.resizeToCurrentText();
 			textArea6_1.invalidate();
 
-		}
+		}*/
 	#endif
     counter = 0;
     }

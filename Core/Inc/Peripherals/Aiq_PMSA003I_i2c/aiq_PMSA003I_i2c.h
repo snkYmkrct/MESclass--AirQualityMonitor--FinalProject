@@ -33,6 +33,7 @@
 #define SRC_SENSORS_AIQ_PMSA003I_I2C_H_
 
 #include <stdint.h>
+#include <stdbool.h>
 
 #define PMSA003I_I2CADDR 0x24  // vendor address 0x12 left shifted by 1 bit
 
@@ -54,6 +55,6 @@ typedef struct PMSAQIdata {
   uint16_t checksum;       ///< Packet checksum
 } PM25_AQI_Data;
 
-uint8_t aiq_PMSA003I_i2c_read(PM25_AQI_Data *data);
+bool aiq_PMSA003I_i2c_read(PM25_AQI_Data *data);
 
 #endif /* SRC_SENSORS_AIQ_PMSA003I_I2C_H_ */
