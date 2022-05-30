@@ -41,7 +41,7 @@
   *     v1.0 - First release
  **/
 
-#include "battery_monitor_LC709203F.h"
+#include <Peripherals/Battery_monitor_LC709203F_i2c/battery_monitor_LC709203F.h>
 #include "stm32f4xx_hal.h"
 
 extern I2C_HandleTypeDef hi2c3;

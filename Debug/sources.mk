@@ -33,8 +33,9 @@ CPP_DEPS :=
 SUBDIRS := \
 Core/Src/Console \
 Core/Src/Peripherals/Aiq_PMSA003I_i2c \
-Core/Src/Peripherals/Battery_monitor_LC709203F \
+Core/Src/Peripherals/Battery_monitor_LC709203F_i2c \
 Core/Src/Peripherals/CO2_SCD4x_i2c \
+Core/Src/Peripherals/RTC_DS3231_i2c \
 Core/Src \
 Core/Startup \
 Drivers/STM32F429I-Discovery-BSP/Components/stm32-ili9341-main \

@@ -58,7 +58,7 @@ bool aiq_PMSA003I_i2c_read(PM25_AQI_Data *data) {
   }
 
   if (HAL_I2C_Master_Receive (&hi2c3, PMSA003I_I2CADDR, buffer, 32, HAL_MAX_DELAY) != HAL_OK){
-	  return 0u;
+	  return false;
   }
 
   // Check that start byte is correct!

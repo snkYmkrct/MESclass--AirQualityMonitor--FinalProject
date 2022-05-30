@@ -20,6 +20,7 @@
  **/
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
+#include <Peripherals/Battery_monitor_LC709203F_i2c/battery_monitor_LC709203F.h>
 #include "main.h"
 #include "app_touchgfx.h"
 
@@ -32,7 +33,7 @@
 #include "consoleIo.h"
 #include "aiq_PMSA003I_i2c.h"
 #include "scd4x_i2c.h"
-#include "battery_monitor_LC709203F.h"
+#include "rtc_DS3231_i2c.h"
 
 /* USER CODE END Includes */
 
@@ -187,10 +188,29 @@ int main(void)
 
   printf("\r\nFound LC709203F\r\n");
   printf("Version: 0x");
-  printf("%d \r\n", battery_monitor_LC709203F_getICversion());
+  printf("%x \r\n", battery_monitor_LC709203F_getICversion());
   battery_monitor_LC709203F_setAlarmVoltage(3.8);
 
   printf("battery monitor ready to go \r\n");
+
+  RTC_DS3232_Data timeData = {0};
+  const char days[7][10] = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+
+
+/*
+    //lost power not working
+  if (rtc_DS3231_lostPower()){
+	  printf("\r\nRTC got reset for sure , let's set time\r\n");
+	  rtc_DS3231_setTime(0, 53, 11, 1, 30, 5, 22);
+   }
+  else{
+	  printf("\r\nRTC NOT reset\r\n");
+  }
+  printf("\r\nrtc ready to go \r\n");
+
+*/
+
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -207,6 +227,17 @@ int main(void)
 		  isConsoleStarted = 1u;
 		  MyButtonPressed = GPIO_PIN_RESET;
 	  }
+
+	  printf("````````````````````````````````````````\r\n");
+	  if (rtc_DS3231_getTime(&timeData)){
+		  printf(" %02ld:%02ld:%02ld \r\n", timeData.hour, timeData.minutes, timeData.seconds);
+		  // check for valid data on dayofweek TODO
+		  printf(" %s, %02ld-%02ld-20%02ld\r\n", days[timeData.dayofweek-1], timeData.dayofmonth, timeData.month, timeData.year);
+	  }
+	  printf("````````````````````````````````````````\r\n");
+
+	  //printf("\r\n\r\n  tick freq:    %d  \r\n", HAL_GetTickFreq());
+	  printf("\r\n\r\n  tick now:    %ld  \r\n\r\n", HAL_GetTick());
 
 	  printf("\r\n=======================================\r\n");
 	  printf("Batt Voltage: %.3f  \r\n", battery_monitor_LC709203F_cellVoltage());
@@ -237,9 +268,6 @@ int main(void)
       }
 
 
-
-
-
 	  if (aiq_PMSA003I_i2c_read(&data)){
 		  printf("\r\nAQI reading success\r\n");
 		  printf("---------------------------------------\r\n");
@@ -266,6 +294,7 @@ int main(void)
 	  }
 
 	  HAL_Delay(30000);  // dont query too often!
+
 
 
     /* USER CODE END WHILE */
