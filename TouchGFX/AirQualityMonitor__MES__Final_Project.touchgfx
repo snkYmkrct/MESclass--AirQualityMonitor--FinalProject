@@ -86,8 +86,8 @@
             "Name": "textArea1",
             "X": 6,
             "Y": 17,
-            "Width": 76,
-            "Height": 18,
+            "Width": 101,
+            "Height": 24,
             "TextId": "__SingleUse_7DYV",
             "TextRotation": "0",
             "Color": {
@@ -107,8 +107,8 @@
             "Name": "textArea2",
             "X": 6,
             "Y": 49,
-            "Width": 76,
-            "Height": 18,
+            "Width": 101,
+            "Height": 24,
             "TextId": "__SingleUse_E509",
             "TextRotation": "0",
             "Color": {
@@ -127,8 +127,8 @@
             "Name": "textArea3",
             "X": 6,
             "Y": 82,
-            "Width": 70,
-            "Height": 18,
+            "Width": 94,
+            "Height": 24,
             "TextId": "__SingleUse_JSY4",
             "TextRotation": "0",
             "Color": {
@@ -147,8 +147,8 @@
             "Name": "textArea4",
             "X": 6,
             "Y": 136,
-            "Width": 81,
-            "Height": 18,
+            "Width": 107,
+            "Height": 24,
             "TextId": "__SingleUse_QUZN",
             "TextRotation": "0",
             "Color": {
@@ -167,8 +167,8 @@
             "Name": "textArea5",
             "X": 6,
             "Y": 168,
-            "Width": 81,
-            "Height": 18,
+            "Width": 107,
+            "Height": 24,
             "TextId": "__SingleUse_67DT",
             "TextRotation": "0",
             "Color": {
@@ -187,8 +187,8 @@
             "Name": "textArea6",
             "X": 6,
             "Y": 201,
-            "Width": 75,
-            "Height": 18,
+            "Width": 100,
+            "Height": 24,
             "TextId": "__SingleUse_DDBN",
             "TextRotation": "0",
             "Color": {
@@ -207,8 +207,8 @@
             "Name": "textArea1_1",
             "X": 160,
             "Y": 17,
-            "Width": 82,
-            "Height": 18,
+            "Width": 110,
+            "Height": 24,
             "TextId": "__SingleUse_SRW8",
             "TextRotation": "0",
             "Color": {
@@ -227,8 +227,8 @@
             "Name": "textArea2_1",
             "X": 160,
             "Y": 49,
-            "Width": 82,
-            "Height": 18,
+            "Width": 110,
+            "Height": 24,
             "TextId": "__SingleUse_PL7V",
             "TextRotation": "0",
             "Color": {
@@ -247,8 +247,8 @@
             "Name": "textArea3_1",
             "X": 160,
             "Y": 78,
-            "Width": 82,
-            "Height": 18,
+            "Width": 110,
+            "Height": 24,
             "TextId": "__SingleUse_8CMW",
             "TextRotation": "0",
             "Color": {
@@ -267,8 +267,8 @@
             "Name": "textArea4_1",
             "X": 160,
             "Y": 136,
-            "Width": 82,
-            "Height": 18,
+            "Width": 110,
+            "Height": 24,
             "TextId": "__SingleUse_LIU5",
             "TextRotation": "0",
             "Color": {
@@ -287,8 +287,8 @@
             "Name": "textArea5_1",
             "X": 160,
             "Y": 168,
-            "Width": 82,
-            "Height": 18,
+            "Width": 110,
+            "Height": 24,
             "TextId": "__SingleUse_SFP5",
             "TextRotation": "0",
             "Color": {
@@ -307,8 +307,8 @@
             "Name": "textArea6_1",
             "X": 160,
             "Y": 201,
-            "Width": 77,
-            "Height": 18,
+            "Width": 102,
+            "Height": 24,
             "TextId": "__SingleUse_TIKO",
             "TextRotation": "0",
             "Color": {
@@ -324,6 +324,302 @@
           }
         ],
         "Interactions": []
+      },
+      {
+        "Name": "Screen3",
+        "Components": [
+          {
+            "Type": "Box",
+            "Name": "box3",
+            "Width": 318,
+            "Height": 240
+          },
+          {
+            "Type": "Image",
+            "Name": "image1",
+            "X": -5,
+            "Y": 5,
+            "Width": 360,
+            "Height": 240,
+            "RelativeFilename": "background_gray.png"
+          },
+          {
+            "Type": "Box",
+            "Name": "box1",
+            "X": 37,
+            "Y": 48,
+            "Width": 135,
+            "Height": 37
+          },
+          {
+            "Type": "Box",
+            "Name": "box1_1",
+            "X": 90,
+            "Y": 141,
+            "Width": 188,
+            "Height": 37
+          },
+          {
+            "Type": "Image",
+            "Name": "image2",
+            "X": 278,
+            "Y": -3,
+            "Width": 40,
+            "Height": 40,
+            "RelativeFilename": "battery_3q_mic.png"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea1",
+            "X": 65,
+            "Y": 54,
+            "Width": 92,
+            "Height": 24,
+            "TextId": "__SingleUse_BVBX",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 35,
+              "Green": 242,
+              "Blue": 24
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea2",
+            "X": 170,
+            "Y": 147,
+            "Width": 92,
+            "Height": 24,
+            "TextId": "__SingleUse_UZVW",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 217,
+              "Green": 171,
+              "Blue": 4
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "DigitalClock",
+            "Name": "digitalClock1",
+            "X": 3,
+            "Y": 5,
+            "Width": 101,
+            "Height": 26,
+            "TextColor": {
+              "Red": 189,
+              "Green": 66,
+              "Blue": 237
+            },
+            "TextId": "__SingleUse_8SEC",
+            "DisplaySeconds": true,
+            "DisplayLeadingZeroForHourIndicator": true,
+            "InitialHour": 10,
+            "InitialMinute": 10
+          },
+          {
+            "Type": "Image",
+            "Name": "image3",
+            "X": 30,
+            "Y": 190,
+            "Width": 40,
+            "Height": 40,
+            "RelativeFilename": "thermometer_2_mic.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "image5",
+            "X": 90,
+            "Y": 141,
+            "Width": 50,
+            "Height": 35,
+            "RelativeFilename": "co2_mic.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "image6",
+            "X": 166,
+            "Y": 31,
+            "Width": 50,
+            "Height": 50,
+            "RelativeFilename": "air-pollution_1_mic.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "image7",
+            "X": 243,
+            "Y": 190,
+            "Width": 40,
+            "Height": 40,
+            "RelativeFilename": "humidity_2_mic.png"
+          },
+          {
+            "Type": "Box",
+            "Name": "box4",
+            "X": 70,
+            "Y": 198,
+            "Width": 89,
+            "Height": 25
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea3",
+            "X": 70,
+            "Y": 198,
+            "Width": 90,
+            "Height": 24,
+            "TextId": "__SingleUse_VQNR",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 227,
+              "Green": 70,
+              "Blue": 133
+            },
+            "AutoSize": true,
+            "Wildcard1": {}
+          },
+          {
+            "Type": "Box",
+            "Name": "box5",
+            "X": 175,
+            "Y": 199,
+            "Width": 68,
+            "Height": 24
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea4",
+            "X": 184,
+            "Y": 199,
+            "Width": 45,
+            "Height": 24,
+            "TextId": "__SingleUse_M25P",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 227,
+              "Green": 70,
+              "Blue": 133
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "Container",
+            "Name": "container1",
+            "Y": 46,
+            "Width": 37,
+            "Height": 132,
+            "Components": [
+              {
+                "Type": "Box",
+                "Name": "box6",
+                "Y": 2,
+                "Width": 37,
+                "Height": 33,
+                "Color": {
+                  "Red": 209,
+                  "Green": 23,
+                  "Blue": 23
+                }
+              },
+              {
+                "Type": "Box",
+                "Name": "box6_1",
+                "Y": 34,
+                "Width": 37,
+                "Height": 33,
+                "Color": {
+                  "Red": 214,
+                  "Green": 117,
+                  "Blue": 43
+                }
+              },
+              {
+                "Type": "Box",
+                "Name": "box6_2",
+                "Y": 66,
+                "Width": 37,
+                "Height": 33,
+                "Color": {
+                  "Red": 196,
+                  "Green": 199,
+                  "Blue": 38
+                }
+              },
+              {
+                "Type": "Box",
+                "Name": "box6_3",
+                "Y": 99,
+                "Width": 37,
+                "Height": 33,
+                "Color": {
+                  "Red": 47,
+                  "Green": 240,
+                  "Blue": 17
+                }
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "container1_1",
+            "X": 283,
+            "Y": 46,
+            "Width": 35,
+            "Height": 132,
+            "Components": [
+              {
+                "Type": "Box",
+                "Name": "box6_4",
+                "Y": 2,
+                "Width": 37,
+                "Height": 33,
+                "Color": {
+                  "Red": 209,
+                  "Green": 23,
+                  "Blue": 23
+                }
+              },
+              {
+                "Type": "Box",
+                "Name": "box6_1_1",
+                "Y": 34,
+                "Width": 37,
+                "Height": 33,
+                "Color": {
+                  "Red": 214,
+                  "Green": 117,
+                  "Blue": 43
+                }
+              },
+              {
+                "Type": "Box",
+                "Name": "box6_2_1",
+                "Y": 66,
+                "Width": 37,
+                "Height": 33,
+                "Color": {
+                  "Red": 196,
+                  "Green": 199,
+                  "Blue": 38
+                }
+              },
+              {
+                "Type": "Box",
+                "Name": "box6_3_1",
+                "Y": 99,
+                "Width": 37,
+                "Height": 33,
+                "Color": {
+                  "Red": 47,
+                  "Green": 240,
+                  "Blue": 17
+                }
+              }
+            ]
+          }
+        ],
+        "Interactions": []
       }
     ],
     "CustomContainerDefinitions": [],
@@ -333,7 +629,7 @@
       "Height": 320
     },
     "SelectedColorDepth": 16,
-    "StartupScreenName": "Screen2",
+    "StartupScreenName": "Screen3",
     "SelectedStartupLanguage": "GB",
     "Skin": "Dark",
     "TouchGfxPath": "../Middlewares/ST/touchgfx",

@@ -6,6 +6,21 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_M25P" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">hum</Translation>
+      </Text>
+      <Text Id="__SingleUse_VQNR" Alignment="Right" TypographyId="Default">
+        <Translation Language="GB"> temp&lt;value&gt; °C</Translation>
+      </Text>
+      <Text Id="__SingleUse_8SEC" Alignment="Left" TypographyId="Typography_00">
+        <Translation Language="GB">&lt;&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_UZVW" Alignment="Right" TypographyId="Default">
+        <Translation Language="GB">New Text</Translation>
+      </Text>
+      <Text Id="__SingleUse_BVBX" Alignment="Right" TypographyId="Default">
+        <Translation Language="GB">New Text</Translation>
+      </Text>
       <Text Id="t1w" Alignment="Left" TypographyId="Default">
         <Translation Language="GB" />
       </Text>
@@ -51,8 +66,9 @@
     </TextGroup>
   </Texts>
   <Typographies>
-    <Typography Id="Default" Font="verdana.ttf" Size="15" Bpp="4" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="!-~" />
+    <Typography Id="Default" Font="verdana.ttf" Size="20" Bpp="4" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="!-~" />
     <Typography Id="Large" Font="verdana.ttf" Size="40" Bpp="4" Direction="LTR" FallbackCharacter="?" />
     <Typography Id="Small" Font="verdana.ttf" Size="10" Bpp="4" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="Typography_00" Font="verdana.ttf" Size="20" Bpp="4" Direction="LTR" FallbackCharacter="?" WidgetWildcardCharacters="0123456789 :APM" />
   </Typographies>
 </TextDatabase>

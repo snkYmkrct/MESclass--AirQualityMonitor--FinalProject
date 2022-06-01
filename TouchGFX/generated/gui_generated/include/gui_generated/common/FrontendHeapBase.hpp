@@ -16,6 +16,8 @@
 #include <gui/screen1_screen/Screen1Presenter.hpp>
 #include <gui/screen2_screen/Screen2View.hpp>
 #include <gui/screen2_screen/Screen2Presenter.hpp>
+#include <gui/screen3_screen/Screen3View.hpp>
+#include <gui/screen3_screen/Screen3Presenter.hpp>
 
 
 /**
@@ -40,7 +42,8 @@ public:
      */
     typedef touchgfx::meta::TypeList< Screen1View,
             touchgfx::meta::TypeList< Screen2View,
-            touchgfx::meta::Nil >
+            touchgfx::meta::TypeList< Screen3View,
+            touchgfx::meta::Nil > >
             > GeneratedViewTypes;
 
     /**
@@ -54,7 +57,8 @@ public:
      */
     typedef touchgfx::meta::TypeList< Screen1Presenter,
             touchgfx::meta::TypeList< Screen2Presenter,
-            touchgfx::meta::Nil >
+            touchgfx::meta::TypeList< Screen3Presenter,
+            touchgfx::meta::Nil > >
             > GeneratedPresenterTypes;
 
     /**
@@ -77,7 +81,7 @@ public:
 
     virtual void gotoStartScreen(FrontendApplication& app)
     {
-        app.gotoScreen2ScreenNoTransition();
+        app.gotoScreen3ScreenNoTransition();
     }
 protected:
     FrontendHeapBase(touchgfx::AbstractPartition& presenters, touchgfx::AbstractPartition& views, touchgfx::AbstractPartition& transitions, FrontendApplication& app)

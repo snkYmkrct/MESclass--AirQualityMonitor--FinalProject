@@ -196,12 +196,12 @@ int main(void)
   RTC_DS3232_Data timeData = {0};
   const char days[7][10] = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
 
-
 /*
+
     //lost power not working
   if (rtc_DS3231_lostPower()){
 	  printf("\r\nRTC got reset for sure , let's set time\r\n");
-	  rtc_DS3231_setTime(0, 53, 11, 1, 30, 5, 22);
+	  rtc_DS3231_setTime(30, 04, 0, 2, 31, 5, 22);
    }
   else{
 	  printf("\r\nRTC NOT reset\r\n");
@@ -228,6 +228,7 @@ int main(void)
 		  MyButtonPressed = GPIO_PIN_RESET;
 	  }
 
+/*
 	  printf("````````````````````````````````````````\r\n");
 	  if (rtc_DS3231_getTime(&timeData)){
 		  printf(" %02ld:%02ld:%02ld \r\n", timeData.hour, timeData.minutes, timeData.seconds);
@@ -295,6 +296,7 @@ int main(void)
 
 	  HAL_Delay(30000);  // dont query too often!
 
+*/
 
 
     /* USER CODE END WHILE */
