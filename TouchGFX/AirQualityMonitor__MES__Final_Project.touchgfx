@@ -327,6 +327,7 @@
       },
       {
         "Name": "Screen3",
+        "CanvasBufferSize": 4800,
         "Components": [
           {
             "Type": "Box",
@@ -371,7 +372,7 @@
           {
             "Type": "TextArea",
             "Name": "textArea1",
-            "X": 65,
+            "X": 44,
             "Y": 54,
             "Width": 92,
             "Height": 24,
@@ -399,6 +400,14 @@
               "Blue": 4
             },
             "AutoSize": true
+          },
+          {
+            "Type": "Box",
+            "Name": "box7",
+            "X": 30,
+            "Y": 185,
+            "Width": 40,
+            "Height": 55
           },
           {
             "Type": "DigitalClock",
@@ -439,7 +448,7 @@
           {
             "Type": "Image",
             "Name": "image6",
-            "X": 166,
+            "X": 147,
             "Y": 31,
             "Width": 50,
             "Height": 50,
@@ -617,6 +626,19 @@
                 }
               }
             ]
+          },
+          {
+            "Type": "Circle",
+            "Name": "circle1",
+            "X": -3,
+            "Y": 141,
+            "Width": 42,
+            "Height": 41,
+            "CenterX": 20,
+            "CenterY": 20,
+            "Radius": 8,
+            "EndAngle": 360,
+            "CapPrecision": "Butt"
           }
         ],
         "Interactions": []
