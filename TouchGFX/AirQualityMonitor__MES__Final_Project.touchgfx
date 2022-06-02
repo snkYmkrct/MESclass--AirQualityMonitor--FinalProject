@@ -345,6 +345,19 @@
             "RelativeFilename": "background_gray.png"
           },
           {
+            "Type": "Circle",
+            "Name": "circle2",
+            "X": -20,
+            "Y": 180,
+            "Width": 80,
+            "Height": 80,
+            "CenterX": 40,
+            "CenterY": 40,
+            "Radius": 19,
+            "EndAngle": 360,
+            "CapPrecision": "Butt"
+          },
+          {
             "Type": "Box",
             "Name": "box1",
             "X": 37,
@@ -404,10 +417,10 @@
           {
             "Type": "Box",
             "Name": "box7",
-            "X": 30,
-            "Y": 185,
-            "Width": 40,
-            "Height": 55
+            "X": 53,
+            "Y": 171,
+            "Width": 28,
+            "Height": 45
           },
           {
             "Type": "DigitalClock",
@@ -417,9 +430,9 @@
             "Width": 101,
             "Height": 26,
             "TextColor": {
-              "Red": 189,
-              "Green": 66,
-              "Blue": 237
+              "Red": 240,
+              "Green": 24,
+              "Blue": 193
             },
             "TextId": "__SingleUse_8SEC",
             "DisplaySeconds": true,
@@ -430,8 +443,8 @@
           {
             "Type": "Image",
             "Name": "image3",
-            "X": 30,
-            "Y": 190,
+            "X": 47,
+            "Y": 173,
             "Width": 40,
             "Height": 40,
             "RelativeFilename": "thermometer_2_mic.png"
@@ -455,35 +468,26 @@
             "RelativeFilename": "air-pollution_1_mic.png"
           },
           {
-            "Type": "Image",
-            "Name": "image7",
-            "X": 243,
-            "Y": 190,
-            "Width": 40,
-            "Height": 40,
-            "RelativeFilename": "humidity_2_mic.png"
-          },
-          {
             "Type": "Box",
             "Name": "box4",
-            "X": 70,
-            "Y": 198,
+            "X": 92,
+            "Y": 185,
             "Width": 89,
             "Height": 25
           },
           {
             "Type": "TextArea",
             "Name": "textArea3",
-            "X": 70,
-            "Y": 198,
+            "X": 89,
+            "Y": 184,
             "Width": 90,
             "Height": 24,
             "TextId": "__SingleUse_VQNR",
             "TextRotation": "0",
             "Color": {
-              "Red": 227,
-              "Green": 70,
-              "Blue": 133
+              "Red": 165,
+              "Green": 210,
+              "Blue": 242
             },
             "AutoSize": true,
             "Wildcard1": {}
@@ -497,18 +501,27 @@
             "Height": 24
           },
           {
+            "Type": "Image",
+            "Name": "image7",
+            "X": 234,
+            "Y": 176,
+            "Width": 40,
+            "Height": 40,
+            "RelativeFilename": "humidity_2_mic.png"
+          },
+          {
             "Type": "TextArea",
             "Name": "textArea4",
-            "X": 184,
-            "Y": 199,
+            "X": 188,
+            "Y": 185,
             "Width": 45,
             "Height": 24,
             "TextId": "__SingleUse_M25P",
             "TextRotation": "0",
             "Color": {
-              "Red": 227,
-              "Green": 70,
-              "Blue": 133
+              "Red": 165,
+              "Green": 210,
+              "Blue": 242
             },
             "AutoSize": true
           },
@@ -639,6 +652,25 @@
             "Radius": 8,
             "EndAngle": 360,
             "CapPrecision": "Butt"
+          },
+          {
+            "Type": "Image",
+            "Name": "image8",
+            "Y": 200,
+            "Width": 40,
+            "Height": 40,
+            "RelativeFilename": "arrow-left_mic.png",
+            "Clickable": true
+          },
+          {
+            "Type": "Image",
+            "Name": "image9",
+            "X": 280,
+            "Y": 200,
+            "Width": 40,
+            "Height": 40,
+            "RelativeFilename": "arrow-right_mic.png",
+            "Clickable": true
           }
         ],
         "Interactions": []

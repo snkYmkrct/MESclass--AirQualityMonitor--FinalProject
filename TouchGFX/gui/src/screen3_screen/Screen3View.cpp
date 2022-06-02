@@ -1,7 +1,8 @@
 #include <gui/screen3_screen/Screen3View.hpp>
+#include <BitmapDatabase.hpp>
 
 Screen3View::Screen3View():
-	img(3), counter(0)
+	img(BITMAP_BATTERY_3Q_MIC_ID), counter(0)
 {
 
 }
@@ -17,8 +18,8 @@ void Screen3View::handleTickEvent()
     	image2.setBitmap(touchgfx::Bitmap(img));
     	image2.invalidate();
     	img++;
-    	if (img >= 7){
-    		img = 3;
+    	if (img >= (BITMAP_BATTERY_3Q_MIC_ID+4)){
+    		img = BITMAP_BATTERY_3Q_MIC_ID;
     	}
     counter = 0;
     }

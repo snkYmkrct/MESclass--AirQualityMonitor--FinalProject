@@ -5,9 +5,13 @@
 #include <touchgfx/Color.hpp>
 #include <BitmapDatabase.hpp>
 #include <texts/TextKeysAndLanguages.hpp>
+#include <touchgfx/canvas_widget_renderer/CanvasWidgetRenderer.hpp>
+
 
 Screen3ViewBase::Screen3ViewBase()
 {
+
+    touchgfx::CanvasWidgetRenderer::setupBuffer(canvasBuffer, CANVAS_BUFFER_SIZE);
 
     __background.setPosition(0, 0, 320, 240);
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
@@ -18,6 +22,14 @@ Screen3ViewBase::Screen3ViewBase()
     image1.setXY(-5, 5);
     image1.setBitmap(touchgfx::Bitmap(BITMAP_BACKGROUND_GRAY_ID));
 
+    circle2.setPosition(-20, 180, 80, 80);
+    circle2.setCenter(40, 40);
+    circle2.setRadius(19);
+    circle2.setLineWidth(0);
+    circle2.setArc(0, 360);
+    circle2Painter.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    circle2.setPainter(circle2Painter);
+
     box1.setPosition(37, 48, 135, 37);
     box1.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
 
@@ -27,7 +39,7 @@ Screen3ViewBase::Screen3ViewBase()
     image2.setXY(278, -3);
     image2.setBitmap(touchgfx::Bitmap(BITMAP_BATTERY_3Q_MIC_ID));
 
-    textArea1.setXY(65, 54);
+    textArea1.setXY(44, 54);
     textArea1.setColor(touchgfx::Color::getColorFromRGB(35, 242, 24));
     textArea1.setLinespacing(0);
     textArea1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_BVBX));
@@ -37,38 +49,41 @@ Screen3ViewBase::Screen3ViewBase()
     textArea2.setLinespacing(0);
     textArea2.setTypedText(touchgfx::TypedText(T___SINGLEUSE_UZVW));
 
+    box7.setPosition(53, 171, 28, 45);
+    box7.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+
     digitalClock1.setPosition(3, 5, 101, 26);
-    digitalClock1.setColor(touchgfx::Color::getColorFromRGB(189, 66, 237));
+    digitalClock1.setColor(touchgfx::Color::getColorFromRGB(240, 24, 193));
     digitalClock1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_8SEC));
     digitalClock1.displayLeadingZeroForHourIndicator(true);
     digitalClock1.setDisplayMode(touchgfx::DigitalClock::DISPLAY_24_HOUR);
     digitalClock1.setTime24Hour(10, 10, 0);
 
-    image3.setXY(30, 190);
+    image3.setXY(47, 173);
     image3.setBitmap(touchgfx::Bitmap(BITMAP_THERMOMETER_2_MIC_ID));
 
     image5.setXY(90, 141);
     image5.setBitmap(touchgfx::Bitmap(BITMAP_CO2_MIC_ID));
 
-    image6.setXY(166, 31);
+    image6.setXY(147, 31);
     image6.setBitmap(touchgfx::Bitmap(BITMAP_AIR_POLLUTION_1_MIC_ID));
 
-    image7.setXY(243, 190);
-    image7.setBitmap(touchgfx::Bitmap(BITMAP_HUMIDITY_2_MIC_ID));
-
-    box4.setPosition(70, 198, 89, 25);
+    box4.setPosition(92, 185, 89, 25);
     box4.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
 
-    textArea3.setXY(70, 198);
-    textArea3.setColor(touchgfx::Color::getColorFromRGB(227, 70, 133));
+    textArea3.setXY(89, 184);
+    textArea3.setColor(touchgfx::Color::getColorFromRGB(165, 210, 242));
     textArea3.setLinespacing(0);
     textArea3.setTypedText(touchgfx::TypedText(T___SINGLEUSE_VQNR));
 
     box5.setPosition(175, 199, 68, 24);
     box5.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
 
-    textArea4.setXY(184, 199);
-    textArea4.setColor(touchgfx::Color::getColorFromRGB(227, 70, 133));
+    image7.setXY(234, 176);
+    image7.setBitmap(touchgfx::Bitmap(BITMAP_HUMIDITY_2_MIC_ID));
+
+    textArea4.setXY(188, 185);
+    textArea4.setColor(touchgfx::Color::getColorFromRGB(165, 210, 242));
     textArea4.setLinespacing(0);
     textArea4.setTypedText(touchgfx::TypedText(T___SINGLEUSE_M25P));
 
@@ -108,25 +123,44 @@ Screen3ViewBase::Screen3ViewBase()
     box6_3_1.setColor(touchgfx::Color::getColorFromRGB(47, 240, 17));
     container1_1.add(box6_3_1);
 
+    circle1.setPosition(-3, 141, 42, 41);
+    circle1.setCenter(20, 20);
+    circle1.setRadius(8);
+    circle1.setLineWidth(0);
+    circle1.setArc(0, 360);
+    circle1Painter.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    circle1.setPainter(circle1Painter);
+
+    image8.setXY(0, 200);
+    image8.setBitmap(touchgfx::Bitmap(BITMAP_ARROW_LEFT_MIC_ID));
+
+    image9.setXY(280, 200);
+    image9.setBitmap(touchgfx::Bitmap(BITMAP_ARROW_RIGHT_MIC_ID));
+
     add(__background);
     add(box3);
     add(image1);
+    add(circle2);
     add(box1);
     add(box1_1);
     add(image2);
     add(textArea1);
     add(textArea2);
+    add(box7);
     add(digitalClock1);
     add(image3);
     add(image5);
     add(image6);
-    add(image7);
     add(box4);
     add(textArea3);
     add(box5);
+    add(image7);
     add(textArea4);
     add(container1);
     add(container1_1);
+    add(circle1);
+    add(image8);
+    add(image9);
 }
 
 void Screen3ViewBase::setupScreen()

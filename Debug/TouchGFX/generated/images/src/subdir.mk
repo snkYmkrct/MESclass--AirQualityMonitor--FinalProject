@@ -7,6 +7,8 @@
 CPP_SRCS += \
 ../TouchGFX/generated/images/src/BitmapDatabase.cpp \
 ../TouchGFX/generated/images/src/image_air-pollution_1_mic.cpp \
+../TouchGFX/generated/images/src/image_arrow-left_mic.cpp \
+../TouchGFX/generated/images/src/image_arrow-right_mic.cpp \
 ../TouchGFX/generated/images/src/image_background.cpp \
 ../TouchGFX/generated/images/src/image_background_gray.cpp \
 ../TouchGFX/generated/images/src/image_battery_3q_mic.cpp \
@@ -15,11 +17,15 @@ CPP_SRCS += \
 ../TouchGFX/generated/images/src/image_battery_low_mic.cpp \
 ../TouchGFX/generated/images/src/image_co2_mic.cpp \
 ../TouchGFX/generated/images/src/image_humidity_2_mic.cpp \
+../TouchGFX/generated/images/src/image_left-arrow_mic.cpp \
+../TouchGFX/generated/images/src/image_right-arrow_mic.cpp \
 ../TouchGFX/generated/images/src/image_thermometer_2_mic.cpp 
 
 OBJS += \
 ./TouchGFX/generated/images/src/BitmapDatabase.o \
 ./TouchGFX/generated/images/src/image_air-pollution_1_mic.o \
+./TouchGFX/generated/images/src/image_arrow-left_mic.o \
+./TouchGFX/generated/images/src/image_arrow-right_mic.o \
 ./TouchGFX/generated/images/src/image_background.o \
 ./TouchGFX/generated/images/src/image_background_gray.o \
 ./TouchGFX/generated/images/src/image_battery_3q_mic.o \
@@ -28,11 +34,15 @@ OBJS += \
 ./TouchGFX/generated/images/src/image_battery_low_mic.o \
 ./TouchGFX/generated/images/src/image_co2_mic.o \
 ./TouchGFX/generated/images/src/image_humidity_2_mic.o \
+./TouchGFX/generated/images/src/image_left-arrow_mic.o \
+./TouchGFX/generated/images/src/image_right-arrow_mic.o \
 ./TouchGFX/generated/images/src/image_thermometer_2_mic.o 
 
 CPP_DEPS += \
 ./TouchGFX/generated/images/src/BitmapDatabase.d \
 ./TouchGFX/generated/images/src/image_air-pollution_1_mic.d \
+./TouchGFX/generated/images/src/image_arrow-left_mic.d \
+./TouchGFX/generated/images/src/image_arrow-right_mic.d \
 ./TouchGFX/generated/images/src/image_background.d \
 ./TouchGFX/generated/images/src/image_background_gray.d \
 ./TouchGFX/generated/images/src/image_battery_3q_mic.d \
@@ -41,6 +51,8 @@ CPP_DEPS += \
 ./TouchGFX/generated/images/src/image_battery_low_mic.d \
 ./TouchGFX/generated/images/src/image_co2_mic.d \
 ./TouchGFX/generated/images/src/image_humidity_2_mic.d \
+./TouchGFX/generated/images/src/image_left-arrow_mic.d \
+./TouchGFX/generated/images/src/image_right-arrow_mic.d \
 ./TouchGFX/generated/images/src/image_thermometer_2_mic.d 
 
 
@@ -51,7 +63,7 @@ TouchGFX/generated/images/src/%.o TouchGFX/generated/images/src/%.su: ../TouchGF
 clean: clean-TouchGFX-2f-generated-2f-images-2f-src
 
 clean-TouchGFX-2f-generated-2f-images-2f-src:
-	-$(RM) ./TouchGFX/generated/images/src/BitmapDatabase.d ./TouchGFX/generated/images/src/BitmapDatabase.o ./TouchGFX/generated/images/src/BitmapDatabase.su ./TouchGFX/generated/images/src/image_air-pollution_1_mic.d ./TouchGFX/generated/images/src/image_air-pollution_1_mic.o ./TouchGFX/generated/images/src/image_air-pollution_1_mic.su ./TouchGFX/generated/images/src/image_background.d ./TouchGFX/generated/images/src/image_background.o ./TouchGFX/generated/images/src/image_background.su ./TouchGFX/generated/images/src/image_background_gray.d ./TouchGFX/generated/images/src/image_background_gray.o ./TouchGFX/generated/images/src/image_background_gray.su ./TouchGFX/generated/images/src/image_battery_3q_mic.d ./TouchGFX/generated/images/src/image_battery_3q_mic.o ./TouchGFX/generated/images/src/image_battery_3q_mic.su ./TouchGFX/generated/images/src/image_battery_full_mic.d ./TouchGFX/generated/images/src/image_battery_full_mic.o ./TouchGFX/generated/images/src/image_battery_full_mic.su ./TouchGFX/generated/images/src/image_battery_half_mic.d ./TouchGFX/generated/images/src/image_battery_half_mic.o ./TouchGFX/generated/images/src/image_battery_half_mic.su ./TouchGFX/generated/images/src/image_battery_low_mic.d ./TouchGFX/generated/images/src/image_battery_low_mic.o ./TouchGFX/generated/images/src/image_battery_low_mic.su ./TouchGFX/generated/images/src/image_co2_mic.d ./TouchGFX/generated/images/src/image_co2_mic.o ./TouchGFX/generated/images/src/image_co2_mic.su ./TouchGFX/generated/images/src/image_humidity_2_mic.d ./TouchGFX/generated/images/src/image_humidity_2_mic.o ./TouchGFX/generated/images/src/image_humidity_2_mic.su ./TouchGFX/generated/images/src/image_thermometer_2_mic.d ./TouchGFX/generated/images/src/image_thermometer_2_mic.o ./TouchGFX/generated/images/src/image_thermometer_2_mic.su
+	-$(RM) ./TouchGFX/generated/images/src/BitmapDatabase.d ./TouchGFX/generated/images/src/BitmapDatabase.o ./TouchGFX/generated/images/src/BitmapDatabase.su ./TouchGFX/generated/images/src/image_air-pollution_1_mic.d ./TouchGFX/generated/images/src/image_air-pollution_1_mic.o ./TouchGFX/generated/images/src/image_air-pollution_1_mic.su ./TouchGFX/generated/images/src/image_arrow-left_mic.d ./TouchGFX/generated/images/src/image_arrow-left_mic.o ./TouchGFX/generated/images/src/image_arrow-left_mic.su ./TouchGFX/generated/images/src/image_arrow-right_mic.d ./TouchGFX/generated/images/src/image_arrow-right_mic.o ./TouchGFX/generated/images/src/image_arrow-right_mic.su ./TouchGFX/generated/images/src/image_background.d ./TouchGFX/generated/images/src/image_background.o ./TouchGFX/generated/images/src/image_background.su ./TouchGFX/generated/images/src/image_background_gray.d ./TouchGFX/generated/images/src/image_background_gray.o ./TouchGFX/generated/images/src/image_background_gray.su ./TouchGFX/generated/images/src/image_battery_3q_mic.d ./TouchGFX/generated/images/src/image_battery_3q_mic.o ./TouchGFX/generated/images/src/image_battery_3q_mic.su ./TouchGFX/generated/images/src/image_battery_full_mic.d ./TouchGFX/generated/images/src/image_battery_full_mic.o ./TouchGFX/generated/images/src/image_battery_full_mic.su ./TouchGFX/generated/images/src/image_battery_half_mic.d ./TouchGFX/generated/images/src/image_battery_half_mic.o ./TouchGFX/generated/images/src/image_battery_half_mic.su ./TouchGFX/generated/images/src/image_battery_low_mic.d ./TouchGFX/generated/images/src/image_battery_low_mic.o ./TouchGFX/generated/images/src/image_battery_low_mic.su ./TouchGFX/generated/images/src/image_co2_mic.d ./TouchGFX/generated/images/src/image_co2_mic.o ./TouchGFX/generated/images/src/image_co2_mic.su ./TouchGFX/generated/images/src/image_humidity_2_mic.d ./TouchGFX/generated/images/src/image_humidity_2_mic.o ./TouchGFX/generated/images/src/image_humidity_2_mic.su ./TouchGFX/generated/images/src/image_left-arrow_mic.d ./TouchGFX/generated/images/src/image_left-arrow_mic.o ./TouchGFX/generated/images/src/image_left-arrow_mic.su ./TouchGFX/generated/images/src/image_right-arrow_mic.d ./TouchGFX/generated/images/src/image_right-arrow_mic.o ./TouchGFX/generated/images/src/image_right-arrow_mic.su ./TouchGFX/generated/images/src/image_thermometer_2_mic.d ./TouchGFX/generated/images/src/image_thermometer_2_mic.o ./TouchGFX/generated/images/src/image_thermometer_2_mic.su
 
 .PHONY: clean-TouchGFX-2f-generated-2f-images-2f-src
 
