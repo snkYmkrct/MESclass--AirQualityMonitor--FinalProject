@@ -3,18 +3,23 @@
 /*********************************************************************************/
 #include <gui_generated/screen2_screen/Screen2ViewBase.hpp>
 #include <touchgfx/Color.hpp>
+#include <BitmapDatabase.hpp>
 #include <texts/TextKeysAndLanguages.hpp>
 
-Screen2ViewBase::Screen2ViewBase()
+Screen2ViewBase::Screen2ViewBase() :
+    buttonCallback(this, &Screen2ViewBase::buttonCallbackHandler)
 {
 
-    __background.setPosition(0, 0, 320, 240);
+    __background.setPosition(0, 0, 240, 320);
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
 
-    box1.setPosition(0, 0, 320, 240);
+    box1.setPosition(0, 0, 240, 320);
     box1.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
 
-    textArea1.setXY(6, 17);
+    image1.setXY(0, 33);
+    image1.setBitmap(touchgfx::Bitmap(BITMAP_BACKGROUND_GRAY_VERTICAL_ID));
+
+    textArea1.setXY(9, 51);
     textArea1.setColor(touchgfx::Color::getColorFromRGB(227, 211, 211));
     textArea1.setLinespacing(0);
     Unicode::snprintf(textArea1Buffer, TEXTAREA1_SIZE, "%s", touchgfx::TypedText(T_T1W).getText());
@@ -22,7 +27,7 @@ Screen2ViewBase::Screen2ViewBase()
     textArea1.resizeToCurrentText();
     textArea1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_7DYV));
 
-    textArea2.setXY(6, 49);
+    textArea2.setXY(6, 83);
     textArea2.setColor(touchgfx::Color::getColorFromRGB(230, 207, 207));
     textArea2.setLinespacing(0);
     textArea2Buffer[0] = 0;
@@ -30,7 +35,7 @@ Screen2ViewBase::Screen2ViewBase()
     textArea2.resizeToCurrentText();
     textArea2.setTypedText(touchgfx::TypedText(T___SINGLEUSE_E509));
 
-    textArea3.setXY(6, 82);
+    textArea3.setXY(6, 116);
     textArea3.setColor(touchgfx::Color::getColorFromRGB(230, 209, 209));
     textArea3.setLinespacing(0);
     textArea3Buffer[0] = 0;
@@ -38,7 +43,7 @@ Screen2ViewBase::Screen2ViewBase()
     textArea3.resizeToCurrentText();
     textArea3.setTypedText(touchgfx::TypedText(T___SINGLEUSE_JSY4));
 
-    textArea4.setXY(6, 136);
+    textArea4.setXY(6, 170);
     textArea4.setColor(touchgfx::Color::getColorFromRGB(227, 211, 211));
     textArea4.setLinespacing(0);
     textArea4Buffer[0] = 0;
@@ -46,7 +51,7 @@ Screen2ViewBase::Screen2ViewBase()
     textArea4.resizeToCurrentText();
     textArea4.setTypedText(touchgfx::TypedText(T___SINGLEUSE_QUZN));
 
-    textArea5.setXY(6, 168);
+    textArea5.setXY(6, 202);
     textArea5.setColor(touchgfx::Color::getColorFromRGB(230, 207, 207));
     textArea5.setLinespacing(0);
     textArea5Buffer[0] = 0;
@@ -54,7 +59,7 @@ Screen2ViewBase::Screen2ViewBase()
     textArea5.resizeToCurrentText();
     textArea5.setTypedText(touchgfx::TypedText(T___SINGLEUSE_67DT));
 
-    textArea6.setXY(6, 201);
+    textArea6.setXY(6, 235);
     textArea6.setColor(touchgfx::Color::getColorFromRGB(230, 209, 209));
     textArea6.setLinespacing(0);
     textArea6Buffer[0] = 0;
@@ -62,7 +67,7 @@ Screen2ViewBase::Screen2ViewBase()
     textArea6.resizeToCurrentText();
     textArea6.setTypedText(touchgfx::TypedText(T___SINGLEUSE_DDBN));
 
-    textArea1_1.setXY(160, 17);
+    textArea1_1.setXY(120, 51);
     textArea1_1.setColor(touchgfx::Color::getColorFromRGB(227, 211, 211));
     textArea1_1.setLinespacing(0);
     textArea1_1Buffer[0] = 0;
@@ -70,7 +75,7 @@ Screen2ViewBase::Screen2ViewBase()
     textArea1_1.resizeToCurrentText();
     textArea1_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_SRW8));
 
-    textArea2_1.setXY(160, 49);
+    textArea2_1.setXY(120, 83);
     textArea2_1.setColor(touchgfx::Color::getColorFromRGB(230, 207, 207));
     textArea2_1.setLinespacing(0);
     textArea2_1Buffer[0] = 0;
@@ -78,7 +83,7 @@ Screen2ViewBase::Screen2ViewBase()
     textArea2_1.resizeToCurrentText();
     textArea2_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_PL7V));
 
-    textArea3_1.setXY(160, 78);
+    textArea3_1.setXY(120, 116);
     textArea3_1.setColor(touchgfx::Color::getColorFromRGB(230, 209, 209));
     textArea3_1.setLinespacing(0);
     textArea3_1Buffer[0] = 0;
@@ -86,7 +91,7 @@ Screen2ViewBase::Screen2ViewBase()
     textArea3_1.resizeToCurrentText();
     textArea3_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_8CMW));
 
-    textArea4_1.setXY(160, 136);
+    textArea4_1.setXY(120, 170);
     textArea4_1.setColor(touchgfx::Color::getColorFromRGB(227, 211, 211));
     textArea4_1.setLinespacing(0);
     textArea4_1Buffer[0] = 0;
@@ -94,7 +99,7 @@ Screen2ViewBase::Screen2ViewBase()
     textArea4_1.resizeToCurrentText();
     textArea4_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_LIU5));
 
-    textArea5_1.setXY(160, 168);
+    textArea5_1.setXY(120, 202);
     textArea5_1.setColor(touchgfx::Color::getColorFromRGB(230, 207, 207));
     textArea5_1.setLinespacing(0);
     textArea5_1Buffer[0] = 0;
@@ -102,7 +107,7 @@ Screen2ViewBase::Screen2ViewBase()
     textArea5_1.resizeToCurrentText();
     textArea5_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_SFP5));
 
-    textArea6_1.setXY(160, 201);
+    textArea6_1.setXY(120, 235);
     textArea6_1.setColor(touchgfx::Color::getColorFromRGB(230, 209, 209));
     textArea6_1.setLinespacing(0);
     textArea6_1Buffer[0] = 0;
@@ -110,8 +115,23 @@ Screen2ViewBase::Screen2ViewBase()
     textArea6_1.resizeToCurrentText();
     textArea6_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_TIKO));
 
+    button1.setXY(193, 274);
+    button1.setBitmaps(touchgfx::Bitmap(BITMAP_ARROW_RIGHT_MIC_ID), touchgfx::Bitmap(BITMAP_ARROW_RIGHT_MIC_ID));
+    button1.setAction(buttonCallback);
+
+    digitalClock1.setPosition(3, 5, 101, 26);
+    digitalClock1.setColor(touchgfx::Color::getColorFromRGB(255, 67, 151));
+    digitalClock1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_SAU0));
+    digitalClock1.displayLeadingZeroForHourIndicator(true);
+    digitalClock1.setDisplayMode(touchgfx::DigitalClock::DISPLAY_24_HOUR);
+    digitalClock1.setTime24Hour(10, 10, 0);
+
+    image2.setXY(195, -2);
+    image2.setBitmap(touchgfx::Bitmap(BITMAP_BATTERY_3Q_MIC_ID));
+
     add(__background);
     add(box1);
+    add(image1);
     add(textArea1);
     add(textArea2);
     add(textArea3);
@@ -124,9 +144,23 @@ Screen2ViewBase::Screen2ViewBase()
     add(textArea4_1);
     add(textArea5_1);
     add(textArea6_1);
+    add(button1);
+    add(digitalClock1);
+    add(image2);
 }
 
 void Screen2ViewBase::setupScreen()
 {
 
+}
+
+void Screen2ViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
+{
+    if (&src == &button1)
+    {
+        //Interaction1
+        //When button1 clicked change screen to Screen3
+        //Go to Screen3 with no screen transition
+        application().gotoScreen3ScreenNoTransition();
+    }
 }

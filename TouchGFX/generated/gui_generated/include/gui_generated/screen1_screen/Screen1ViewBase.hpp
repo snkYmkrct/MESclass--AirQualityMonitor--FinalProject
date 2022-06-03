@@ -8,8 +8,10 @@
 #include <mvp/View.hpp>
 #include <gui/screen1_screen/Screen1Presenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
-#include <touchgfx/widgets/ButtonWithLabel.hpp>
-#include <touchgfx/widgets/BoxWithBorder.hpp>
+#include <touchgfx/widgets/Image.hpp>
+#include <touchgfx/containers/Container.hpp>
+#include <touchgfx/widgets/TextArea.hpp>
+#include <touchgfx/containers/clock/DigitalClock.hpp>
 
 class Screen1ViewBase : public touchgfx::View<Screen1Presenter>
 {
@@ -17,6 +19,8 @@ public:
     Screen1ViewBase();
     virtual ~Screen1ViewBase() {}
     virtual void setupScreen();
+    virtual void handleTickEvent();
+    virtual void afterTransition();
 
 protected:
     FrontendApplication& application() {
@@ -28,20 +32,22 @@ protected:
      */
     touchgfx::Box __background;
     touchgfx::Box box1;
-    touchgfx::ButtonWithLabel buttonWithLabel1;
-    touchgfx::BoxWithBorder boxWithBorder1;
+    touchgfx::Image image1;
+    touchgfx::Container container1;
+    touchgfx::Box box2;
+    touchgfx::TextArea textArea1;
+    touchgfx::Box box2_1;
+    touchgfx::TextArea textArea1_1;
+    touchgfx::DigitalClock digitalClock1;
+    touchgfx::Image image2;
 
 private:
 
     /*
-     * Callback Declarations
+     * Delay Variable Declarations
      */
-    touchgfx::Callback<Screen1ViewBase, const touchgfx::AbstractButton&> buttonCallback;
-
-    /*
-     * Callback Handler Declarations
-     */
-    void buttonCallbackHandler(const touchgfx::AbstractButton& src);
+    static const uint16_t INTERACTIONLOADSCREEN_DURATION = 300;
+    uint16_t interactionLoadScreenCounter;
 
 };
 

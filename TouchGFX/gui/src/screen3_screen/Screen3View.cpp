@@ -13,7 +13,7 @@ void Screen3View::handleTickEvent()
 
     counter++;
 
-    if(counter%120 == 0) // every 5 s
+    if(counter%120 == 0) // every 2 s
     {
     	image2.setBitmap(touchgfx::Bitmap(img));
     	image2.invalidate();

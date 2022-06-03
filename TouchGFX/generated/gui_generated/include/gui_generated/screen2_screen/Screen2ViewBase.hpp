@@ -8,7 +8,10 @@
 #include <mvp/View.hpp>
 #include <gui/screen2_screen/Screen2Presenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
+#include <touchgfx/widgets/Image.hpp>
 #include <touchgfx/widgets/TextAreaWithWildcard.hpp>
+#include <touchgfx/widgets/Button.hpp>
+#include <touchgfx/containers/clock/DigitalClock.hpp>
 
 class Screen2ViewBase : public touchgfx::View<Screen2Presenter>
 {
@@ -27,6 +30,7 @@ protected:
      */
     touchgfx::Box __background;
     touchgfx::Box box1;
+    touchgfx::Image image1;
     touchgfx::TextAreaWithOneWildcard textArea1;
     touchgfx::TextAreaWithOneWildcard textArea2;
     touchgfx::TextAreaWithOneWildcard textArea3;
@@ -39,6 +43,9 @@ protected:
     touchgfx::TextAreaWithOneWildcard textArea4_1;
     touchgfx::TextAreaWithOneWildcard textArea5_1;
     touchgfx::TextAreaWithOneWildcard textArea6_1;
+    touchgfx::Button button1;
+    touchgfx::DigitalClock digitalClock1;
+    touchgfx::Image image2;
 
     /*
      * Wildcard Buffers
@@ -69,6 +76,16 @@ protected:
     touchgfx::Unicode::UnicodeChar textArea6_1Buffer[TEXTAREA6_1_SIZE];
 
 private:
+
+    /*
+     * Callback Declarations
+     */
+    touchgfx::Callback<Screen2ViewBase, const touchgfx::AbstractButton&> buttonCallback;
+
+    /*
+     * Callback Handler Declarations
+     */
+    void buttonCallbackHandler(const touchgfx::AbstractButton& src);
 
 };
 

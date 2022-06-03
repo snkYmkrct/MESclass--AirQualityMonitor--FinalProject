@@ -7,31 +7,56 @@
 #include <texts/TextKeysAndLanguages.hpp>
 
 Screen1ViewBase::Screen1ViewBase() :
-    buttonCallback(this, &Screen1ViewBase::buttonCallbackHandler)
+    interactionLoadScreenCounter(0)
 {
 
-    __background.setPosition(0, 0, 320, 240);
+    __background.setPosition(0, 0, 240, 320);
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
 
-    box1.setPosition(0, 0, 320, 240);
-    box1.setColor(touchgfx::Color::getColorFromRGB(188, 149, 240));
+    box1.setPosition(0, 0, 240, 320);
+    box1.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
 
-    buttonWithLabel1.setXY(75, 151);
-    buttonWithLabel1.setBitmaps(touchgfx::Bitmap(BITMAP_DARK_BUTTONS_ROUND_SMALL_ID), touchgfx::Bitmap(BITMAP_DARK_BUTTONS_ROUND_SMALL_PRESSED_ID));
-    buttonWithLabel1.setLabelText(touchgfx::TypedText(T___SINGLEUSE_HV1F));
-    buttonWithLabel1.setLabelColor(touchgfx::Color::getColorFromRGB(229, 204, 237));
-    buttonWithLabel1.setLabelColorPressed(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    buttonWithLabel1.setAction(buttonCallback);
+    image1.setXY(0, 33);
+    image1.setBitmap(touchgfx::Bitmap(BITMAP_BACKGROUND_GRAY_VERTICAL_ID));
 
-    boxWithBorder1.setPosition(135, 54, 50, 50);
-    boxWithBorder1.setColor(touchgfx::Color::getColorFromRGB(199, 38, 169));
-    boxWithBorder1.setBorderColor(touchgfx::Color::getColorFromRGB(161, 144, 166));
-    boxWithBorder1.setBorderSize(5);
+    container1.setPosition(0, 33, 240, 250);
+
+    box2.setPosition(21, 102, 199, 22);
+    box2.setColor(touchgfx::Color::getColorFromRGB(8, 0, 0));
+    container1.add(box2);
+
+    textArea1.setXY(27, 100);
+    textArea1.setColor(touchgfx::Color::getColorFromRGB(255, 67, 151));
+    textArea1.setLinespacing(0);
+    textArea1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_1RTL));
+    container1.add(textArea1);
+
+    box2_1.setPosition(47, 150, 140, 22);
+    box2_1.setColor(touchgfx::Color::getColorFromRGB(8, 0, 0));
+    container1.add(box2_1);
+
+    textArea1_1.setXY(53, 148);
+    textArea1_1.setColor(touchgfx::Color::getColorFromRGB(255, 67, 151));
+    textArea1_1.setLinespacing(0);
+    textArea1_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_55I3));
+    container1.add(textArea1_1);
+
+    digitalClock1.setPosition(3, 5, 101, 26);
+    digitalClock1.setColor(touchgfx::Color::getColorFromRGB(255, 67, 151));
+    digitalClock1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_J936));
+    digitalClock1.displayLeadingZeroForHourIndicator(true);
+    digitalClock1.setDisplayMode(touchgfx::DigitalClock::DISPLAY_24_HOUR);
+    digitalClock1.setTime24Hour(10, 10, 0);
+
+    image2.setXY(195, -2);
+    image2.setBitmap(touchgfx::Bitmap(BITMAP_BATTERY_3Q_MIC_ID));
 
     add(__background);
     add(box1);
-    add(buttonWithLabel1);
-    add(boxWithBorder1);
+    add(image1);
+    add(container1);
+    add(digitalClock1);
+    add(image2);
 }
 
 void Screen1ViewBase::setupScreen()
@@ -39,20 +64,27 @@ void Screen1ViewBase::setupScreen()
 
 }
 
-void Screen1ViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
+//Handles delays
+void Screen1ViewBase::handleTickEvent()
 {
-    if (&src == &buttonWithLabel1)
+    if(interactionLoadScreenCounter > 0)
     {
-        //Interaction1
-        //When buttonWithLabel1 clicked execute C++ code
-        //Execute C++ code
-        if (boxWithBorder1.isVisible()){
-        boxWithBorder1.setVisible(false);
-        boxWithBorder1.invalidate();
-        }
-        else {
-        boxWithBorder1.setVisible(true);
-        boxWithBorder1.invalidate();
+        interactionLoadScreenCounter--;
+        if(interactionLoadScreenCounter == 0)
+        {
+            //InteractionChangeScreen
+            //When InteractionLoadScreen completed change screen to Screen2
+            //Go to Screen2 with no screen transition
+            application().gotoScreen2ScreenNoTransition();
         }
     }
+}
+
+//Called when the screen transition ends
+void Screen1ViewBase::afterTransition()
+{
+    //InteractionLoadScreen
+    //When screen transition ends delay
+    //Delay for 5000 ms (300 Ticks)
+    interactionLoadScreenCounter = INTERACTIONLOADSCREEN_DURATION;
 }

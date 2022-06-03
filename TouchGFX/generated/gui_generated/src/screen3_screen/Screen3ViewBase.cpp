@@ -8,21 +8,41 @@
 #include <touchgfx/canvas_widget_renderer/CanvasWidgetRenderer.hpp>
 
 
-Screen3ViewBase::Screen3ViewBase()
+Screen3ViewBase::Screen3ViewBase() :
+    buttonCallback(this, &Screen3ViewBase::buttonCallbackHandler)
 {
 
     touchgfx::CanvasWidgetRenderer::setupBuffer(canvasBuffer, CANVAS_BUFFER_SIZE);
 
-    __background.setPosition(0, 0, 320, 240);
+    __background.setPosition(0, 0, 240, 320);
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
 
-    box3.setPosition(0, 0, 318, 240);
+    box3.setPosition(0, 0, 240, 320);
     box3.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
 
-    image1.setXY(-5, 5);
-    image1.setBitmap(touchgfx::Bitmap(BITMAP_BACKGROUND_GRAY_ID));
+    image1.setXY(0, 33);
+    image1.setBitmap(touchgfx::Bitmap(BITMAP_BACKGROUND_GRAY_VERTICAL_ID));
 
-    circle2.setPosition(-20, 180, 80, 80);
+    box1.setPosition(37, 55, 135, 37);
+    box1.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+
+    box1_1.setPosition(73, 147, 170, 31);
+    box1_1.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+
+    image2.setXY(195, -2);
+    image2.setBitmap(touchgfx::Bitmap(BITMAP_BATTERY_3Q_MIC_ID));
+
+    textArea1.setXY(43, 60);
+    textArea1.setColor(touchgfx::Color::getColorFromRGB(35, 242, 24));
+    textArea1.setLinespacing(0);
+    textArea1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_BVBX));
+
+    textArea2.setXY(119, 151);
+    textArea2.setColor(touchgfx::Color::getColorFromRGB(217, 171, 4));
+    textArea2.setLinespacing(0);
+    textArea2.setTypedText(touchgfx::TypedText(T___SINGLEUSE_UZVW));
+
+    circle2.setPosition(-14, 253, 80, 80);
     circle2.setCenter(40, 40);
     circle2.setRadius(19);
     circle2.setLineWidth(0);
@@ -30,122 +50,107 @@ Screen3ViewBase::Screen3ViewBase()
     circle2Painter.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     circle2.setPainter(circle2Painter);
 
-    box1.setPosition(37, 48, 135, 37);
-    box1.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
-
-    box1_1.setPosition(90, 141, 188, 37);
-    box1_1.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
-
-    image2.setXY(278, -3);
-    image2.setBitmap(touchgfx::Bitmap(BITMAP_BATTERY_3Q_MIC_ID));
-
-    textArea1.setXY(44, 54);
-    textArea1.setColor(touchgfx::Color::getColorFromRGB(35, 242, 24));
-    textArea1.setLinespacing(0);
-    textArea1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_BVBX));
-
-    textArea2.setXY(170, 147);
-    textArea2.setColor(touchgfx::Color::getColorFromRGB(217, 171, 4));
-    textArea2.setLinespacing(0);
-    textArea2.setTypedText(touchgfx::TypedText(T___SINGLEUSE_UZVW));
-
-    box7.setPosition(53, 171, 28, 45);
+    box7.setPosition(46, 228, 27, 45);
     box7.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
 
     digitalClock1.setPosition(3, 5, 101, 26);
-    digitalClock1.setColor(touchgfx::Color::getColorFromRGB(240, 24, 193));
+    digitalClock1.setColor(touchgfx::Color::getColorFromRGB(255, 67, 151));
     digitalClock1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_8SEC));
     digitalClock1.displayLeadingZeroForHourIndicator(true);
     digitalClock1.setDisplayMode(touchgfx::DigitalClock::DISPLAY_24_HOUR);
     digitalClock1.setTime24Hour(10, 10, 0);
 
-    image3.setXY(47, 173);
+    image3.setXY(39, 230);
     image3.setBitmap(touchgfx::Bitmap(BITMAP_THERMOMETER_2_MIC_ID));
 
-    image5.setXY(90, 141);
+    image5.setXY(67, 141);
     image5.setBitmap(touchgfx::Bitmap(BITMAP_CO2_MIC_ID));
 
-    image6.setXY(147, 31);
+    image6.setXY(125, 45);
     image6.setBitmap(touchgfx::Bitmap(BITMAP_AIR_POLLUTION_1_MIC_ID));
 
-    box4.setPosition(92, 185, 89, 25);
+    box4.setPosition(70, 245, 89, 25);
     box4.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
 
-    textArea3.setXY(89, 184);
-    textArea3.setColor(touchgfx::Color::getColorFromRGB(165, 210, 242));
+    textArea3.setXY(70, 248);
+    textArea3.setColor(touchgfx::Color::getColorFromRGB(178, 218, 255));
     textArea3.setLinespacing(0);
     textArea3.setTypedText(touchgfx::TypedText(T___SINGLEUSE_VQNR));
 
     box5.setPosition(175, 199, 68, 24);
     box5.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
 
-    image7.setXY(234, 176);
+    image7.setXY(172, 210);
     image7.setBitmap(touchgfx::Bitmap(BITMAP_HUMIDITY_2_MIC_ID));
 
-    textArea4.setXY(188, 185);
-    textArea4.setColor(touchgfx::Color::getColorFromRGB(165, 210, 242));
+    textArea4.setXY(133, 207);
+    textArea4.setColor(touchgfx::Color::getColorFromRGB(178, 218, 255));
     textArea4.setLinespacing(0);
     textArea4.setTypedText(touchgfx::TypedText(T___SINGLEUSE_M25P));
 
-    container1.setPosition(0, 46, 37, 132);
+    container1.setPosition(5, 44, 37, 143);
 
-    box6.setPosition(0, 2, 37, 33);
+    box6.setPosition(0, 2, 37, 18);
     box6.setColor(touchgfx::Color::getColorFromRGB(209, 23, 23));
     container1.add(box6);
 
-    box6_1.setPosition(0, 34, 37, 33);
+    box6_1.setPosition(0, 20, 37, 19);
     box6_1.setColor(touchgfx::Color::getColorFromRGB(214, 117, 43));
     container1.add(box6_1);
 
-    box6_2.setPosition(0, 66, 37, 33);
+    box6_2.setPosition(0, 39, 37, 22);
     box6_2.setColor(touchgfx::Color::getColorFromRGB(196, 199, 38));
     container1.add(box6_2);
 
-    box6_3.setPosition(0, 99, 37, 33);
+    box6_3.setPosition(0, 61, 37, 19);
     box6_3.setColor(touchgfx::Color::getColorFromRGB(47, 240, 17));
     container1.add(box6_3);
 
-    container1_1.setPosition(283, 46, 35, 132);
+    container1_1.setPosition(200, 94, 35, 94);
 
-    box6_4.setPosition(0, 2, 37, 33);
+    box6_4.setPosition(0, 3, 37, 16);
     box6_4.setColor(touchgfx::Color::getColorFromRGB(209, 23, 23));
     container1_1.add(box6_4);
 
-    box6_1_1.setPosition(0, 34, 37, 33);
+    box6_1_1.setPosition(0, 21, 40, 19);
     box6_1_1.setColor(touchgfx::Color::getColorFromRGB(214, 117, 43));
     container1_1.add(box6_1_1);
 
-    box6_2_1.setPosition(0, 66, 37, 33);
+    box6_2_1.setPosition(0, 40, 37, 18);
     box6_2_1.setColor(touchgfx::Color::getColorFromRGB(196, 199, 38));
     container1_1.add(box6_2_1);
 
-    box6_3_1.setPosition(0, 99, 37, 33);
+    box6_3_1.setPosition(0, 62, 37, 18);
     box6_3_1.setColor(touchgfx::Color::getColorFromRGB(47, 240, 17));
     container1_1.add(box6_3_1);
 
-    circle1.setPosition(-3, 141, 42, 41);
+    circle1.setPosition(0, 76, 42, 41);
     circle1.setCenter(20, 20);
-    circle1.setRadius(8);
+    circle1.setRadius(6);
     circle1.setLineWidth(0);
     circle1.setArc(0, 360);
     circle1Painter.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     circle1.setPainter(circle1Painter);
 
-    image8.setXY(0, 200);
-    image8.setBitmap(touchgfx::Bitmap(BITMAP_ARROW_LEFT_MIC_ID));
+    button1.setXY(6, 273);
+    button1.setBitmaps(touchgfx::Bitmap(BITMAP_ARROW_LEFT_MIC_ID), touchgfx::Bitmap(BITMAP_ARROW_LEFT_MIC_ID));
+    button1.setAction(buttonCallback);
 
-    image9.setXY(280, 200);
-    image9.setBitmap(touchgfx::Bitmap(BITMAP_ARROW_RIGHT_MIC_ID));
+    button2.setXY(195, 271);
+    button2.setBitmaps(touchgfx::Bitmap(BITMAP_ARROW_RIGHT_MIC_ID), touchgfx::Bitmap(BITMAP_ARROW_RIGHT_MIC_ID));
+
+    image2_1.setXY(195, -2);
+    image2_1.setBitmap(touchgfx::Bitmap(BITMAP_BATTERY_3Q_MIC_ID));
 
     add(__background);
     add(box3);
     add(image1);
-    add(circle2);
     add(box1);
     add(box1_1);
     add(image2);
     add(textArea1);
     add(textArea2);
+    add(circle2);
     add(box7);
     add(digitalClock1);
     add(image3);
@@ -159,11 +164,23 @@ Screen3ViewBase::Screen3ViewBase()
     add(container1);
     add(container1_1);
     add(circle1);
-    add(image8);
-    add(image9);
+    add(button1);
+    add(button2);
+    add(image2_1);
 }
 
 void Screen3ViewBase::setupScreen()
 {
 
+}
+
+void Screen3ViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
+{
+    if (&src == &button1)
+    {
+        //Interaction1
+        //When button1 clicked change screen to Screen2
+        //Go to Screen2 with no screen transition
+        application().gotoScreen2ScreenNoTransition();
+    }
 }

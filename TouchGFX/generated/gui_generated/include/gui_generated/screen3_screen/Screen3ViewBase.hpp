@@ -9,13 +9,13 @@
 #include <gui/screen3_screen/Screen3Presenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
 #include <touchgfx/widgets/Image.hpp>
+#include <touchgfx/widgets/TextArea.hpp>
 #include <touchgfx/widgets/canvas/Circle.hpp>
 #include <touchgfx/widgets/canvas/PainterRGB565.hpp>
-#include <touchgfx/widgets/TextArea.hpp>
 #include <touchgfx/containers/clock/DigitalClock.hpp>
 #include <touchgfx/widgets/TextAreaWithWildcard.hpp>
 #include <touchgfx/containers/Container.hpp>
-#include <touchgfx/mixins/ClickListener.hpp>
+#include <touchgfx/widgets/Button.hpp>
 
 class Screen3ViewBase : public touchgfx::View<Screen3Presenter>
 {
@@ -35,13 +35,13 @@ protected:
     touchgfx::Box __background;
     touchgfx::Box box3;
     touchgfx::Image image1;
-    touchgfx::Circle circle2;
-    touchgfx::PainterRGB565 circle2Painter;
     touchgfx::Box box1;
     touchgfx::Box box1_1;
     touchgfx::Image image2;
     touchgfx::TextArea textArea1;
     touchgfx::TextArea textArea2;
+    touchgfx::Circle circle2;
+    touchgfx::PainterRGB565 circle2Painter;
     touchgfx::Box box7;
     touchgfx::DigitalClock digitalClock1;
     touchgfx::Image image3;
@@ -64,15 +64,26 @@ protected:
     touchgfx::Box box6_3_1;
     touchgfx::Circle circle1;
     touchgfx::PainterRGB565 circle1Painter;
-    touchgfx::ClickListener< touchgfx::Image > image8;
-    touchgfx::ClickListener< touchgfx::Image > image9;
+    touchgfx::Button button1;
+    touchgfx::Button button2;
+    touchgfx::Image image2_1;
 
 private:
 
     /*
+     * Callback Declarations
+     */
+    touchgfx::Callback<Screen3ViewBase, const touchgfx::AbstractButton&> buttonCallback;
+
+    /*
+     * Callback Handler Declarations
+     */
+    void buttonCallbackHandler(const touchgfx::AbstractButton& src);
+
+    /*
      * Canvas Buffer Size
      */
-    static const uint16_t CANVAS_BUFFER_SIZE = 4800;
+    static const uint16_t CANVAS_BUFFER_SIZE = 3600;
     uint8_t canvasBuffer[CANVAS_BUFFER_SIZE];
 };
 
