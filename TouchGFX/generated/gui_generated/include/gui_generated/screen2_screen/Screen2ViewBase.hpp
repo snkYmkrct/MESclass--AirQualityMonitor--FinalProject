@@ -9,9 +9,14 @@
 #include <gui/screen2_screen/Screen2Presenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
 #include <touchgfx/widgets/Image.hpp>
-#include <touchgfx/widgets/TextAreaWithWildcard.hpp>
 #include <touchgfx/widgets/Button.hpp>
 #include <touchgfx/containers/clock/DigitalClock.hpp>
+#include <touchgfx/containers/ScrollableContainer.hpp>
+#include <touchgfx/widgets/TextAreaWithWildcard.hpp>
+#include <touchgfx/containers/scrollers/ScrollWheelWithSelectionStyle.hpp>
+#include <gui/containers/MenuElement.hpp>
+#include <touchgfx/containers/scrollers/ScrollList.hpp>
+#include <touchgfx/mixins/ClickListener.hpp>
 
 class Screen2ViewBase : public touchgfx::View<Screen2Presenter>
 {
@@ -19,6 +24,21 @@ public:
     Screen2ViewBase();
     virtual ~Screen2ViewBase() {}
     virtual void setupScreen();
+
+    virtual void scrollList1UpdateItem(MenuElement& item, int16_t itemIndex)
+    {
+        // Override and implement this function in Screen2
+    }
+
+    virtual void scrollWheel1UpdateItem(MenuElement& item, int16_t itemIndex)
+    {
+        // Override and implement this function in Screen2
+    }
+
+    virtual void scrollWheel1UpdateCenterItem(MenuElement& item, int16_t itemIndex)
+    {
+        // Override and implement this function in Screen2
+    }
 
 protected:
     FrontendApplication& application() {
@@ -31,21 +51,21 @@ protected:
     touchgfx::Box __background;
     touchgfx::Box box1;
     touchgfx::Image image1;
+    touchgfx::Button button1;
+    touchgfx::DigitalClock digitalClock1;
+    touchgfx::Image image2;
+    touchgfx::ScrollableContainer scrollableContainer1;
     touchgfx::TextAreaWithOneWildcard textArea1;
     touchgfx::TextAreaWithOneWildcard textArea2;
     touchgfx::TextAreaWithOneWildcard textArea3;
     touchgfx::TextAreaWithOneWildcard textArea4;
     touchgfx::TextAreaWithOneWildcard textArea5;
     touchgfx::TextAreaWithOneWildcard textArea6;
-    touchgfx::TextAreaWithOneWildcard textArea1_1;
-    touchgfx::TextAreaWithOneWildcard textArea2_1;
-    touchgfx::TextAreaWithOneWildcard textArea3_1;
-    touchgfx::TextAreaWithOneWildcard textArea4_1;
-    touchgfx::TextAreaWithOneWildcard textArea5_1;
-    touchgfx::TextAreaWithOneWildcard textArea6_1;
-    touchgfx::Button button1;
-    touchgfx::DigitalClock digitalClock1;
-    touchgfx::Image image2;
+    touchgfx::ScrollWheelWithSelectionStyle scrollWheel1;
+    touchgfx::DrawableListItems<MenuElement, 2> scrollWheel1ListItems;
+    touchgfx::DrawableListItems<MenuElement, 3> scrollWheel1SelectedListItems;
+    touchgfx::ClickListener< touchgfx::ScrollList > scrollList1;
+    touchgfx::DrawableListItems<MenuElement, 3> scrollList1ListItems;
 
     /*
      * Wildcard Buffers
@@ -62,18 +82,6 @@ protected:
     touchgfx::Unicode::UnicodeChar textArea5Buffer[TEXTAREA5_SIZE];
     static const uint16_t TEXTAREA6_SIZE = 10;
     touchgfx::Unicode::UnicodeChar textArea6Buffer[TEXTAREA6_SIZE];
-    static const uint16_t TEXTAREA1_1_SIZE = 10;
-    touchgfx::Unicode::UnicodeChar textArea1_1Buffer[TEXTAREA1_1_SIZE];
-    static const uint16_t TEXTAREA2_1_SIZE = 10;
-    touchgfx::Unicode::UnicodeChar textArea2_1Buffer[TEXTAREA2_1_SIZE];
-    static const uint16_t TEXTAREA3_1_SIZE = 10;
-    touchgfx::Unicode::UnicodeChar textArea3_1Buffer[TEXTAREA3_1_SIZE];
-    static const uint16_t TEXTAREA4_1_SIZE = 10;
-    touchgfx::Unicode::UnicodeChar textArea4_1Buffer[TEXTAREA4_1_SIZE];
-    static const uint16_t TEXTAREA5_1_SIZE = 10;
-    touchgfx::Unicode::UnicodeChar textArea5_1Buffer[TEXTAREA5_1_SIZE];
-    static const uint16_t TEXTAREA6_1_SIZE = 10;
-    touchgfx::Unicode::UnicodeChar textArea6_1Buffer[TEXTAREA6_1_SIZE];
 
 private:
 
@@ -81,11 +89,13 @@ private:
      * Callback Declarations
      */
     touchgfx::Callback<Screen2ViewBase, const touchgfx::AbstractButton&> buttonCallback;
+    touchgfx::Callback<Screen2ViewBase, touchgfx::DrawableListItemsInterface*, int16_t, int16_t> updateItemCallback;
 
     /*
      * Callback Handler Declarations
      */
     void buttonCallbackHandler(const touchgfx::AbstractButton& src);
+    void updateItemCallbackHandler(touchgfx::DrawableListItemsInterface* items, int16_t containerIndex, int16_t itemIndex);
 
 };
 

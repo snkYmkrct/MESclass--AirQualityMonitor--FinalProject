@@ -73,6 +73,8 @@ void Error_Handler(void);
 #define A4_GPIO_Port GPIOF
 #define A5_Pin GPIO_PIN_5
 #define A5_GPIO_Port GPIOF
+#define TURN_OFF_Pin GPIO_PIN_6
+#define TURN_OFF_GPIO_Port GPIOF
 #define SPI5_SCK_Pin GPIO_PIN_7
 #define SPI5_SCK_GPIO_Port GPIOF
 #define SPI5_MISO_Pin GPIO_PIN_8
@@ -104,8 +106,8 @@ void Error_Handler(void);
 #define VSYNC_GPIO_Port GPIOA
 #define G2_Pin GPIO_PIN_6
 #define G2_GPIO_Port GPIOA
-#define ACP_RST_Pin GPIO_PIN_7
-#define ACP_RST_GPIO_Port GPIOA
+#define UART_CONNECTED_Pin GPIO_PIN_7
+#define UART_CONNECTED_GPIO_Port GPIOA
 #define OTG_FS_PSO_Pin GPIO_PIN_4
 #define OTG_FS_PSO_GPIO_Port GPIOC
 #define OTG_FS_OC_Pin GPIO_PIN_5

@@ -22,12 +22,6 @@ void Screen2View::setupScreen()
     textArea5.setWildcard(txtBuffer[4]);
     textArea6.setWildcard(txtBuffer[5]);
 
-    textArea1_1.setWildcard(txtBuffer[6]);
-    textArea2_1.setWildcard(txtBuffer[7]);
-    textArea3_1.setWildcard(txtBuffer[8]);
-    textArea4_1.setWildcard(txtBuffer[9]);
-    textArea5_1.setWildcard(txtBuffer[10]);
-    textArea6_1.setWildcard(txtBuffer[11]);
 }
 
 void Screen2View::tearDownScreen()

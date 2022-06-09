@@ -152,8 +152,8 @@ bool battery_monitor_LC709203F_begin() {
   if (!battery_monitor_LC709203F_setBattProfile(0x1))
     return false;
 
-  if (!battery_monitor_LC709203F_setTemperatureMode(LC709203F_TEMPERATURE_THERMISTOR))
-    return false;
+  //if (!battery_monitor_LC709203F_setTemperatureMode(LC709203F_TEMPERATURE_THERMISTOR))
+  //  return false;
 
   return true;
 }

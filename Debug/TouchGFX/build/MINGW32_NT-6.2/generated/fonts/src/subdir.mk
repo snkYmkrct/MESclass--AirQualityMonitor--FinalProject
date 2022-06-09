@@ -9,22 +9,16 @@ O_SRCS += \
 ../TouchGFX/build/MINGW32_NT-6.2/generated/fonts/src/CachedFont.o \
 ../TouchGFX/build/MINGW32_NT-6.2/generated/fonts/src/FontCache.o \
 ../TouchGFX/build/MINGW32_NT-6.2/generated/fonts/src/Font_verdana_10_4bpp_0.o \
-../TouchGFX/build/MINGW32_NT-6.2/generated/fonts/src/Font_verdana_15_4bpp_0.o \
 ../TouchGFX/build/MINGW32_NT-6.2/generated/fonts/src/Font_verdana_16_4bpp_0.o \
-../TouchGFX/build/MINGW32_NT-6.2/generated/fonts/src/Font_verdana_17_4bpp_0.o \
 ../TouchGFX/build/MINGW32_NT-6.2/generated/fonts/src/Font_verdana_20_4bpp_0.o \
 ../TouchGFX/build/MINGW32_NT-6.2/generated/fonts/src/Font_verdana_40_4bpp_0.o \
 ../TouchGFX/build/MINGW32_NT-6.2/generated/fonts/src/GeneratedFont.o \
 ../TouchGFX/build/MINGW32_NT-6.2/generated/fonts/src/Kerning_verdana_10_4bpp.o \
-../TouchGFX/build/MINGW32_NT-6.2/generated/fonts/src/Kerning_verdana_15_4bpp.o \
 ../TouchGFX/build/MINGW32_NT-6.2/generated/fonts/src/Kerning_verdana_16_4bpp.o \
-../TouchGFX/build/MINGW32_NT-6.2/generated/fonts/src/Kerning_verdana_17_4bpp.o \
 ../TouchGFX/build/MINGW32_NT-6.2/generated/fonts/src/Kerning_verdana_20_4bpp.o \
 ../TouchGFX/build/MINGW32_NT-6.2/generated/fonts/src/Kerning_verdana_40_4bpp.o \
 ../TouchGFX/build/MINGW32_NT-6.2/generated/fonts/src/Table_verdana_10_4bpp.o \
-../TouchGFX/build/MINGW32_NT-6.2/generated/fonts/src/Table_verdana_15_4bpp.o \
 ../TouchGFX/build/MINGW32_NT-6.2/generated/fonts/src/Table_verdana_16_4bpp.o \
-../TouchGFX/build/MINGW32_NT-6.2/generated/fonts/src/Table_verdana_17_4bpp.o \
 ../TouchGFX/build/MINGW32_NT-6.2/generated/fonts/src/Table_verdana_20_4bpp.o \
 ../TouchGFX/build/MINGW32_NT-6.2/generated/fonts/src/Table_verdana_40_4bpp.o \
 ../TouchGFX/build/MINGW32_NT-6.2/generated/fonts/src/UnmappedDataFont.o 

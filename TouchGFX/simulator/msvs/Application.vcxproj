@@ -30,6 +30,8 @@
     <ClCompile Include="..\..\gui\src\screen3_screen\Screen3Presenter.cpp"/>
     <ClCompile Include="..\..\gui\src\screen3_screen\Screen3View.cpp"/>
     <ClCompile Include="..\..\generated\gui_generated\src\screen3_screen\Screen3ViewBase.cpp"/>
+    <ClCompile Include="..\..\gui\src\containers\MenuElement.cpp"/>
+    <ClCompile Include="..\..\generated\gui_generated\src\containers\MenuElementBase.cpp"/>
   </ItemGroup>
   <ItemGroup>
     <None Include="$(ApplicationRoot)\assets\texts\texts.xml"/>
@@ -189,6 +191,8 @@
     <ClInclude Include="..\..\gui\include\gui\screen3_screen\Screen3Presenter.hpp"/>
     <ClInclude Include="..\..\gui\include\gui\screen3_screen\Screen3View.hpp"/>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\screen3_screen\Screen3ViewBase.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\containers\MenuElement.hpp"/>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\containers\MenuElementBase.hpp"/>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="$(ApplicationRoot)\generated\simulator\touchgfx.rc"/>

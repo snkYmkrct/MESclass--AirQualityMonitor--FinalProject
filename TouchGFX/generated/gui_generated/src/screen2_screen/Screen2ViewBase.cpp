@@ -7,7 +7,8 @@
 #include <texts/TextKeysAndLanguages.hpp>
 
 Screen2ViewBase::Screen2ViewBase() :
-    buttonCallback(this, &Screen2ViewBase::buttonCallbackHandler)
+    buttonCallback(this, &Screen2ViewBase::buttonCallbackHandler),
+    updateItemCallback(this, &Screen2ViewBase::updateItemCallbackHandler)
 {
 
     __background.setPosition(0, 0, 240, 320);
@@ -19,103 +20,7 @@ Screen2ViewBase::Screen2ViewBase() :
     image1.setXY(0, 33);
     image1.setBitmap(touchgfx::Bitmap(BITMAP_BACKGROUND_GRAY_VERTICAL_ID));
 
-    textArea1.setXY(9, 51);
-    textArea1.setColor(touchgfx::Color::getColorFromRGB(227, 211, 211));
-    textArea1.setLinespacing(0);
-    Unicode::snprintf(textArea1Buffer, TEXTAREA1_SIZE, "%s", touchgfx::TypedText(T_T1W).getText());
-    textArea1.setWildcard(textArea1Buffer);
-    textArea1.resizeToCurrentText();
-    textArea1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_7DYV));
-
-    textArea2.setXY(6, 83);
-    textArea2.setColor(touchgfx::Color::getColorFromRGB(230, 207, 207));
-    textArea2.setLinespacing(0);
-    textArea2Buffer[0] = 0;
-    textArea2.setWildcard(textArea2Buffer);
-    textArea2.resizeToCurrentText();
-    textArea2.setTypedText(touchgfx::TypedText(T___SINGLEUSE_E509));
-
-    textArea3.setXY(6, 116);
-    textArea3.setColor(touchgfx::Color::getColorFromRGB(230, 209, 209));
-    textArea3.setLinespacing(0);
-    textArea3Buffer[0] = 0;
-    textArea3.setWildcard(textArea3Buffer);
-    textArea3.resizeToCurrentText();
-    textArea3.setTypedText(touchgfx::TypedText(T___SINGLEUSE_JSY4));
-
-    textArea4.setXY(6, 170);
-    textArea4.setColor(touchgfx::Color::getColorFromRGB(227, 211, 211));
-    textArea4.setLinespacing(0);
-    textArea4Buffer[0] = 0;
-    textArea4.setWildcard(textArea4Buffer);
-    textArea4.resizeToCurrentText();
-    textArea4.setTypedText(touchgfx::TypedText(T___SINGLEUSE_QUZN));
-
-    textArea5.setXY(6, 202);
-    textArea5.setColor(touchgfx::Color::getColorFromRGB(230, 207, 207));
-    textArea5.setLinespacing(0);
-    textArea5Buffer[0] = 0;
-    textArea5.setWildcard(textArea5Buffer);
-    textArea5.resizeToCurrentText();
-    textArea5.setTypedText(touchgfx::TypedText(T___SINGLEUSE_67DT));
-
-    textArea6.setXY(6, 235);
-    textArea6.setColor(touchgfx::Color::getColorFromRGB(230, 209, 209));
-    textArea6.setLinespacing(0);
-    textArea6Buffer[0] = 0;
-    textArea6.setWildcard(textArea6Buffer);
-    textArea6.resizeToCurrentText();
-    textArea6.setTypedText(touchgfx::TypedText(T___SINGLEUSE_DDBN));
-
-    textArea1_1.setXY(120, 51);
-    textArea1_1.setColor(touchgfx::Color::getColorFromRGB(227, 211, 211));
-    textArea1_1.setLinespacing(0);
-    textArea1_1Buffer[0] = 0;
-    textArea1_1.setWildcard(textArea1_1Buffer);
-    textArea1_1.resizeToCurrentText();
-    textArea1_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_SRW8));
-
-    textArea2_1.setXY(120, 83);
-    textArea2_1.setColor(touchgfx::Color::getColorFromRGB(230, 207, 207));
-    textArea2_1.setLinespacing(0);
-    textArea2_1Buffer[0] = 0;
-    textArea2_1.setWildcard(textArea2_1Buffer);
-    textArea2_1.resizeToCurrentText();
-    textArea2_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_PL7V));
-
-    textArea3_1.setXY(120, 116);
-    textArea3_1.setColor(touchgfx::Color::getColorFromRGB(230, 209, 209));
-    textArea3_1.setLinespacing(0);
-    textArea3_1Buffer[0] = 0;
-    textArea3_1.setWildcard(textArea3_1Buffer);
-    textArea3_1.resizeToCurrentText();
-    textArea3_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_8CMW));
-
-    textArea4_1.setXY(120, 170);
-    textArea4_1.setColor(touchgfx::Color::getColorFromRGB(227, 211, 211));
-    textArea4_1.setLinespacing(0);
-    textArea4_1Buffer[0] = 0;
-    textArea4_1.setWildcard(textArea4_1Buffer);
-    textArea4_1.resizeToCurrentText();
-    textArea4_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_LIU5));
-
-    textArea5_1.setXY(120, 202);
-    textArea5_1.setColor(touchgfx::Color::getColorFromRGB(230, 207, 207));
-    textArea5_1.setLinespacing(0);
-    textArea5_1Buffer[0] = 0;
-    textArea5_1.setWildcard(textArea5_1Buffer);
-    textArea5_1.resizeToCurrentText();
-    textArea5_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_SFP5));
-
-    textArea6_1.setXY(120, 235);
-    textArea6_1.setColor(touchgfx::Color::getColorFromRGB(230, 209, 209));
-    textArea6_1.setLinespacing(0);
-    textArea6_1Buffer[0] = 0;
-    textArea6_1.setWildcard(textArea6_1Buffer);
-    textArea6_1.resizeToCurrentText();
-    textArea6_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_TIKO));
-
-    button1.setXY(193, 274);
+    button1.setXY(197, 274);
     button1.setBitmaps(touchgfx::Bitmap(BITMAP_ARROW_RIGHT_MIC_ID), touchgfx::Bitmap(BITMAP_ARROW_RIGHT_MIC_ID));
     button1.setAction(buttonCallback);
 
@@ -129,29 +34,117 @@ Screen2ViewBase::Screen2ViewBase() :
     image2.setXY(195, -2);
     image2.setBitmap(touchgfx::Bitmap(BITMAP_BATTERY_3Q_MIC_ID));
 
+    scrollableContainer1.setPosition(19, 47, 138, 157);
+    scrollableContainer1.setScrollbarsColor(touchgfx::Color::getColorFromRGB(173, 52, 52));
+
+    textArea1.setXY(4, 36);
+    textArea1.setColor(touchgfx::Color::getColorFromRGB(227, 211, 211));
+    textArea1.setLinespacing(0);
+    Unicode::snprintf(textArea1Buffer, TEXTAREA1_SIZE, "%s", touchgfx::TypedText(T_T1W).getText());
+    textArea1.setWildcard(textArea1Buffer);
+    textArea1.resizeToCurrentText();
+    textArea1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_7DYV));
+    scrollableContainer1.add(textArea1);
+
+    textArea2.setXY(1, 68);
+    textArea2.setColor(touchgfx::Color::getColorFromRGB(230, 207, 207));
+    textArea2.setLinespacing(0);
+    textArea2Buffer[0] = 0;
+    textArea2.setWildcard(textArea2Buffer);
+    textArea2.resizeToCurrentText();
+    textArea2.setTypedText(touchgfx::TypedText(T___SINGLEUSE_E509));
+    scrollableContainer1.add(textArea2);
+
+    textArea3.setXY(1, 101);
+    textArea3.setColor(touchgfx::Color::getColorFromRGB(230, 209, 209));
+    textArea3.setLinespacing(0);
+    textArea3Buffer[0] = 0;
+    textArea3.setWildcard(textArea3Buffer);
+    textArea3.resizeToCurrentText();
+    textArea3.setTypedText(touchgfx::TypedText(T___SINGLEUSE_JSY4));
+    scrollableContainer1.add(textArea3);
+
+    textArea4.setXY(115, 36);
+    textArea4.setColor(touchgfx::Color::getColorFromRGB(227, 211, 211));
+    textArea4.setLinespacing(0);
+    textArea4Buffer[0] = 0;
+    textArea4.setWildcard(textArea4Buffer);
+    textArea4.resizeToCurrentText();
+    textArea4.setTypedText(touchgfx::TypedText(T___SINGLEUSE_QUZN));
+    scrollableContainer1.add(textArea4);
+
+    textArea5.setXY(115, 68);
+    textArea5.setColor(touchgfx::Color::getColorFromRGB(230, 207, 207));
+    textArea5.setLinespacing(0);
+    textArea5Buffer[0] = 0;
+    textArea5.setWildcard(textArea5Buffer);
+    textArea5.resizeToCurrentText();
+    textArea5.setTypedText(touchgfx::TypedText(T___SINGLEUSE_67DT));
+    scrollableContainer1.add(textArea5);
+
+    textArea6.setXY(115, 101);
+    textArea6.setColor(touchgfx::Color::getColorFromRGB(230, 209, 209));
+    textArea6.setLinespacing(0);
+    textArea6Buffer[0] = 0;
+    textArea6.setWildcard(textArea6Buffer);
+    textArea6.resizeToCurrentText();
+    textArea6.setTypedText(touchgfx::TypedText(T___SINGLEUSE_DDBN));
+    scrollableContainer1.add(textArea6);
+
+    scrollWheel1.setPosition(1, 233, 200, 30);
+    scrollWheel1.setHorizontal(false);
+    scrollWheel1.setCircular(false);
+    scrollWheel1.setEasingEquation(touchgfx::EasingEquations::backEaseOut);
+    scrollWheel1.setSwipeAcceleration(10);
+    scrollWheel1.setDragAcceleration(10);
+    scrollWheel1.setNumberOfItems(12);
+    scrollWheel1.setSelectedItemOffset(0);
+    scrollWheel1.setSelectedItemExtraSize(1, 1);
+    scrollWheel1.setSelectedItemMargin(1, 1);
+    scrollWheel1.setDrawableSize(30, 0);
+    scrollWheel1.setDrawables(scrollWheel1ListItems, updateItemCallback,
+                              scrollWheel1SelectedListItems, updateItemCallback);
+    scrollWheel1.animateToItem(0, 0);
+
+    scrollList1.setPosition(0, 269, 200, 50);
+    scrollList1.setHorizontal(false);
+    scrollList1.setCircular(false);
+    scrollList1.setEasingEquation(touchgfx::EasingEquations::backEaseOut);
+    scrollList1.setSwipeAcceleration(10);
+    scrollList1.setDragAcceleration(10);
+    scrollList1.setNumberOfItems(10);
+    scrollList1.setPadding(0, 0);
+    scrollList1.setSnapping(false);
+    scrollList1.setDrawableSize(30, 0);
+    scrollList1.setDrawables(scrollList1ListItems, updateItemCallback);
+
     add(__background);
     add(box1);
     add(image1);
-    add(textArea1);
-    add(textArea2);
-    add(textArea3);
-    add(textArea4);
-    add(textArea5);
-    add(textArea6);
-    add(textArea1_1);
-    add(textArea2_1);
-    add(textArea3_1);
-    add(textArea4_1);
-    add(textArea5_1);
-    add(textArea6_1);
     add(button1);
     add(digitalClock1);
     add(image2);
+    add(scrollableContainer1);
+    add(scrollWheel1);
+    add(scrollList1);
 }
 
 void Screen2ViewBase::setupScreen()
 {
-
+    scrollWheel1.initialize();
+    for (int i = 0; i < scrollWheel1ListItems.getNumberOfDrawables(); i++)
+    {
+        scrollWheel1ListItems[i].initialize();
+    }
+    for (int i = 0; i < scrollWheel1SelectedListItems.getNumberOfDrawables(); i++)
+    {
+        scrollWheel1SelectedListItems[i].initialize();
+    }
+    scrollList1.initialize();
+    for (int i = 0; i < scrollList1ListItems.getNumberOfDrawables(); i++)
+    {
+        scrollList1ListItems[i].initialize();
+    }
 }
 
 void Screen2ViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
@@ -162,5 +155,27 @@ void Screen2ViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
         //When button1 clicked change screen to Screen3
         //Go to Screen3 with no screen transition
         application().gotoScreen3ScreenNoTransition();
+    }
+}
+
+void Screen2ViewBase::updateItemCallbackHandler(touchgfx::DrawableListItemsInterface* items, int16_t containerIndex, int16_t itemIndex)
+{
+    if (items == &scrollList1ListItems)
+    {
+        touchgfx::Drawable* d = items->getDrawable(containerIndex);
+        MenuElement* cc = (MenuElement*)d;
+        scrollList1UpdateItem(*cc, itemIndex);
+    }
+    else if (items == &scrollWheel1ListItems)
+    {
+        touchgfx::Drawable* d = items->getDrawable(containerIndex);
+        MenuElement* cc = (MenuElement*)d;
+        scrollWheel1UpdateItem(*cc, itemIndex);
+    }
+    else if (items == &scrollWheel1SelectedListItems)
+    {
+        touchgfx::Drawable* d = items->getDrawable(containerIndex);
+        MenuElement* cc = (MenuElement*)d;
+        scrollWheel1UpdateCenterItem(*cc, itemIndex);
     }
 }

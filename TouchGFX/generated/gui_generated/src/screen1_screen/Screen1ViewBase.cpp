@@ -85,6 +85,6 @@ void Screen1ViewBase::afterTransition()
 {
     //InteractionLoadScreen
     //When screen transition ends delay
-    //Delay for 5000 ms (300 Ticks)
+    //Delay for 2000 ms (120 Ticks)
     interactionLoadScreenCounter = INTERACTIONLOADSCREEN_DURATION;
 }

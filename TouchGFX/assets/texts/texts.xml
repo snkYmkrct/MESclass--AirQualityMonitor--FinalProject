@@ -6,6 +6,12 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_2Q71" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">00</Translation>
+      </Text>
+      <Text Id="__SingleUse_EQZ9" Alignment="Left" TypographyId="Typography_00">
+        <Translation Language="GB">Menu Element &lt;value&gt;</Translation>
+      </Text>
       <Text Id="__SingleUse_J936" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">&lt;&gt;</Translation>
       </Text>
@@ -36,24 +42,6 @@
       <Text Id="t1w" Alignment="Left" TypographyId="Default">
         <Translation Language="GB" />
       </Text>
-      <Text Id="__SingleUse_TIKO" Alignment="Left" TypographyId="Typography_00">
-        <Translation Language="GB">&gt; 10 um  &lt;value&gt;</Translation>
-      </Text>
-      <Text Id="__SingleUse_SFP5" Alignment="Left" TypographyId="Typography_00">
-        <Translation Language="GB">&gt; 5.0 um  &lt;value&gt;</Translation>
-      </Text>
-      <Text Id="__SingleUse_LIU5" Alignment="Left" TypographyId="Typography_00">
-        <Translation Language="GB">&gt; 2.5 um  &lt;value&gt;</Translation>
-      </Text>
-      <Text Id="__SingleUse_8CMW" Alignment="Left" TypographyId="Typography_00">
-        <Translation Language="GB">&gt; 1.0 um  &lt;value&gt;</Translation>
-      </Text>
-      <Text Id="__SingleUse_PL7V" Alignment="Left" TypographyId="Typography_00">
-        <Translation Language="GB">&gt; 0.5 um  &lt;value&gt;</Translation>
-      </Text>
-      <Text Id="__SingleUse_SRW8" Alignment="Left" TypographyId="Typography_00">
-        <Translation Language="GB">&gt; 0.3 um  &lt;value&gt;</Translation>
-      </Text>
       <Text Id="__SingleUse_DDBN" Alignment="Left" TypographyId="Typography_00">
         <Translation Language="GB">PM 10 en &lt;value&gt;</Translation>
       </Text>
@@ -78,6 +66,6 @@
     <Typography Id="Default" Font="verdana.ttf" Size="20" Bpp="4" Direction="LTR" FallbackCharacter="?" WidgetWildcardCharacters="0123456789 :APM" WildcardCharacterRanges="!-~" />
     <Typography Id="Large" Font="verdana.ttf" Size="40" Bpp="4" Direction="LTR" FallbackCharacter="?" />
     <Typography Id="Small" Font="verdana.ttf" Size="10" Bpp="4" Direction="LTR" FallbackCharacter="?" />
-    <Typography Id="Typography_00" Font="verdana.ttf" Size="16" Bpp="4" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="Typography_00" Font="verdana.ttf" Size="16" Bpp="4" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="!-~" />
   </Typographies>
 </TextDatabase>

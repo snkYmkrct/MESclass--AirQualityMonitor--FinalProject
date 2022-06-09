@@ -9,26 +9,22 @@ KEEP extern const uint32_t indicesGb[] TEXT_LOCATION_FLASH_ATTRIBUTE;
 
 TEXT_LOCATION_FLASH_PRAGMA
 KEEP extern const uint32_t indicesGb[] TEXT_LOCATION_FLASH_ATTRIBUTE = {
-    31, // T___SingleUse_J936
-    31, // T___SingleUse_SAU0
-    172, // T___SingleUse_55I3
+    144, // T___SingleUse_2Q71
+    21, // T___SingleUse_EQZ9
+    34, // T___SingleUse_J936
+    34, // T___SingleUse_SAU0
+    116, // T___SingleUse_55I3
     0, // T___SingleUse_1RTL
-    196, // T___SingleUse_M25P
-    162, // T___SingleUse_VQNR
-    31, // T___SingleUse_8SEC
-    187, // T___SingleUse_UZVW
-    187, // T___SingleUse_BVBX
+    140, // T___SingleUse_M25P
+    106, // T___SingleUse_VQNR
+    34, // T___SingleUse_8SEC
+    131, // T___SingleUse_UZVW
+    131, // T___SingleUse_BVBX
     20, // T_t1w
-    129, // T___SingleUse_TIKO
-    69, // T___SingleUse_SFP5
-    57, // T___SingleUse_LIU5
-    45, // T___SingleUse_8CMW
-    33, // T___SingleUse_PL7V
-    21, // T___SingleUse_SRW8
-    140, // T___SingleUse_DDBN
-    105, // T___SingleUse_67DT
-    81, // T___SingleUse_QUZN
-    151, // T___SingleUse_JSY4
-    117, // T___SingleUse_E509
-    93 // T___SingleUse_7DYV
+    84, // T___SingleUse_DDBN
+    60, // T___SingleUse_67DT
+    36, // T___SingleUse_QUZN
+    95, // T___SingleUse_JSY4
+    72, // T___SingleUse_E509
+    48 // T___SingleUse_7DYV
 };

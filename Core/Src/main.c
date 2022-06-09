@@ -20,7 +20,6 @@
  **/
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
-#include <Peripherals/Battery_monitor_LC709203F_i2c/battery_monitor_LC709203F.h>
 #include "main.h"
 #include "app_touchgfx.h"
 
@@ -34,6 +33,7 @@
 #include "aiq_PMSA003I_i2c.h"
 #include "scd4x_i2c.h"
 #include "rtc_DS3231_i2c.h"
+#include "battery_monitor_LC709203F.h"
 
 /* USER CODE END Includes */
 
@@ -150,6 +150,7 @@ int main(void)
   MX_TouchGFX_Init();
   /* USER CODE BEGIN 2 */
 
+  HAL_GPIO_WritePin(TURN_OFF_GPIO_Port, TURN_OFF_Pin, GPIO_PIN_RESET);
   MyButtonPressed = HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin);
   ConsoleInit();
 
@@ -169,7 +170,7 @@ int main(void)
   if (error) {
       printf("Error executing scd4x_get_serial_number(): %i \r\n", error);
   } else {
-      printf("serial: 0x%04x%04x%04x\r\n", serial_0, serial_1, serial_2);
+      printf("co2 serial: 0x%04x%04x%04x\r\n", serial_0, serial_1, serial_2);
   }
 
   // Start Measurement
@@ -180,7 +181,7 @@ int main(void)
              error);
   }
 
-  printf("Waiting for first measurement... (5 sec)\r\n");
+  printf("Waiting for first co2 measurement... (5 sec)\r\n");
 
   if (!battery_monitor_LC709203F_begin()) {
     printf("\r\nCouldnt find Adafruit LC709203F ?\r\nMake sure a battery is plugged in!\r\n");
@@ -217,6 +218,9 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  GPIO_PinState UartPinConnected = HAL_GPIO_ReadPin(UART_CONNECTED_GPIO_Port, UART_CONNECTED_Pin);
+	  HAL_GPIO_WritePin(LD3_GPIO_Port, LD3_Pin, UartPinConnected);
+
 	  if (isConsoleStarted){
 		  ConsoleProcess();
 	  }
@@ -226,9 +230,11 @@ int main(void)
 		  ConsoleIoSendString(CONSOLE_PROMPT);
 		  isConsoleStarted = 1u;
 		  MyButtonPressed = GPIO_PIN_RESET;
+		  HAL_GPIO_WritePin(TURN_OFF_GPIO_Port, TURN_OFF_Pin, GPIO_PIN_SET);
 	  }
 
-/*
+
+
 	  printf("````````````````````````````````````````\r\n");
 	  if (rtc_DS3231_getTime(&timeData)){
 		  printf(" %02ld:%02ld:%02ld \r\n", timeData.hour, timeData.minutes, timeData.seconds);
@@ -294,9 +300,8 @@ int main(void)
 		  printf("\r\n---------------------------------------\r\n");
 	  }
 
-	  HAL_Delay(30000);  // dont query too often!
+	  HAL_Delay(3000);  // dont query too often!
 
-*/
 
 
     /* USER CODE END WHILE */
@@ -742,16 +747,23 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOD_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOC, NCS_MEMS_SPI_Pin|CSX_Pin|OTG_FS_PSO_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(TURN_OFF_GPIO_Port, TURN_OFF_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(ACP_RST_GPIO_Port, ACP_RST_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOC, NCS_MEMS_SPI_Pin|CSX_Pin|OTG_FS_PSO_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOD, RDX_Pin|WRX_DCX_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOG, LD3_Pin|LD4_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin : TURN_OFF_Pin */
+  GPIO_InitStruct.Pin = TURN_OFF_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(TURN_OFF_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : NCS_MEMS_SPI_Pin CSX_Pin OTG_FS_PSO_Pin */
   GPIO_InitStruct.Pin = NCS_MEMS_SPI_Pin|CSX_Pin|OTG_FS_PSO_Pin;
@@ -772,12 +784,11 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : ACP_RST_Pin */
-  GPIO_InitStruct.Pin = ACP_RST_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(ACP_RST_GPIO_Port, &GPIO_InitStruct);
+  /*Configure GPIO pin : UART_CONNECTED_Pin */
+  GPIO_InitStruct.Pin = UART_CONNECTED_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+  HAL_GPIO_Init(UART_CONNECTED_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : OTG_FS_OC_Pin */
   GPIO_InitStruct.Pin = OTG_FS_OC_Pin;
@@ -833,7 +844,7 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 
-// function that handles the interrupts on pin PA1 - user button on the board
+// function that handles the interrupts in GPIO
 // implementation of a __weak function in the HAL
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 

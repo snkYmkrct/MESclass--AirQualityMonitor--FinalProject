@@ -46,7 +46,7 @@ private:
     /*
      * Delay Variable Declarations
      */
-    static const uint16_t INTERACTIONLOADSCREEN_DURATION = 300;
+    static const uint16_t INTERACTIONLOADSCREEN_DURATION = 120;
     uint16_t interactionLoadScreenCounter;
 
 };

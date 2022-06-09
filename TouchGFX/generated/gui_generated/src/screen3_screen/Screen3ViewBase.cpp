@@ -64,7 +64,7 @@ Screen3ViewBase::Screen3ViewBase() :
     image3.setBitmap(touchgfx::Bitmap(BITMAP_THERMOMETER_2_MIC_ID));
 
     image5.setXY(67, 141);
-    image5.setBitmap(touchgfx::Bitmap(BITMAP_CO2_MIC_ID));
+    image5.setBitmap(touchgfx::Bitmap(BITMAP_CO2_CLOUD_3_MIC_ID));
 
     image6.setXY(125, 45);
     image6.setBitmap(touchgfx::Bitmap(BITMAP_AIR_POLLUTION_1_MIC_ID));
@@ -90,7 +90,7 @@ Screen3ViewBase::Screen3ViewBase() :
 
     container1.setPosition(5, 44, 37, 143);
 
-    box6.setPosition(0, 2, 37, 18);
+    box6.setPosition(0, 2, 37, 19);
     box6.setColor(touchgfx::Color::getColorFromRGB(209, 23, 23));
     container1.add(box6);
 
@@ -108,7 +108,7 @@ Screen3ViewBase::Screen3ViewBase() :
 
     container1_1.setPosition(200, 94, 35, 94);
 
-    box6_4.setPosition(0, 3, 37, 16);
+    box6_4.setPosition(0, 0, 37, 19);
     box6_4.setColor(touchgfx::Color::getColorFromRGB(209, 23, 23));
     container1_1.add(box6_4);
 
@@ -116,7 +116,7 @@ Screen3ViewBase::Screen3ViewBase() :
     box6_1_1.setColor(touchgfx::Color::getColorFromRGB(214, 117, 43));
     container1_1.add(box6_1_1);
 
-    box6_2_1.setPosition(0, 40, 37, 18);
+    box6_2_1.setPosition(-1, 40, 37, 18);
     box6_2_1.setColor(touchgfx::Color::getColorFromRGB(196, 199, 38));
     container1_1.add(box6_2_1);
 

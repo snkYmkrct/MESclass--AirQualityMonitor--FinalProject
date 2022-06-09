@@ -118,7 +118,7 @@
             },
             "Action": {
               "Type": "ActionDelay",
-              "Duration": 5000
+              "Duration": 2000
             }
           },
           {
@@ -153,250 +153,9 @@
             "RelativeFilename": "background_gray_vertical.png"
           },
           {
-            "Type": "TextArea",
-            "Name": "textArea1",
-            "X": 9,
-            "Y": 51,
-            "Width": 81,
-            "Height": 19,
-            "TextId": "__SingleUse_7DYV",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 227,
-              "Green": 211,
-              "Blue": 211
-            },
-            "AutoSize": true,
-            "Wildcard1": {
-              "TextId": "t1w",
-              "UseBuffer": true,
-              "BufferSize": 10
-            }
-          },
-          {
-            "Type": "TextArea",
-            "Name": "textArea2",
-            "X": 6,
-            "Y": 83,
-            "Width": 81,
-            "Height": 19,
-            "TextId": "__SingleUse_E509",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 230,
-              "Green": 207,
-              "Blue": 207
-            },
-            "AutoSize": true,
-            "Wildcard1": {
-              "UseBuffer": true,
-              "BufferSize": 10
-            }
-          },
-          {
-            "Type": "TextArea",
-            "Name": "textArea3",
-            "X": 6,
-            "Y": 116,
-            "Width": 75,
-            "Height": 19,
-            "TextId": "__SingleUse_JSY4",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 230,
-              "Green": 209,
-              "Blue": 209
-            },
-            "AutoSize": true,
-            "Wildcard1": {
-              "UseBuffer": true,
-              "BufferSize": 10
-            }
-          },
-          {
-            "Type": "TextArea",
-            "Name": "textArea4",
-            "X": 6,
-            "Y": 170,
-            "Width": 86,
-            "Height": 19,
-            "TextId": "__SingleUse_QUZN",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 227,
-              "Green": 211,
-              "Blue": 211
-            },
-            "AutoSize": true,
-            "Wildcard1": {
-              "UseBuffer": true,
-              "BufferSize": 10
-            }
-          },
-          {
-            "Type": "TextArea",
-            "Name": "textArea5",
-            "X": 6,
-            "Y": 202,
-            "Width": 86,
-            "Height": 19,
-            "TextId": "__SingleUse_67DT",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 230,
-              "Green": 207,
-              "Blue": 207
-            },
-            "AutoSize": true,
-            "Wildcard1": {
-              "UseBuffer": true,
-              "BufferSize": 10
-            }
-          },
-          {
-            "Type": "TextArea",
-            "Name": "textArea6",
-            "X": 6,
-            "Y": 235,
-            "Width": 80,
-            "Height": 19,
-            "TextId": "__SingleUse_DDBN",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 230,
-              "Green": 209,
-              "Blue": 209
-            },
-            "AutoSize": true,
-            "Wildcard1": {
-              "UseBuffer": true,
-              "BufferSize": 10
-            }
-          },
-          {
-            "Type": "TextArea",
-            "Name": "textArea1_1",
-            "X": 120,
-            "Y": 51,
-            "Width": 87,
-            "Height": 19,
-            "TextId": "__SingleUse_SRW8",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 227,
-              "Green": 211,
-              "Blue": 211
-            },
-            "AutoSize": true,
-            "Wildcard1": {
-              "UseBuffer": true,
-              "BufferSize": 10
-            }
-          },
-          {
-            "Type": "TextArea",
-            "Name": "textArea2_1",
-            "X": 120,
-            "Y": 83,
-            "Width": 87,
-            "Height": 19,
-            "TextId": "__SingleUse_PL7V",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 230,
-              "Green": 207,
-              "Blue": 207
-            },
-            "AutoSize": true,
-            "Wildcard1": {
-              "UseBuffer": true,
-              "BufferSize": 10
-            }
-          },
-          {
-            "Type": "TextArea",
-            "Name": "textArea3_1",
-            "X": 120,
-            "Y": 116,
-            "Width": 87,
-            "Height": 19,
-            "TextId": "__SingleUse_8CMW",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 230,
-              "Green": 209,
-              "Blue": 209
-            },
-            "AutoSize": true,
-            "Wildcard1": {
-              "UseBuffer": true,
-              "BufferSize": 10
-            }
-          },
-          {
-            "Type": "TextArea",
-            "Name": "textArea4_1",
-            "X": 120,
-            "Y": 170,
-            "Width": 87,
-            "Height": 19,
-            "TextId": "__SingleUse_LIU5",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 227,
-              "Green": 211,
-              "Blue": 211
-            },
-            "AutoSize": true,
-            "Wildcard1": {
-              "UseBuffer": true,
-              "BufferSize": 10
-            }
-          },
-          {
-            "Type": "TextArea",
-            "Name": "textArea5_1",
-            "X": 120,
-            "Y": 202,
-            "Width": 87,
-            "Height": 19,
-            "TextId": "__SingleUse_SFP5",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 230,
-              "Green": 207,
-              "Blue": 207
-            },
-            "AutoSize": true,
-            "Wildcard1": {
-              "UseBuffer": true,
-              "BufferSize": 10
-            }
-          },
-          {
-            "Type": "TextArea",
-            "Name": "textArea6_1",
-            "X": 120,
-            "Y": 235,
-            "Width": 82,
-            "Height": 19,
-            "TextId": "__SingleUse_TIKO",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 230,
-              "Green": 209,
-              "Blue": 209
-            },
-            "AutoSize": true,
-            "Wildcard1": {
-              "UseBuffer": true,
-              "BufferSize": 10
-            }
-          },
-          {
             "Type": "Button",
             "Name": "button1",
-            "X": 193,
+            "X": 197,
             "Y": 274,
             "Width": 40,
             "Height": 40,
@@ -429,6 +188,181 @@
             "Width": 40,
             "Height": 40,
             "RelativeFilename": "battery_3q_mic.png"
+          },
+          {
+            "Type": "ScrollableContainer",
+            "Name": "scrollableContainer1",
+            "X": 19,
+            "Y": 47,
+            "Width": 138,
+            "Height": 157,
+            "HorizontalScrollEnabled": true,
+            "VerticalScrollEnabled": true,
+            "ScrollbarsVisibleOnPressed": true,
+            "ScrollbarsColor": {
+              "Red": 173,
+              "Green": 52,
+              "Blue": 52
+            },
+            "ScrollbarsAlpha": 255,
+            "Components": [
+              {
+                "Type": "TextArea",
+                "Name": "textArea1",
+                "X": 4,
+                "Y": 36,
+                "Width": 81,
+                "Height": 19,
+                "TextId": "__SingleUse_7DYV",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 227,
+                  "Green": 211,
+                  "Blue": 211
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "t1w",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "textArea2",
+                "X": 1,
+                "Y": 68,
+                "Width": 81,
+                "Height": 19,
+                "TextId": "__SingleUse_E509",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 230,
+                  "Green": 207,
+                  "Blue": 207
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "textArea3",
+                "X": 1,
+                "Y": 101,
+                "Width": 75,
+                "Height": 19,
+                "TextId": "__SingleUse_JSY4",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 230,
+                  "Green": 209,
+                  "Blue": 209
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "textArea4",
+                "X": 115,
+                "Y": 36,
+                "Width": 86,
+                "Height": 19,
+                "TextId": "__SingleUse_QUZN",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 227,
+                  "Green": 211,
+                  "Blue": 211
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "textArea5",
+                "X": 115,
+                "Y": 68,
+                "Width": 86,
+                "Height": 19,
+                "TextId": "__SingleUse_67DT",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 230,
+                  "Green": 207,
+                  "Blue": 207
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "textArea6",
+                "X": 115,
+                "Y": 101,
+                "Width": 80,
+                "Height": 19,
+                "TextId": "__SingleUse_DDBN",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 230,
+                  "Green": 209,
+                  "Blue": 209
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              }
+            ]
+          },
+          {
+            "Type": "ScrollWheel",
+            "Name": "scrollWheel1",
+            "X": -3,
+            "Y": 232,
+            "Width": 200,
+            "Height": 30,
+            "UseSelectedStyle": true,
+            "SelectedItemTemplateName": "MenuElement",
+            "ExtraSizeBefore": 1,
+            "ExtraSizeAfter": 1,
+            "MarginBefore": 1,
+            "MarginAfter": 1,
+            "ItemTemplateName": "MenuElement",
+            "NumberofItems": 12,
+            "Easing": "Back",
+            "EasingOption": "Out",
+            "SwipeAcceleration": 1.0,
+            "DragAcceleration": 1.0
+          },
+          {
+            "Type": "ScrollList",
+            "Name": "scrollList1",
+            "X": -3,
+            "Y": 269,
+            "Width": 200,
+            "Height": 50,
+            "ItemTemplateName": "MenuElement",
+            "NumberofItems": 10,
+            "Easing": "Back",
+            "EasingOption": "Out",
+            "SwipeAcceleration": 1.0,
+            "DragAcceleration": 1.0,
+            "Clickable": true
           }
         ],
         "Interactions": [
@@ -442,6 +376,15 @@
               "Type": "ActionGotoScreen",
               "ScreenTransitionType": "ScreenTransitionNone",
               "ActionComponent": "Screen3"
+            }
+          },
+          {
+            "InteractionName": "Interaction2",
+            "Trigger": {
+              "Type": "TriggerNone"
+            },
+            "Action": {
+              "Type": "ActionNone"
             }
           }
         ]
@@ -516,7 +459,7 @@
             "TextRotation": "0",
             "Color": {
               "Red": 217,
-              "Green": 171,
+              "Green": 4,
               "Blue": 4
             },
             "AutoSize": true
@@ -536,9 +479,17 @@
           },
           {
             "Type": "Box",
-            "Name": "box7",
-            "X": 46,
+            "Name": "box4",
+            "X": 44,
             "Y": 228,
+            "Width": 89,
+            "Height": 25
+          },
+          {
+            "Type": "Box",
+            "Name": "box7",
+            "X": 30,
+            "Y": 211,
             "Width": 27,
             "Height": 45
           },
@@ -563,8 +514,8 @@
           {
             "Type": "Image",
             "Name": "image3",
-            "X": 39,
-            "Y": 230,
+            "X": 23,
+            "Y": 213,
             "Width": 40,
             "Height": 40,
             "RelativeFilename": "thermometer_2_mic.png"
@@ -588,18 +539,10 @@
             "RelativeFilename": "air-pollution_1_mic.png"
           },
           {
-            "Type": "Box",
-            "Name": "box4",
-            "X": 70,
-            "Y": 245,
-            "Width": 89,
-            "Height": 25
-          },
-          {
             "Type": "TextArea",
             "Name": "textArea3",
-            "X": 70,
-            "Y": 248,
+            "X": 54,
+            "Y": 231,
             "Width": 73,
             "Height": 19,
             "TextId": "__SingleUse_VQNR",
@@ -615,16 +558,16 @@
           {
             "Type": "Box",
             "Name": "box5",
-            "X": 175,
-            "Y": 199,
+            "X": 131,
+            "Y": 204,
             "Width": 68,
             "Height": 24
           },
           {
             "Type": "Image",
             "Name": "image7",
-            "X": 172,
-            "Y": 210,
+            "X": 169,
+            "Y": 188,
             "Width": 40,
             "Height": 40,
             "RelativeFilename": "humidity_2_mic.png"
@@ -658,11 +601,11 @@
                 "Name": "box6",
                 "Y": 2,
                 "Width": 37,
-                "Height": 18,
+                "Height": 19,
                 "Color": {
-                  "Red": 209,
-                  "Green": 23,
-                  "Blue": 23
+                  "Red": 217,
+                  "Green": 4,
+                  "Blue": 4
                 }
               },
               {
@@ -696,9 +639,9 @@
                 "Width": 37,
                 "Height": 19,
                 "Color": {
-                  "Red": 47,
-                  "Green": 240,
-                  "Blue": 17
+                  "Red": 35,
+                  "Green": 242,
+                  "Blue": 24
                 }
               }
             ]
@@ -714,13 +657,12 @@
               {
                 "Type": "Box",
                 "Name": "box6_4",
-                "Y": 3,
                 "Width": 37,
-                "Height": 16,
+                "Height": 19,
                 "Color": {
-                  "Red": 209,
-                  "Green": 23,
-                  "Blue": 23
+                  "Red": 217,
+                  "Green": 4,
+                  "Blue": 4
                 }
               },
               {
@@ -738,6 +680,7 @@
               {
                 "Type": "Box",
                 "Name": "box6_2_1",
+                "X": -1,
                 "Y": 40,
                 "Width": 37,
                 "Height": 18,
@@ -754,9 +697,9 @@
                 "Width": 37,
                 "Height": 18,
                 "Color": {
-                  "Red": 47,
-                  "Green": 240,
-                  "Blue": 17
+                  "Red": 35,
+                  "Green": 242,
+                  "Blue": 24
                 }
               }
             ]
@@ -801,6 +744,15 @@
             "Width": 40,
             "Height": 40,
             "RelativeFilename": "battery_3q_mic.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "image8",
+            "X": 100,
+            "Y": 273,
+            "Width": 40,
+            "Height": 40,
+            "RelativeFilename": "setting_mic.png"
           }
         ],
         "Interactions": [
@@ -819,7 +771,46 @@
         ]
       }
     ],
-    "CustomContainerDefinitions": [],
+    "CustomContainerDefinitions": [
+      {
+        "Name": "MenuElement",
+        "Y": 42,
+        "Width": 200,
+        "Height": 30,
+        "Components": [
+          {
+            "Type": "Image",
+            "Name": "icon",
+            "Y": -3,
+            "Width": 36,
+            "Height": 36,
+            "RelativeFilename": "icon00.png"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea1",
+            "X": 45,
+            "Y": 6,
+            "Width": 141,
+            "Height": 19,
+            "TextId": "__SingleUse_EQZ9",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 125,
+              "Green": 56,
+              "Blue": 56
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_2Q71",
+              "UseBuffer": true,
+              "BufferSize": 3
+            }
+          }
+        ],
+        "Interactions": []
+      }
+    ],
     "Name": "MyApplication",
     "Resolution": {
       "Width": 240,
