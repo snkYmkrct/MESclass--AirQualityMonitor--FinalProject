@@ -44,8 +44,7 @@
 #include <Peripherals/Battery_monitor_LC709203F_i2c/battery_monitor_LC709203F.h>
 #include "stm32f4xx_hal.h"
 
-extern I2C_HandleTypeDef hi2c3;
-
+extern I2C_HandleTypeDef hi2c1;
 /**
  * Performs a CRC8 calculation on the supplied values.
  *
@@ -82,7 +81,7 @@ static bool battery_monitor_LC709203F_readWord(uint8_t command, uint16_t *data) 
   reply[1] = command;                       // command / register
   reply[2] = reply[0] | 0x1;                // read byte
 
-  if (HAL_I2C_IsDeviceReady(&hi2c3, LC709203F_I2CADDR ,1, HAL_MAX_DELAY) != HAL_OK){
+  if (HAL_I2C_IsDeviceReady(&hi2c1, LC709203F_I2CADDR ,1, HAL_MAX_DELAY) != HAL_OK){
 	  return false;
   }
   /*
@@ -97,7 +96,7 @@ static bool battery_monitor_LC709203F_readWord(uint8_t command, uint16_t *data) 
   }*/
 
 
-  if (HAL_I2C_Mem_Read(&hi2c3, reply[2], reply[1], I2C_MEMADD_SIZE_8BIT, reply+3, 3, HAL_MAX_DELAY) != HAL_OK)  {
+  if (HAL_I2C_Mem_Read(&hi2c1, reply[2], reply[1], I2C_MEMADD_SIZE_8BIT, reply+3, 3, HAL_MAX_DELAY) != HAL_OK)  {
          return false;
      }
 
@@ -129,11 +128,11 @@ static bool battery_monitor_LC709203F_writeWord(uint8_t command, uint16_t data) 
   send[3] = data >> 8;
   send[4] = crc8(send, 4);
 
-  if (HAL_I2C_IsDeviceReady(&hi2c3, LC709203F_I2CADDR ,1, HAL_MAX_DELAY) != HAL_OK){
+  if (HAL_I2C_IsDeviceReady(&hi2c1, LC709203F_I2CADDR ,1, HAL_MAX_DELAY) != HAL_OK){
 	  return false;
   }
 
-  if (HAL_I2C_Master_Transmit(&hi2c3, LC709203F_I2CADDR, send + 1, 4, HAL_MAX_DELAY)  != HAL_OK){
+  if (HAL_I2C_Master_Transmit(&hi2c1, LC709203F_I2CADDR, send + 1, 4, HAL_MAX_DELAY)  != HAL_OK){
 	  return false;
   }
   return true;
