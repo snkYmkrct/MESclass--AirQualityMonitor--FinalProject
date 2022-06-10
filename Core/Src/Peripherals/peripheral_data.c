@@ -224,10 +224,9 @@ void peripheralSetAllNeopixels(uint32_t colorHexRGB){
 	uint8_t red = (colorHexRGB >> 16) & 0xFF;
 	uint8_t green = (colorHexRGB >> 8) & 0xFF;
 	uint8_t blue = colorHexRGB & 0xFF;
-	printf("\r\n\r\n   color test    red 0x%x  green 0x%x  blue 0x%x \r\n\r\n", red, green, blue);
-/*	for (uint8_t i=0; i<NEOPIXEL_NUMBER; i++){
+	for (uint8_t i=0; i<NEOPIXEL_NUMBER; i++){
 		Set_Neopixel(i, red, green, blue);
 	}
-	Neopixel_Send();*/
+	Neopixel_Send();
 }
 /* ------------------------------------------------------------ */
