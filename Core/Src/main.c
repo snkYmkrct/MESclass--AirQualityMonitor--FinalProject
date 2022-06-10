@@ -30,11 +30,7 @@
 #include "ili9341.h"
 #include "console.h"
 #include "consoleIo.h"
-#include "aiq_PMSA003I_i2c.h"
-#include "scd4x_i2c.h"
-#include "rtc_DS3231_i2c.h"
-#include "battery_monitor_LC709203F.h"
-#include "neopixel.h"
+#include "peripheral_data.h"
 
 /* USER CODE END Includes */
 
@@ -65,7 +61,8 @@ LTDC_HandleTypeDef hltdc;
 SPI_HandleTypeDef hspi5;
 
 TIM_HandleTypeDef htim1;
-DMA_HandleTypeDef hdma_tim1_ch1;
+TIM_HandleTypeDef htim2;
+DMA_HandleTypeDef hdma_tim2_ch2_ch4;
 
 UART_HandleTypeDef huart5;
 UART_HandleTypeDef huart1;
@@ -91,6 +88,7 @@ static void MX_USART1_UART_Init(void);
 static void MX_UART5_Init(void);
 static void MX_DMA_Init(void);
 static void MX_I2C1_Init(void);
+static void MX_TIM2_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -150,103 +148,16 @@ int main(void)
   MX_UART5_Init();
   MX_DMA_Init();
   MX_I2C1_Init();
+  MX_TIM2_Init();
   MX_TouchGFX_Init();
+
   /* USER CODE BEGIN 2 */
 
   HAL_GPIO_WritePin(TURN_OFF_GPIO_Port, TURN_OFF_Pin, GPIO_PIN_RESET);
   MyButtonPressed = HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin);
   ConsoleInit();
 
-  PM25_AQI_Data data = {0};
-
-  int16_t error = 0;
-
-  // Clean up potential SCD40 states
-  scd4x_wake_up();
-  scd4x_stop_periodic_measurement();
-  scd4x_reinit();
-
-  uint16_t serial_0;
-  uint16_t serial_1;
-  uint16_t serial_2;
-  error = scd4x_get_serial_number(&serial_0, &serial_1, &serial_2);
-  if (error) {
-      printf("Error executing scd4x_get_serial_number(): %i \r\n", error);
-  } else {
-      printf("co2 serial: 0x%04x%04x%04x\r\n", serial_0, serial_1, serial_2);
-  }
-
-  // Start Measurement
-
-  error = scd4x_start_periodic_measurement();
-  if (error) {
-      printf("Error executing scd4x_start_periodic_measurement(): %i \r\n",
-             error);
-  }
-
-  printf("Waiting for first co2 measurement... (5 sec)\r\n");
-
-  if (!battery_monitor_LC709203F_begin()) {
-    printf("\r\nCouldnt find Adafruit LC709203F ?\r\nMake sure a battery is plugged in!\r\n");
-  }
-
-  printf("\r\nFound LC709203F\r\n");
-  printf("Version: 0x");
-  printf("%x \r\n", battery_monitor_LC709203F_getICversion());
-  //battery_monitor_LC709203F_setAlarmVoltage(3.8);
-
-  printf("battery monitor ready to go \r\n");
-
-  RTC_DS3232_Data timeData = {0};
-  const char days[7][10] = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
-/*
-  Set_Neopixel(0, 255, 0, 0);
-    Set_Neopixel(1, 0, 255, 0);
-    Set_Neopixel(2, 0, 0, 255);
-    Set_Neopixel(3, 46, 89, 128);
-    Set_Neopixel(4, 156, 233, 100);
-    Set_Neopixel(5, 102, 0, 235);
-    Set_Neopixel(6, 47, 38, 77);
-    Set_Neopixel(7, 255, 200, 0);
-    Set_Neopixel(8, 255, 0, 0);
-    Set_Neopixel(9, 0, 255, 0);
-    Set_Neopixel(10, 0, 0, 255);
-    Set_Neopixel(11, 46, 89, 128);
-    Set_Neopixel(12, 156, 233, 100);
-    Set_Neopixel(13, 102, 0, 235);
-    Set_Neopixel(14, 47, 38, 77);
-    Set_Neopixel(15, 255, 200, 0);
-    Set_Neopixel(16, 255, 0, 0);
-    Set_Neopixel(17, 0, 255, 0);
-    Set_Neopixel(18, 0, 0, 255);
-    Set_Neopixel(19, 46, 89, 128);
-    Set_Neopixel(20, 156, 233, 100);
-    Set_Neopixel(21, 102, 0, 235);
-    Set_Neopixel(22, 47, 38, 77);*/
-
-  for (uint8_t i=0; i<NEOPIXEL_NUMBER; i++){
-	  //Set_Neopixel(i, 125, 125, 0); // yellow
-	  //Set_Neopixel(i, 255, 0, 0);  //red
-	  Set_Neopixel(i, 0, 255, 0);  // green
-	  //Set_Neopixel(i, 0, 0, 255);  //blue
-	  //Set_Neopixel(i, 255, 255, 255);  //
-  }
-    Neopixel_Send();
-
-/*
-
-    //lost power not working
-  if (rtc_DS3231_lostPower()){
-	  printf("\r\nRTC got reset for sure , let's set time\r\n");
-	  rtc_DS3231_setTime(30, 04, 0, 2, 31, 5, 22);
-   }
-  else{
-	  printf("\r\nRTC NOT reset\r\n");
-  }
-  printf("\r\nrtc ready to go \r\n");
-
-*/
-
+  peripheralInitValues();
 
   /* USER CODE END 2 */
 
@@ -269,79 +180,7 @@ int main(void)
 		  HAL_GPIO_WritePin(TURN_OFF_GPIO_Port, TURN_OFF_Pin, GPIO_PIN_SET);
 	  }
 
-
-
-/*
-	  printf("````````````````````````````````````````\r\n");
-	  if (rtc_DS3231_getTime(&timeData)){
-		  printf(" %02ld:%02ld:%02ld \r\n", timeData.hour, timeData.minutes, timeData.seconds);
-		  // check for valid data on dayofweek TODO
-		  printf(" %s, %02ld-%02ld-20%02ld\r\n", days[timeData.dayofweek-1], timeData.dayofmonth, timeData.month, timeData.year);
-	  }
-	  printf("````````````````````````````````````````\r\n");
-
-	  //printf("\r\n\r\n  tick freq:    %d  \r\n", HAL_GetTickFreq());
-	  printf("\r\n\r\n  tick now:    %ld  \r\n\r\n", HAL_GetTick());
-
-	  printf("\r\n=======================================\r\n");
-	  printf("Batt Voltage: %.3f  \r\n", battery_monitor_LC709203F_cellVoltage());
-	  printf("Batt Percent: %.3f %% \r\n", battery_monitor_LC709203F_cellPercent());
-	  printf("=======================================\r\n");
-
-      bool data_ready_flag = false;
-      uint16_t co2;
-      int32_t temperature;
-      int32_t humidity;
-      error = scd4x_get_data_ready_flag(&data_ready_flag);
-      if (error) {
-          printf("Error executing scd4x_get_data_ready_flag(): %i \r\n", error);
-      }
-      else{
-		  if (data_ready_flag) {
-			  error = scd4x_read_measurement(&co2, &temperature, &humidity);
-			  if (error) {
-				  printf("Error executing scd4x_read_measurement(): %i \r\n", error);
-			  } else if (co2 == 0) {
-				  printf("Invalid sample detected, skipping.\r\n");
-			  } else {
-				  printf(" \r\nCO2: %u \r\n", co2);
-				  printf("Temperature: %.2f °C \r\n", (float)temperature/1000);
-				  printf("Humidity: %.2f %% \r\n", (float)humidity/1000);
-			  }
-		  }
-      }
-
-
-	  if (aiq_PMSA003I_i2c_read(&data)){
-		  printf("\r\nAQI reading success\r\n");
-		  printf("---------------------------------------\r\n");
-		  printf("Concentration Units (standard)\r\n");
-		  printf("---------------------------------------\r\n");
-		  printf("PM 1.0: %d \r\n", data.pm10_standard);
-		  printf("PM 2.5: %d \r\n", data.pm25_standard);
-		  printf("PM 10: %d \r\n", data.pm100_standard);
-
-		  printf("\r\nConcentration Units (environmental)\r\n");
-		  printf("---------------------------------------\r\n");
-		  printf("PM 1.0: %d \r\n", data.pm10_env);
-		  printf("PM 2.5: %d \r\n", data.pm25_env);
-		  printf("PM 10: %d \r\n", data.pm100_env);
-
-		  printf("\r\n---------------------------------------\r\n");
-		  printf("Particles > 0.3um / 0.1L air: %d \r\n", data.particles_03um);
-		  printf("Particles > 0.5um / 0.1L air: %d \r\n", data.particles_05um);
-		  printf("Particles > 1.0um / 0.1L air: %d \r\n", data.particles_10um);
-		  printf("Particles > 2.5um / 0.1L air: %d \r\n", data.particles_25um);
-		  printf("Particles > 5.0um / 0.1L air: %d \r\n", data.particles_50um);
-		  printf("Particles > 10 um / 0.1L air: %d \r\n", data.particles_100um);
-		  printf("\r\n---------------------------------------\r\n");
-	  }
-
-	  HAL_Delay(3000);  // dont query too often!
-
-
-*/
-
+	  peripheralUpdateValues();
 
     /* USER CODE END WHILE */
 
@@ -669,8 +508,6 @@ static void MX_TIM1_Init(void)
 
   TIM_ClockConfigTypeDef sClockSourceConfig = {0};
   TIM_MasterConfigTypeDef sMasterConfig = {0};
-  TIM_OC_InitTypeDef sConfigOC = {0};
-  TIM_BreakDeadTimeConfigTypeDef sBreakDeadTimeConfig = {0};
 
   /* USER CODE BEGIN TIM1_Init 1 */
 
@@ -678,7 +515,7 @@ static void MX_TIM1_Init(void)
   htim1.Instance = TIM1;
   htim1.Init.Prescaler = 0;
   htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim1.Init.Period = 90-1;
+  htim1.Init.Period = 65535;
   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim1.Init.RepetitionCounter = 0;
   htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
@@ -691,42 +528,64 @@ static void MX_TIM1_Init(void)
   {
     Error_Handler();
   }
-  if (HAL_TIM_PWM_Init(&htim1) != HAL_OK)
-  {
-    Error_Handler();
-  }
   sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
   if (HAL_TIMEx_MasterConfigSynchronization(&htim1, &sMasterConfig) != HAL_OK)
   {
     Error_Handler();
   }
-  sConfigOC.OCMode = TIM_OCMODE_PWM1;
-  sConfigOC.Pulse = 0;
-  sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
-  sConfigOC.OCNPolarity = TIM_OCNPOLARITY_HIGH;
-  sConfigOC.OCFastMode = TIM_OCFAST_ENABLE;
-  sConfigOC.OCIdleState = TIM_OCIDLESTATE_RESET;
-  sConfigOC.OCNIdleState = TIM_OCNIDLESTATE_RESET;
-  if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sBreakDeadTimeConfig.OffStateRunMode = TIM_OSSR_DISABLE;
-  sBreakDeadTimeConfig.OffStateIDLEMode = TIM_OSSI_DISABLE;
-  sBreakDeadTimeConfig.LockLevel = TIM_LOCKLEVEL_OFF;
-  sBreakDeadTimeConfig.DeadTime = 0;
-  sBreakDeadTimeConfig.BreakState = TIM_BREAK_DISABLE;
-  sBreakDeadTimeConfig.BreakPolarity = TIM_BREAKPOLARITY_HIGH;
-  sBreakDeadTimeConfig.AutomaticOutput = TIM_AUTOMATICOUTPUT_DISABLE;
-  if (HAL_TIMEx_ConfigBreakDeadTime(&htim1, &sBreakDeadTimeConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
   /* USER CODE BEGIN TIM1_Init 2 */
 
   /* USER CODE END TIM1_Init 2 */
-  HAL_TIM_MspPostInit(&htim1);
+
+}
+
+/**
+  * @brief TIM2 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM2_Init(void)
+{
+
+  /* USER CODE BEGIN TIM2_Init 0 */
+
+  /* USER CODE END TIM2_Init 0 */
+
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+  TIM_OC_InitTypeDef sConfigOC = {0};
+
+  /* USER CODE BEGIN TIM2_Init 1 */
+
+  /* USER CODE END TIM2_Init 1 */
+  htim2.Instance = TIM2;
+  htim2.Init.Prescaler = 0;
+  htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim2.Init.Period = 90-1;
+  htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_PWM_Init(&htim2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sConfigOC.OCMode = TIM_OCMODE_PWM1;
+  sConfigOC.Pulse = 0;
+  sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+  sConfigOC.OCFastMode = TIM_OCFAST_ENABLE;
+  if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM2_Init 2 */
+
+  /* USER CODE END TIM2_Init 2 */
+  HAL_TIM_MspPostInit(&htim2);
 
 }
 
@@ -803,12 +662,12 @@ static void MX_DMA_Init(void)
 {
 
   /* DMA controller clock enable */
-  __HAL_RCC_DMA2_CLK_ENABLE();
+  __HAL_RCC_DMA1_CLK_ENABLE();
 
   /* DMA interrupt init */
-  /* DMA2_Stream1_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA2_Stream1_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(DMA2_Stream1_IRQn);
+  /* DMA1_Stream6_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Stream6_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Stream6_IRQn);
 
 }
 

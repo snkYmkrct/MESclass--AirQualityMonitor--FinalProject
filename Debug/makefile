@@ -55,6 +55,7 @@ RM := rm -rf
 -include Core/Src/Peripherals/CO2_SCD4x_i2c/subdir.mk
 -include Core/Src/Peripherals/Battery_monitor_LC709203F_i2c/subdir.mk
 -include Core/Src/Peripherals/Aiq_PMSA003I_i2c/subdir.mk
+-include Core/Src/Peripherals/subdir.mk
 -include Core/Src/Console/subdir.mk
 -include Core/Src/subdir.mk
 -include objects.mk

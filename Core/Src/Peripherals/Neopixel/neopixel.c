@@ -8,7 +8,7 @@
 #include "neopixel.h"
 #include "stm32f4xx_hal.h"
 
-extern TIM_HandleTypeDef htim1;
+extern TIM_HandleTypeDef htim2;
 
 #define NEOPIXEL_BITS 24
 #define DMA_BUFF_SIZE (NEOPIXEL_BITS * NEOPIXEL_NUMBER) + 50
@@ -16,10 +16,10 @@ extern TIM_HandleTypeDef htim1;
 #define NEOPIXEL_LOW  30
 
 static uint8_t neopixelData[NEOPIXEL_NUMBER][3];
-static uint16_t pwmData[DMA_BUFF_SIZE] = {0}; // last 50 bytes in buffer will stay 0 for reset
+static uint32_t pwmData[DMA_BUFF_SIZE] = {0}; // last 50 bytes in buffer will stay 0 for reset
 
 
-void Set_Neopixel(int LEDnum, int Red, int Green, int Blue)
+void Set_Neopixel(uint32_t LEDnum, uint8_t Red, uint8_t Green, uint8_t Blue)
 {
 	neopixelData[LEDnum][0] = Green;
 	neopixelData[LEDnum][1] = Red;
@@ -48,17 +48,9 @@ void Neopixel_Send(void)
 		}
 	}
 
-	HAL_TIM_PWM_Start_DMA(&htim1, TIM_CHANNEL_1, (uint32_t *)pwmData, DMA_BUFF_SIZE);
+	HAL_TIM_PWM_Start_DMA(&htim2, TIM_CHANNEL_2, (uint32_t *)pwmData, DMA_BUFF_SIZE);
 
 }
 
 
-void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim)
-{
-
-	if (htim == &htim1){
-		HAL_TIM_PWM_Stop_DMA(&htim1, TIM_CHANNEL_1);
-	}
-
-}
 

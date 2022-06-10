@@ -9,6 +9,7 @@
 "./Core/Src/Peripherals/CO2_SCD4x_i2c/sensirion_i2c_hal.o"
 "./Core/Src/Peripherals/Neopixel/neopixel.o"
 "./Core/Src/Peripherals/RTC_DS3231_i2c/rtc_DS3231_i2c.o"
+"./Core/Src/Peripherals/peripheral_data.o"
 "./Core/Src/main.o"
 "./Core/Src/stm32f4xx_hal_msp.o"
 "./Core/Src/stm32f4xx_hal_timebase_tim.o"

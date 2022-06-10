@@ -85,13 +85,13 @@ static bool battery_monitor_LC709203F_readWord(uint8_t command, uint16_t *data) 
 	  return false;
   }
   /*
-  if (HAL_I2C_Master_Transmit(&hi2c3, LC709203F_I2CADDR, &command, 1, HAL_MAX_DELAY)  != HAL_OK){
+  if (HAL_I2C_Master_Transmit(&hi2c1, LC709203F_I2CADDR, &command, 1, HAL_MAX_DELAY)  != HAL_OK){
 	  return false;
   }
 
   /// doesn't work like this, because a repeated start condition is necessary ... only hal_mem_read can do that
 
-  if (HAL_I2C_Master_Receive (&hi2c3, reply[2], reply + 3, 3, HAL_MAX_DELAY) != HAL_OK){
+  if (HAL_I2C_Master_Receive (&hi2c1, reply[2], reply + 3, 3, HAL_MAX_DELAY) != HAL_OK){
 	  return false;
   }*/
 
