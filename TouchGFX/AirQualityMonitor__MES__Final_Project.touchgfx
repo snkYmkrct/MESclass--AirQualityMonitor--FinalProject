@@ -450,21 +450,18 @@
           {
             "Type": "Container",
             "Name": "container1",
-            "X": 5,
-            "Y": 44,
-            "Width": 129,
-            "Height": 90,
+            "X": 7,
+            "Y": 50,
+            "Width": 125,
+            "Height": 126,
             "Components": [
               {
                 "Type": "Box",
                 "Name": "box6",
-                "Y": 2,
                 "Width": 37,
-                "Height": 19,
+                "Height": 20,
                 "Color": {
-                  "Red": 217,
-                  "Green": 4,
-                  "Blue": 4
+                  "Green": 228
                 }
               },
               {
@@ -472,35 +469,54 @@
                 "Name": "box6_1",
                 "Y": 20,
                 "Width": 37,
-                "Height": 19,
+                "Height": 20,
                 "Color": {
-                  "Red": 214,
-                  "Green": 158,
-                  "Blue": 73
+                  "Red": 255,
+                  "Green": 255
                 }
               },
               {
                 "Type": "Box",
                 "Name": "box6_2",
-                "Y": 39,
+                "Y": 40,
                 "Width": 37,
-                "Height": 22,
+                "Height": 20,
                 "Color": {
-                  "Red": 196,
-                  "Green": 199,
-                  "Blue": 38
+                  "Red": 255,
+                  "Green": 126
                 }
               },
               {
                 "Type": "Box",
                 "Name": "box6_3",
-                "Y": 61,
+                "Y": 60,
                 "Width": 37,
-                "Height": 19,
+                "Height": 20,
                 "Color": {
-                  "Red": 35,
-                  "Green": 242,
-                  "Blue": 24
+                  "Red": 255
+                }
+              },
+              {
+                "Type": "Box",
+                "Name": "box6_4",
+                "Y": 80,
+                "Width": 37,
+                "Height": 20,
+                "Color": {
+                  "Red": 143,
+                  "Green": 63,
+                  "Blue": 151
+                }
+              },
+              {
+                "Type": "Box",
+                "Name": "box6_5",
+                "Y": 100,
+                "Width": 37,
+                "Height": 20,
+                "Color": {
+                  "Red": 126,
+                  "Blue": 35
                 }
               },
               {
@@ -536,10 +552,81 @@
               {
                 "Type": "Circle",
                 "Name": "circle1",
-                "X": -3,
-                "Y": 32,
-                "Width": 42,
-                "Height": 41,
+                "X": -2,
+                "Y": -10,
+                "Width": 39,
+                "Height": 31,
+                "Visible": false,
+                "CenterX": 20,
+                "CenterY": 20,
+                "Radius": 6,
+                "EndAngle": 360,
+                "CapPrecision": "Butt"
+              },
+              {
+                "Type": "Circle",
+                "Name": "circle1_1",
+                "X": -2,
+                "Y": 10,
+                "Width": 39,
+                "Height": 31,
+                "Visible": false,
+                "CenterX": 20,
+                "CenterY": 20,
+                "Radius": 6,
+                "EndAngle": 360,
+                "CapPrecision": "Butt"
+              },
+              {
+                "Type": "Circle",
+                "Name": "circle1_2",
+                "X": -2,
+                "Y": 31,
+                "Width": 39,
+                "Height": 31,
+                "Visible": false,
+                "CenterX": 20,
+                "CenterY": 20,
+                "Radius": 6,
+                "EndAngle": 360,
+                "CapPrecision": "Butt"
+              },
+              {
+                "Type": "Circle",
+                "Name": "circle1_3",
+                "X": -2,
+                "Y": 50,
+                "Width": 39,
+                "Height": 31,
+                "Visible": false,
+                "CenterX": 20,
+                "CenterY": 20,
+                "Radius": 6,
+                "EndAngle": 360,
+                "CapPrecision": "Butt"
+              },
+              {
+                "Type": "Circle",
+                "Name": "circle1_4",
+                "X": -2,
+                "Y": 71,
+                "Width": 39,
+                "Height": 31,
+                "Visible": false,
+                "CenterX": 20,
+                "CenterY": 20,
+                "Radius": 6,
+                "EndAngle": 360,
+                "CapPrecision": "Butt"
+              },
+              {
+                "Type": "Circle",
+                "Name": "circle1_5",
+                "X": -2,
+                "Y": 92,
+                "Width": 39,
+                "Height": 31,
+                "Visible": false,
                 "CenterX": 20,
                 "CenterY": 20,
                 "Radius": 6,
@@ -559,67 +646,49 @@
               {
                 "Type": "Box",
                 "Name": "box1_1",
-                "X": 10,
-                "Y": 53,
+                "X": 14,
+                "Y": 38,
                 "Width": 96,
                 "Height": 25
               },
               {
                 "Type": "Box",
-                "Name": "box6_4",
-                "X": 111,
-                "Width": 37,
-                "Height": 19,
-                "Color": {
-                  "Red": 217,
-                  "Green": 4,
-                  "Blue": 4
-                }
-              },
-              {
-                "Type": "Box",
                 "Name": "box6_1_1",
                 "X": 111,
-                "Y": 19,
                 "Width": 37,
-                "Height": 19,
+                "Height": 20,
                 "Color": {
-                  "Red": 214,
-                  "Green": 117,
-                  "Blue": 43
+                  "Red": 255
                 }
               },
               {
                 "Type": "Box",
                 "Name": "box6_2_1",
                 "X": 111,
-                "Y": 38,
+                "Y": 20,
                 "Width": 37,
-                "Height": 18,
+                "Height": 20,
                 "Color": {
-                  "Red": 196,
-                  "Green": 199,
-                  "Blue": 38
+                  "Red": 255,
+                  "Green": 126
                 }
               },
               {
                 "Type": "Box",
                 "Name": "box6_3_1",
                 "X": 111,
-                "Y": 56,
+                "Y": 40,
                 "Width": 37,
-                "Height": 18,
+                "Height": 20,
                 "Color": {
-                  "Red": 35,
-                  "Green": 242,
-                  "Blue": 24
+                  "Green": 228
                 }
               },
               {
                 "Type": "Image",
                 "Name": "image5",
-                "X": 10,
-                "Y": 47,
+                "X": 13,
+                "Y": 31,
                 "Width": 50,
                 "Height": 35,
                 "RelativeFilename": "co2_mic.png"
@@ -627,8 +696,8 @@
               {
                 "Type": "TextArea",
                 "Name": "textArea2",
-                "X": 66,
-                "Y": 55,
+                "X": 69,
+                "Y": 41,
                 "Width": 39,
                 "Height": 19,
                 "TextId": "__SingleUse_UZVW",
@@ -644,6 +713,48 @@
                   "UseBuffer": true,
                   "BufferSize": 5
                 }
+              },
+              {
+                "Type": "Circle",
+                "Name": "circle3",
+                "X": 109,
+                "Y": -10,
+                "Width": 39,
+                "Height": 31,
+                "Visible": false,
+                "CenterX": 20,
+                "CenterY": 20,
+                "Radius": 6,
+                "EndAngle": 360,
+                "CapPrecision": "Butt"
+              },
+              {
+                "Type": "Circle",
+                "Name": "circle3_1",
+                "X": 109,
+                "Y": 10,
+                "Width": 39,
+                "Height": 31,
+                "Visible": false,
+                "CenterX": 20,
+                "CenterY": 20,
+                "Radius": 6,
+                "EndAngle": 360,
+                "CapPrecision": "Butt"
+              },
+              {
+                "Type": "Circle",
+                "Name": "circle3_2",
+                "X": 109,
+                "Y": 30,
+                "Width": 39,
+                "Height": 31,
+                "Visible": false,
+                "CenterX": 20,
+                "CenterY": 20,
+                "Radius": 6,
+                "EndAngle": 360,
+                "CapPrecision": "Butt"
               }
             ]
           },
@@ -679,8 +790,8 @@
           {
             "Type": "Container",
             "Name": "container2",
-            "X": -2,
-            "Y": 165,
+            "X": -9,
+            "Y": 177,
             "Width": 136,
             "Height": 70,
             "Components": [
@@ -725,8 +836,8 @@
           {
             "Type": "Container",
             "Name": "container3",
-            "X": 120,
-            "Y": 191,
+            "X": 119,
+            "Y": 198,
             "Width": 118,
             "Height": 59,
             "Components": [

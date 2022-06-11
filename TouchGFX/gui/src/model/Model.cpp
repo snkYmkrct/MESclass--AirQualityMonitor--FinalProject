@@ -31,8 +31,32 @@ void Model::tick()
     	pm25 = peripheralGetAQIpm25();
 		if (modelListener != 0)
 		{
+			if (pm25 <= 12){
+				colorPM25 = touchgfx::Color::getColorFromRGB(0, 228, 0);
+				circlePM25 = 1;
+			}
+			if ( (pm25 > 12) && (pm25 <= 35) ){
+				colorPM25 = touchgfx::Color::getColorFromRGB(255, 255, 0);
+				circlePM25 = 2;
+			}
+			if ( (pm25 > 35) && (pm25 <= 55) ){
+				colorPM25 = touchgfx::Color::getColorFromRGB(255, 126, 0);
+				circlePM25 = 3;
+			}
+			if ( (pm25 > 55) && (pm25 <= 150) ){
+				colorPM25 = touchgfx::Color::getColorFromRGB(255, 0, 0);
+				circlePM25 = 4;
+			}
+			if ( (pm25 > 150) && (pm25 <= 250) ){
+				colorPM25 = touchgfx::Color::getColorFromRGB(143, 63, 151);
+				circlePM25 = 5;
+			}
+			if (pm25 > 250){
+				colorPM25 = touchgfx::Color::getColorFromRGB(126, 0, 35);
+				circlePM25 = 6;
+			}
 
-			modelListener->updatePM25(pm25, touchgfx::Color::getColorFromRGB(35, 242, 24));
+			modelListener->updatePM25(pm25, colorPM25, circlePM25);
 		}
 		#endif
 		cntAQI = 0;
@@ -44,16 +68,19 @@ void Model::tick()
 		if (modelListener != 0)
 		{
 			if (co2 < 900){
-				colorCO2 = touchgfx::Color::getColorFromRGB(35, 242, 24);  //green
+				colorCO2 = touchgfx::Color::getColorFromRGB(0, 228, 0);  //green
+				circleCo2 = 3;
 			} else{
-				if (co2 > 1800){
-					colorCO2 = touchgfx::Color::getColorFromRGB(217, 4, 4); // red
+				if (co2 > 1600){
+					colorCO2 = touchgfx::Color::getColorFromRGB(255, 0, 0); // red
+					circleCo2 = 1;
 				}
 				else {
-					colorCO2 = touchgfx::Color::getColorFromRGB(214, 158, 73); // orange
+					colorCO2 = touchgfx::Color::getColorFromRGB(255, 126, 0); // orange
+					circleCo2 = 2;
 				}
 			}
-			modelListener->updateCO2TempHum(co2, colorCO2, temperature, humidity);
+			modelListener->updateCO2TempHum(co2, colorCO2, circleCo2, temperature, humidity);
 		}
 		#endif
 		cntCO2 = 0;

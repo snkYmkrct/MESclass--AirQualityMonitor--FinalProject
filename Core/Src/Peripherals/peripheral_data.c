@@ -113,7 +113,7 @@ void peripheralUpdateValues(){
 					  green = 125;
 					  blue = 0;
 				  } else {
-					  if (co2 > 1800){
+					  if (co2 > 1600){
 						  // red
 						  red = 125;
 						  green = 0;

@@ -19,9 +19,9 @@ public:
 
     virtual void updateTime(uint32_t hour, uint32_t minute, uint32_t second) {}
 
-    virtual void updatePM25(uint16_t pm25, uint32_t color) {}
+    virtual void updatePM25(uint16_t pm25, uint32_t color, uint8_t circle) {}
 
-    virtual void updateCO2TempHum(uint16_t co2, uint32_t color, float temperature, float humidity) {}
+    virtual void updateCO2TempHum(uint16_t co2, uint32_t color, uint8_t circle, float temperature, float humidity) {}
 
     virtual void updateBattery(float voltagePercent) {}
 

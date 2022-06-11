@@ -22,14 +22,14 @@ void Screen3Presenter::updateTime(uint32_t hour, uint32_t minute, uint32_t secon
 	view.updateTime(hour, minute, second);
 }
 
-void Screen3Presenter::updatePM25(uint16_t pm25, uint32_t color)
+void Screen3Presenter::updatePM25(uint16_t pm25, uint32_t color, uint8_t circle)
 {
-	view.updatePM25(pm25, color);
+	view.updatePM25(pm25, color, circle);
 }
 
-void Screen3Presenter::updateCO2TempHum(uint16_t co2, uint32_t color, float temperature, float humidity)
+void Screen3Presenter::updateCO2TempHum(uint16_t co2, uint32_t color, uint8_t circle, float temperature, float humidity)
 {
-	view.updateCO2TempHum(co2, color, temperature, humidity);
+	view.updateCO2TempHum(co2, color, circle, temperature, humidity);
 }
 
 void Screen3Presenter::updateBattery(float voltagePercent)

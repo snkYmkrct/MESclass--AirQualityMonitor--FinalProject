@@ -35,6 +35,7 @@ private:
     float temperature, humidity;
     uint32_t colorPM25, colorCO2;
     float voltageValue, voltagePercent;
+    uint8_t circleCo2, circlePM25;
 };
 
 #endif // MODEL_HPP
