@@ -62,10 +62,10 @@ protected:
     touchgfx::TextAreaWithOneWildcard textArea5;
     touchgfx::TextAreaWithOneWildcard textArea6;
     touchgfx::ScrollWheelWithSelectionStyle scrollWheel1;
-    touchgfx::DrawableListItems<MenuElement, 2> scrollWheel1ListItems;
+    touchgfx::DrawableListItems<MenuElement, 3> scrollWheel1ListItems;
     touchgfx::DrawableListItems<MenuElement, 3> scrollWheel1SelectedListItems;
     touchgfx::ClickListener< touchgfx::ScrollList > scrollList1;
-    touchgfx::DrawableListItems<MenuElement, 3> scrollList1ListItems;
+    touchgfx::DrawableListItems<MenuElement, 4> scrollList1ListItems;
 
     /*
      * Wildcard Buffers

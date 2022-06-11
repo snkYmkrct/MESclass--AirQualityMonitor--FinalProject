@@ -27,6 +27,10 @@ public:
 
     virtual ~Screen1Presenter() {};
 
+    void updateTime(uint32_t hour, uint32_t minute, uint32_t second);
+
+    void updateBattery(float voltagePercent);
+
 private:
     Screen1Presenter();
 

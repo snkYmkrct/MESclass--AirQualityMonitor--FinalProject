@@ -20,7 +20,7 @@ Screen2ViewBase::Screen2ViewBase() :
     image1.setXY(0, 33);
     image1.setBitmap(touchgfx::Bitmap(BITMAP_BACKGROUND_GRAY_VERTICAL_ID));
 
-    button1.setXY(197, 274);
+    button1.setXY(197, 273);
     button1.setBitmaps(touchgfx::Bitmap(BITMAP_ARROW_RIGHT_MIC_ID), touchgfx::Bitmap(BITMAP_ARROW_RIGHT_MIC_ID));
     button1.setAction(buttonCallback);
 
@@ -91,7 +91,7 @@ Screen2ViewBase::Screen2ViewBase() :
     textArea6.setTypedText(touchgfx::TypedText(T___SINGLEUSE_DDBN));
     scrollableContainer1.add(textArea6);
 
-    scrollWheel1.setPosition(1, 233, 200, 30);
+    scrollWheel1.setPosition(-3, 232, 141, 30);
     scrollWheel1.setHorizontal(false);
     scrollWheel1.setCircular(false);
     scrollWheel1.setEasingEquation(touchgfx::EasingEquations::backEaseOut);
@@ -101,12 +101,12 @@ Screen2ViewBase::Screen2ViewBase() :
     scrollWheel1.setSelectedItemOffset(0);
     scrollWheel1.setSelectedItemExtraSize(1, 1);
     scrollWheel1.setSelectedItemMargin(1, 1);
-    scrollWheel1.setDrawableSize(30, 0);
+    scrollWheel1.setDrawableSize(22, 0);
     scrollWheel1.setDrawables(scrollWheel1ListItems, updateItemCallback,
                               scrollWheel1SelectedListItems, updateItemCallback);
     scrollWheel1.animateToItem(0, 0);
 
-    scrollList1.setPosition(0, 269, 200, 50);
+    scrollList1.setPosition(-3, 269, 141, 50);
     scrollList1.setHorizontal(false);
     scrollList1.setCircular(false);
     scrollList1.setEasingEquation(touchgfx::EasingEquations::backEaseOut);
@@ -115,7 +115,7 @@ Screen2ViewBase::Screen2ViewBase() :
     scrollList1.setNumberOfItems(10);
     scrollList1.setPadding(0, 0);
     scrollList1.setSnapping(false);
-    scrollList1.setDrawableSize(30, 0);
+    scrollList1.setDrawableSize(22, 0);
     scrollList1.setDrawables(scrollList1ListItems, updateItemCallback);
 
     add(__background);

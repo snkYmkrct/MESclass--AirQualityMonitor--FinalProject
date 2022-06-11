@@ -9,12 +9,11 @@
 #include <gui/screen3_screen/Screen3Presenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
 #include <touchgfx/widgets/Image.hpp>
-#include <touchgfx/widgets/TextArea.hpp>
 #include <touchgfx/widgets/canvas/Circle.hpp>
 #include <touchgfx/widgets/canvas/PainterRGB565.hpp>
 #include <touchgfx/containers/clock/DigitalClock.hpp>
-#include <touchgfx/widgets/TextAreaWithWildcard.hpp>
 #include <touchgfx/containers/Container.hpp>
+#include <touchgfx/widgets/TextAreaWithWildcard.hpp>
 #include <touchgfx/widgets/Button.hpp>
 
 class Screen3ViewBase : public touchgfx::View<Screen3Presenter>
@@ -35,38 +34,46 @@ protected:
     touchgfx::Box __background;
     touchgfx::Box box3;
     touchgfx::Image image1;
-    touchgfx::Box box1;
-    touchgfx::Box box1_1;
     touchgfx::Image image2;
-    touchgfx::TextArea textArea1;
-    touchgfx::TextArea textArea2;
     touchgfx::Circle circle2;
     touchgfx::PainterRGB565 circle2Painter;
-    touchgfx::Box box7;
     touchgfx::DigitalClock digitalClock1;
-    touchgfx::Image image3;
-    touchgfx::Image image5;
-    touchgfx::Image image6;
-    touchgfx::Box box4;
-    touchgfx::TextAreaWithOneWildcard textArea3;
-    touchgfx::Box box5;
-    touchgfx::Image image7;
-    touchgfx::TextArea textArea4;
     touchgfx::Container container1;
     touchgfx::Box box6;
     touchgfx::Box box6_1;
     touchgfx::Box box6_2;
     touchgfx::Box box6_3;
+    touchgfx::Image image6;
+    touchgfx::TextAreaWithOneWildcard textArea1;
+    touchgfx::Circle circle1;
+    touchgfx::PainterRGB565 circle1Painter;
     touchgfx::Container container1_1;
+    touchgfx::Box box1_1;
     touchgfx::Box box6_4;
     touchgfx::Box box6_1_1;
     touchgfx::Box box6_2_1;
     touchgfx::Box box6_3_1;
-    touchgfx::Circle circle1;
-    touchgfx::PainterRGB565 circle1Painter;
+    touchgfx::Image image5;
+    touchgfx::TextAreaWithOneWildcard textArea2;
     touchgfx::Button button1;
     touchgfx::Button button2;
-    touchgfx::Image image2_1;
+    touchgfx::Image image8;
+    touchgfx::Container container2;
+    touchgfx::Box box4;
+    touchgfx::TextAreaWithOneWildcard textArea3;
+    touchgfx::Image image3;
+    touchgfx::Container container3;
+    touchgfx::Box box5;
+    touchgfx::TextAreaWithOneWildcard textArea4;
+    touchgfx::Image image7;
+
+    /*
+     * Wildcard Buffers
+     */
+    static const uint16_t TEXTAREA1_SIZE = 5;
+    touchgfx::Unicode::UnicodeChar textArea1Buffer[TEXTAREA1_SIZE];
+    static const uint16_t TEXTAREA2_SIZE = 5;
+    touchgfx::Unicode::UnicodeChar textArea2Buffer[TEXTAREA2_SIZE];
 
 private:
 

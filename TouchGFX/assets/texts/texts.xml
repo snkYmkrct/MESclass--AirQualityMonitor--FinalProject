@@ -6,6 +6,18 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_94WE" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">tempe</Translation>
+      </Text>
+      <Text Id="__SingleUse_F1QU" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">humid</Translation>
+      </Text>
+      <Text Id="__SingleUse_7Z87" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">p25</Translation>
+      </Text>
+      <Text Id="__SingleUse_5GAY" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Vco2</Translation>
+      </Text>
       <Text Id="__SingleUse_2Q71" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">00</Translation>
       </Text>
@@ -24,20 +36,20 @@
       <Text Id="__SingleUse_1RTL" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">Initializing sensors</Translation>
       </Text>
-      <Text Id="__SingleUse_M25P" Alignment="Left" TypographyId="Typography_00">
-        <Translation Language="GB">hum</Translation>
+      <Text Id="__SingleUse_M25P" Alignment="Right" TypographyId="Typography_00">
+        <Translation Language="GB">&lt;value&gt; %</Translation>
       </Text>
       <Text Id="__SingleUse_VQNR" Alignment="Right" TypographyId="Typography_00">
-        <Translation Language="GB"> temp&lt;value&gt; °C</Translation>
+        <Translation Language="GB">&lt;value&gt; °C</Translation>
       </Text>
       <Text Id="__SingleUse_8SEC" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">&lt;&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_UZVW" Alignment="Right" TypographyId="Typography_00">
-        <Translation Language="GB">New Text</Translation>
+        <Translation Language="GB">&lt;value&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_BVBX" Alignment="Right" TypographyId="Typography_00">
-        <Translation Language="GB">New Text</Translation>
+        <Translation Language="GB">&lt;value&gt;</Translation>
       </Text>
       <Text Id="t1w" Alignment="Left" TypographyId="Default">
         <Translation Language="GB" />

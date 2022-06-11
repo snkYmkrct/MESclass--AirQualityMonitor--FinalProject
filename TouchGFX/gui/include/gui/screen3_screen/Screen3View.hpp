@@ -3,6 +3,7 @@
 
 #include <gui_generated/screen3_screen/Screen3ViewBase.hpp>
 #include <gui/screen3_screen/Screen3Presenter.hpp>
+#include <touchgfx/hal/Types.hpp>
 
 class Screen3View : public Screen3ViewBase
 {
@@ -13,8 +14,21 @@ public:
     virtual void tearDownScreen();
 
     virtual void handleTickEvent();
+
+    void updateTime(uint32_t hour, uint32_t minute, uint32_t second);
+
+    void updatePM25(uint16_t pm25, uint32_t color);
+
+    void updateCO2TempHum(uint16_t co2, uint32_t color, float temperature, float humidity);
+
+    void updateBattery(float voltagePercent);
+
 protected:
-    uint8_t img= 0;
+    Unicode::UnicodeChar txtBufferPM25[5];
+    Unicode::UnicodeChar txtBufferCO2[5];
+    Unicode::UnicodeChar txtBufferTemp[6];
+    Unicode::UnicodeChar txtBufferHum[6];
+    uint8_t img;
     uint16_t counter;
 };
 

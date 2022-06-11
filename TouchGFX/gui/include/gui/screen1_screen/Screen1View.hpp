@@ -11,6 +11,11 @@ public:
     virtual ~Screen1View() {}
     virtual void setupScreen();
     virtual void tearDownScreen();
+
+    void updateTime(uint32_t hour, uint32_t minute, uint32_t second);
+
+    void updateBattery(float voltagePercent);
+
 protected:
 };
 

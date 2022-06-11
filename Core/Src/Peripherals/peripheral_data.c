@@ -7,22 +7,28 @@
 
 #include "peripheral_data.h"
 
-uint32_t printTick = 0u;
+// peripherals sampling rates in milliseconds
+#define RTC_SAMPLING 1000
+#define AQI_SAMPLING 2300
+#define BAT_SAMPLING 10000
+#define CO2_SAMPLING 5000
 
-RTC_DS3232_Data timeData_DS3231 = {0};
-uint32_t rtcTick = 0u;
+static uint32_t printTick = 0u;
 
-PM25_AQI_Data aqiData_PMSA003I = {0};
-uint32_t aqiTick = 0u;
+static RTC_DS3232_Data timeData_DS3231 = {0};
+static uint32_t rtcTick = 0u;
 
-uint16_t co2_SCD4X;
-float temperature_SCD4X;
-float humidity_SCD4X;
-uint32_t co2Tick = 0u;
+static PM25_AQI_Data aqiData_PMSA003I = {0};
+static uint32_t aqiTick = 0u;
 
-float voltageValue_LC709203F;
-float voltagePercent_LC709203F;
-uint32_t voltageTick = 0u;
+static uint16_t co2_SCD4X;
+static float temperature_SCD4X;
+static float humidity_SCD4X;
+static uint32_t co2Tick = 0u;
+
+static float voltageValue_LC709203F;
+static float voltagePercent_LC709203F;
+static uint32_t voltageTick = 0u;
 
 void peripheralInitValues(){
 
@@ -54,12 +60,10 @@ void peripheralInitValues(){
 	    printf("\r\nCouldnt find Adafruit LC709203F ?\r\nMake sure a battery is plugged in!\r\n");
 	  }
 
-	  printf("\r\nFound LC709203F\r\n");
+	  printf("\r\nFound battery monitor LC709203F\r\n");
 	  printf("Version: 0x");
 	  printf("%x \r\n", battery_monitor_LC709203F_getICversion());
 	  //battery_monitor_LC709203F_setAlarmVoltage(3.8);
-
-	  printf("battery monitor ready to go \r\n");
 
 }
 
@@ -67,25 +71,25 @@ void peripheralUpdateValues(){
 
 	uint32_t currentTick = HAL_GetTick();
 
-	if ( (currentTick - rtcTick) >= 1000 ){  // update every second
+	if ( (currentTick - rtcTick) >= RTC_SAMPLING ){  // update every second
 		if ( rtc_DS3231_getTime(&timeData_DS3231) ){
 			rtcTick = currentTick;
 		}
 	}
 
-	if ( (currentTick - aqiTick) >= 2300 ){  // new data is valid after 2.3 seconds
+	if ( (currentTick - aqiTick) >= AQI_SAMPLING ){  // new data is valid after 2.3 seconds
 		if ( aiq_PMSA003I_i2c_read(&aqiData_PMSA003I) ){
 			aqiTick = currentTick;
 		}
 	}
 
-	if ( (currentTick - voltageTick) >= 10000){  // get value every 10 seconds
+	if ( (currentTick - voltageTick) >= BAT_SAMPLING){  // get value every 10 seconds
 		voltageTick = currentTick;
 		voltageValue_LC709203F = battery_monitor_LC709203F_cellVoltage();
 		voltagePercent_LC709203F = battery_monitor_LC709203F_cellPercent();
 	}
 
-	if ( (currentTick - co2Tick) >= 5000 ){  // new data is valid after 5 seconds
+	if ( (currentTick - co2Tick) >= CO2_SAMPLING ){  // new data is valid after 5 seconds
 		int16_t error = 0;
 		bool data_ready_flag = false;
 		uint16_t co2;
@@ -101,6 +105,31 @@ void peripheralUpdateValues(){
 				  co2_SCD4X = co2;
 				  temperature_SCD4X = (float)temperature/1000.0;
 				  humidity_SCD4X = (float)humidity/1000.0;
+
+				  uint8_t red, green, blue;
+				  if (co2 < 900){
+					  //green
+					  red = 0;
+					  green = 125;
+					  blue = 0;
+				  } else {
+					  if (co2 > 1800){
+						  // red
+						  red = 125;
+						  green = 0;
+						  blue = 0;
+					  }
+					  else {
+						  // orange
+						  red = 125;
+						  green = 125;
+						  blue = 0;
+					  }
+				  }
+				  for (uint8_t i=0; i<NEOPIXEL_NUMBER; i++){
+					  Set_Neopixel(i, red, green, blue);
+				  }
+				  Neopixel_Send();
 			  }
 		  }
 		}
@@ -118,6 +147,7 @@ void peripheralUpdateValues(){
 		printf("````````````````````````````````````````\r\n");
 
 
+/*
 		uint8_t red = (uint8_t)(rand() % 256);
 		uint8_t green = (uint8_t)(rand() % 256);
 		uint8_t blue = (uint8_t)(rand() % 256);
@@ -126,6 +156,7 @@ void peripheralUpdateValues(){
 			  Set_Neopixel(i, red, green, blue);
 		  }
 		Neopixel_Send();
+*/
 
 
 		printf("\r\n\r\n  tick now: %ld    %ld  \r\n\r\n",currentTick, HAL_GetTick());

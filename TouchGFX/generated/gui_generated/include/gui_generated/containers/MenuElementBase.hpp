@@ -6,7 +6,6 @@
 
 #include <gui/common/FrontendApplication.hpp>
 #include <touchgfx/containers/Container.hpp>
-#include <touchgfx/widgets/Image.hpp>
 #include <touchgfx/widgets/TextAreaWithWildcard.hpp>
 
 class MenuElementBase : public touchgfx::Container
@@ -24,7 +23,6 @@ protected:
     /*
      * Member Declarations
      */
-    touchgfx::Image icon;
     touchgfx::TextAreaWithOneWildcard textArea1;
 
     /*

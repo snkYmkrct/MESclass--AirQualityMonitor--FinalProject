@@ -73,9 +73,9 @@ void Screen1ViewBase::handleTickEvent()
         if(interactionLoadScreenCounter == 0)
         {
             //InteractionChangeScreen
-            //When InteractionLoadScreen completed change screen to Screen2
-            //Go to Screen2 with no screen transition
-            application().gotoScreen2ScreenNoTransition();
+            //When InteractionLoadScreen completed change screen to Screen3
+            //Go to Screen3 with no screen transition
+            application().gotoScreen3ScreenNoTransition();
         }
     }
 }

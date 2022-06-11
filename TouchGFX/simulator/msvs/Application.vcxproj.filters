@@ -202,12 +202,6 @@
     <Filter Include="Header Files\gui\screen3_screen">
       <UniqueIdentifier>7FEA0B0B-3D9E-2994-0D4A-EEC5E96BB668</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\generated\gui_generated\screen3_screen">
-      <UniqueIdentifier>FB4775D7-DD1D-94A0-FAA9-2F602E4BBFE3</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\generated\gui_generated\screen3_screen">
-      <UniqueIdentifier>7F31681A-61BA-E472-8728-214C7B4D4544</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\gui\containers">
       <UniqueIdentifier>41FE2DA5-AF79-2888-0959-75738FB882DA</UniqueIdentifier>
     </Filter>
@@ -219,6 +213,12 @@
     </Filter>
     <Filter Include="Header Files\generated\gui_generated\containers">
       <UniqueIdentifier>D5A997AD-EE41-FD8E-5344-AD1FC5A08100</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\generated\gui_generated\screen3_screen">
+      <UniqueIdentifier>DC22BF01-091B-AD3F-5E20-1A640E2C8C31</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\generated\gui_generated\screen3_screen">
+      <UniqueIdentifier>A2220C38-0203-FC41-11A8-7E288365446D</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -276,14 +276,14 @@
     <ClCompile Include="..\..\gui\src\screen3_screen\Screen3View.cpp">
       <Filter>Source Files\gui\screen3_screen</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\generated\gui_generated\src\screen3_screen\Screen3ViewBase.cpp">
-      <Filter>Source Files\generated\gui_generated\screen3_screen</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\gui\src\containers\MenuElement.cpp">
       <Filter>Source Files\gui\containers</Filter>
     </ClCompile>
     <ClCompile Include="..\..\generated\gui_generated\src\containers\MenuElementBase.cpp">
       <Filter>Source Files\generated\gui_generated\containers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\screen3_screen\Screen3ViewBase.cpp">
+      <Filter>Source Files\generated\gui_generated\screen3_screen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -751,14 +751,14 @@
     <ClInclude Include="..\..\gui\include\gui\screen3_screen\Screen3View.hpp">
       <Filter>Header Files\gui\screen3_screen</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\screen3_screen\Screen3ViewBase.hpp">
-      <Filter>Header Files\generated\gui_generated\screen3_screen</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\gui\include\gui\containers\MenuElement.hpp">
       <Filter>Header Files\gui\containers</Filter>
     </ClInclude>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\containers\MenuElementBase.hpp">
       <Filter>Header Files\generated\gui_generated\containers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\screen3_screen\Screen3ViewBase.hpp">
+      <Filter>Header Files\generated\gui_generated\screen3_screen</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

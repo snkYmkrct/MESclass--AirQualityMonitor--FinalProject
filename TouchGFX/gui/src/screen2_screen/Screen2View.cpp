@@ -1,10 +1,5 @@
 #include <gui/screen2_screen/Screen2View.hpp>
 
-#ifdef USE_HAL_DRIVER
-extern "C" {
-#include "aiq_PMSA003I_i2c.h"
-}
-#endif
 
 Screen2View::Screen2View():
 	counter(0)
@@ -38,8 +33,8 @@ void Screen2View::handleTickEvent()
     if(counter%300 == 0) // every 5 s
     {
 	#ifdef USE_HAL_DRIVER
-		PM25_AQI_Data data = {0};
-/*		if (aiq_PMSA003I_i2c_read(&data)){
+    	/*			PM25_AQI_Data data = {0};
+	if (aiq_PMSA003I_i2c_read(&data)){
 			Unicode::snprintf(txtBuffer[0], 10, "%d", data.pm10_standard);
 			textArea1.resizeToCurrentText();
 			textArea1.invalidate();

@@ -130,7 +130,7 @@
             "Action": {
               "Type": "ActionGotoScreen",
               "ScreenTransitionType": "ScreenTransitionNone",
-              "ActionComponent": "Screen2"
+              "ActionComponent": "Screen3"
             }
           }
         ]
@@ -156,7 +156,7 @@
             "Type": "Button",
             "Name": "button1",
             "X": 197,
-            "Y": 274,
+            "Y": 273,
             "Width": 40,
             "Height": 40,
             "Pressed": "arrow-right_mic.png",
@@ -334,7 +334,7 @@
             "Name": "scrollWheel1",
             "X": -3,
             "Y": 232,
-            "Width": 200,
+            "Width": 141,
             "Height": 30,
             "UseSelectedStyle": true,
             "SelectedItemTemplateName": "MenuElement",
@@ -354,7 +354,7 @@
             "Name": "scrollList1",
             "X": -3,
             "Y": 269,
-            "Width": 200,
+            "Width": 141,
             "Height": 50,
             "ItemTemplateName": "MenuElement",
             "NumberofItems": 10,
@@ -408,22 +408,6 @@
             "RelativeFilename": "background_gray_vertical.png"
           },
           {
-            "Type": "Box",
-            "Name": "box1",
-            "X": 37,
-            "Y": 55,
-            "Width": 135,
-            "Height": 37
-          },
-          {
-            "Type": "Box",
-            "Name": "box1_1",
-            "X": 73,
-            "Y": 147,
-            "Width": 170,
-            "Height": 31
-          },
-          {
             "Type": "Image",
             "Name": "image2",
             "X": 195,
@@ -431,38 +415,6 @@
             "Width": 40,
             "Height": 40,
             "RelativeFilename": "battery_3q_mic.png"
-          },
-          {
-            "Type": "TextArea",
-            "Name": "textArea1",
-            "X": 43,
-            "Y": 60,
-            "Width": 74,
-            "Height": 19,
-            "TextId": "__SingleUse_BVBX",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 35,
-              "Green": 242,
-              "Blue": 24
-            },
-            "AutoSize": true
-          },
-          {
-            "Type": "TextArea",
-            "Name": "textArea2",
-            "X": 119,
-            "Y": 151,
-            "Width": 74,
-            "Height": 19,
-            "TextId": "__SingleUse_UZVW",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 217,
-              "Green": 4,
-              "Blue": 4
-            },
-            "AutoSize": true
           },
           {
             "Type": "Circle",
@@ -476,22 +428,6 @@
             "Radius": 19,
             "EndAngle": 360,
             "CapPrecision": "Butt"
-          },
-          {
-            "Type": "Box",
-            "Name": "box4",
-            "X": 44,
-            "Y": 228,
-            "Width": 89,
-            "Height": 25
-          },
-          {
-            "Type": "Box",
-            "Name": "box7",
-            "X": 30,
-            "Y": 211,
-            "Width": 27,
-            "Height": 45
           },
           {
             "Type": "DigitalClock",
@@ -512,89 +448,12 @@
             "InitialMinute": 10
           },
           {
-            "Type": "Image",
-            "Name": "image3",
-            "X": 23,
-            "Y": 213,
-            "Width": 40,
-            "Height": 40,
-            "RelativeFilename": "thermometer_2_mic.png"
-          },
-          {
-            "Type": "Image",
-            "Name": "image5",
-            "X": 67,
-            "Y": 141,
-            "Width": 50,
-            "Height": 35,
-            "RelativeFilename": "co2_mic.png"
-          },
-          {
-            "Type": "Image",
-            "Name": "image6",
-            "X": 125,
-            "Y": 45,
-            "Width": 50,
-            "Height": 50,
-            "RelativeFilename": "air-pollution_1_mic.png"
-          },
-          {
-            "Type": "TextArea",
-            "Name": "textArea3",
-            "X": 54,
-            "Y": 231,
-            "Width": 73,
-            "Height": 19,
-            "TextId": "__SingleUse_VQNR",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 178,
-              "Green": 218,
-              "Blue": 255
-            },
-            "AutoSize": true,
-            "Wildcard1": {}
-          },
-          {
-            "Type": "Box",
-            "Name": "box5",
-            "X": 131,
-            "Y": 204,
-            "Width": 68,
-            "Height": 24
-          },
-          {
-            "Type": "Image",
-            "Name": "image7",
-            "X": 169,
-            "Y": 188,
-            "Width": 40,
-            "Height": 40,
-            "RelativeFilename": "humidity_2_mic.png"
-          },
-          {
-            "Type": "TextArea",
-            "Name": "textArea4",
-            "X": 133,
-            "Y": 207,
-            "Width": 36,
-            "Height": 19,
-            "TextId": "__SingleUse_M25P",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 178,
-              "Green": 218,
-              "Blue": 255
-            },
-            "AutoSize": true
-          },
-          {
             "Type": "Container",
             "Name": "container1",
             "X": 5,
             "Y": 44,
-            "Width": 37,
-            "Height": 143,
+            "Width": 129,
+            "Height": 90,
             "Components": [
               {
                 "Type": "Box",
@@ -616,8 +475,8 @@
                 "Height": 19,
                 "Color": {
                   "Red": 214,
-                  "Green": 117,
-                  "Blue": 43
+                  "Green": 158,
+                  "Blue": 73
                 }
               },
               {
@@ -643,20 +502,72 @@
                   "Green": 242,
                   "Blue": 24
                 }
+              },
+              {
+                "Type": "Image",
+                "Name": "image6",
+                "X": 70,
+                "Y": -6,
+                "Width": 50,
+                "Height": 50,
+                "RelativeFilename": "air-pollution_1_mic.png"
+              },
+              {
+                "Type": "TextArea",
+                "Name": "textArea1",
+                "X": 41,
+                "Y": 16,
+                "Width": 30,
+                "Height": 19,
+                "TextId": "__SingleUse_BVBX",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 35,
+                  "Green": 242,
+                  "Blue": 24
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_7Z87",
+                  "UseBuffer": true,
+                  "BufferSize": 5
+                }
+              },
+              {
+                "Type": "Circle",
+                "Name": "circle1",
+                "X": -3,
+                "Y": 32,
+                "Width": 42,
+                "Height": 41,
+                "CenterX": 20,
+                "CenterY": 20,
+                "Radius": 6,
+                "EndAngle": 360,
+                "CapPrecision": "Butt"
               }
             ]
           },
           {
             "Type": "Container",
             "Name": "container1_1",
-            "X": 200,
+            "X": 86,
             "Y": 94,
-            "Width": 35,
-            "Height": 94,
+            "Width": 149,
+            "Height": 97,
             "Components": [
               {
                 "Type": "Box",
+                "Name": "box1_1",
+                "X": 10,
+                "Y": 53,
+                "Width": 96,
+                "Height": 25
+              },
+              {
+                "Type": "Box",
                 "Name": "box6_4",
+                "X": 111,
                 "Width": 37,
                 "Height": 19,
                 "Color": {
@@ -668,8 +579,9 @@
               {
                 "Type": "Box",
                 "Name": "box6_1_1",
-                "Y": 21,
-                "Width": 40,
+                "X": 111,
+                "Y": 19,
+                "Width": 37,
                 "Height": 19,
                 "Color": {
                   "Red": 214,
@@ -680,8 +592,8 @@
               {
                 "Type": "Box",
                 "Name": "box6_2_1",
-                "X": -1,
-                "Y": 40,
+                "X": 111,
+                "Y": 38,
                 "Width": 37,
                 "Height": 18,
                 "Color": {
@@ -693,7 +605,8 @@
               {
                 "Type": "Box",
                 "Name": "box6_3_1",
-                "Y": 62,
+                "X": 111,
+                "Y": 56,
                 "Width": 37,
                 "Height": 18,
                 "Color": {
@@ -701,20 +614,38 @@
                   "Green": 242,
                   "Blue": 24
                 }
+              },
+              {
+                "Type": "Image",
+                "Name": "image5",
+                "X": 10,
+                "Y": 47,
+                "Width": 50,
+                "Height": 35,
+                "RelativeFilename": "co2_mic.png"
+              },
+              {
+                "Type": "TextArea",
+                "Name": "textArea2",
+                "X": 66,
+                "Y": 55,
+                "Width": 39,
+                "Height": 19,
+                "TextId": "__SingleUse_UZVW",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 217,
+                  "Green": 4,
+                  "Blue": 4
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_5GAY",
+                  "UseBuffer": true,
+                  "BufferSize": 5
+                }
               }
             ]
-          },
-          {
-            "Type": "Circle",
-            "Name": "circle1",
-            "Y": 76,
-            "Width": 42,
-            "Height": 41,
-            "CenterX": 20,
-            "CenterY": 20,
-            "Radius": 6,
-            "EndAngle": 360,
-            "CapPrecision": "Butt"
           },
           {
             "Type": "Button",
@@ -730,20 +661,11 @@
             "Type": "Button",
             "Name": "button2",
             "X": 195,
-            "Y": 271,
+            "Y": 273,
             "Width": 40,
             "Height": 40,
             "Pressed": "arrow-right_mic.png",
             "Released": "arrow-right_mic.png"
-          },
-          {
-            "Type": "Image",
-            "Name": "image2_1",
-            "X": 195,
-            "Y": -2,
-            "Width": 40,
-            "Height": 40,
-            "RelativeFilename": "battery_3q_mic.png"
           },
           {
             "Type": "Image",
@@ -753,6 +675,98 @@
             "Width": 40,
             "Height": 40,
             "RelativeFilename": "setting_mic.png"
+          },
+          {
+            "Type": "Container",
+            "Name": "container2",
+            "X": -2,
+            "Y": 165,
+            "Width": 136,
+            "Height": 70,
+            "Components": [
+              {
+                "Type": "Box",
+                "Name": "box4",
+                "X": 31,
+                "Y": 26,
+                "Width": 90,
+                "Height": 25
+              },
+              {
+                "Type": "TextArea",
+                "Name": "textArea3",
+                "X": 40,
+                "Y": 28,
+                "Width": 76,
+                "Height": 19,
+                "TextId": "__SingleUse_VQNR",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 178,
+                  "Green": 218,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_94WE"
+                }
+              },
+              {
+                "Type": "Image",
+                "Name": "image3",
+                "X": 7,
+                "Y": 11,
+                "Width": 40,
+                "Height": 40,
+                "RelativeFilename": "thermometer_2_mic.png"
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "container3",
+            "X": 120,
+            "Y": 191,
+            "Width": 118,
+            "Height": 59,
+            "Components": [
+              {
+                "Type": "Box",
+                "Name": "box5",
+                "X": -2,
+                "Y": 24,
+                "Width": 95,
+                "Height": 24
+              },
+              {
+                "Type": "TextArea",
+                "Name": "textArea4",
+                "X": 2,
+                "Y": 25,
+                "Width": 73,
+                "Height": 19,
+                "TextId": "__SingleUse_M25P",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 178,
+                  "Green": 218,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_F1QU"
+                }
+              },
+              {
+                "Type": "Image",
+                "Name": "image7",
+                "X": 76,
+                "Y": 9,
+                "Width": 40,
+                "Height": 40,
+                "RelativeFilename": "humidity_2_mic.png"
+              }
+            ]
           }
         ],
         "Interactions": [
@@ -775,22 +789,13 @@
       {
         "Name": "MenuElement",
         "Y": 42,
-        "Width": 200,
-        "Height": 30,
+        "Width": 141,
+        "Height": 22,
         "Components": [
-          {
-            "Type": "Image",
-            "Name": "icon",
-            "Y": -3,
-            "Width": 36,
-            "Height": 36,
-            "RelativeFilename": "icon00.png"
-          },
           {
             "Type": "TextArea",
             "Name": "textArea1",
-            "X": 45,
-            "Y": 6,
+            "Y": 3,
             "Width": 141,
             "Height": 19,
             "TextId": "__SingleUse_EQZ9",

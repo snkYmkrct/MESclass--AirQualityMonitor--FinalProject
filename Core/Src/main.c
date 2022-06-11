@@ -155,7 +155,6 @@ int main(void)
 
   HAL_GPIO_WritePin(TURN_OFF_GPIO_Port, TURN_OFF_Pin, GPIO_PIN_RESET);
   MyButtonPressed = HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin);
-  ConsoleInit();
 
   peripheralInitValues();
 
@@ -173,6 +172,7 @@ int main(void)
 	  }
 
 	  if (MyButtonPressed == GPIO_PIN_SET){
+		  ConsoleInit();
 		  ConsoleIoSendString(STR_ENDLINE);
 		  ConsoleIoSendString(CONSOLE_PROMPT);
 		  isConsoleStarted = 1u;

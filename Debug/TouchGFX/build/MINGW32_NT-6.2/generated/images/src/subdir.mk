@@ -21,7 +21,9 @@ O_SRCS += \
 ../TouchGFX/build/MINGW32_NT-6.2/generated/images/src/image_humidity_2_mic.o \
 ../TouchGFX/build/MINGW32_NT-6.2/generated/images/src/image_icon00.o \
 ../TouchGFX/build/MINGW32_NT-6.2/generated/images/src/image_left-arrow_mic.o \
+../TouchGFX/build/MINGW32_NT-6.2/generated/images/src/image_rectangle_mic.o \
 ../TouchGFX/build/MINGW32_NT-6.2/generated/images/src/image_right-arrow_mic.o \
+../TouchGFX/build/MINGW32_NT-6.2/generated/images/src/image_setting_mic.o \
 ../TouchGFX/build/MINGW32_NT-6.2/generated/images/src/image_thermometer_2_mic.o 
 
 

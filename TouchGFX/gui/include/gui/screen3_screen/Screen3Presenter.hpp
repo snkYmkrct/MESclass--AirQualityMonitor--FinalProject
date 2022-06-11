@@ -3,6 +3,7 @@
 
 #include <gui/model/ModelListener.hpp>
 #include <mvp/Presenter.hpp>
+#include <touchgfx/hal/Types.hpp>
 
 using namespace touchgfx;
 
@@ -26,6 +27,14 @@ public:
     virtual void deactivate();
 
     virtual ~Screen3Presenter() {};
+
+    void updateTime(uint32_t hour, uint32_t minute, uint32_t second);
+
+    void updatePM25(uint16_t pm25, uint32_t color);
+
+    void updateCO2TempHum(uint16_t co2, uint32_t color, float temperature, float humidity);
+
+    void updateBattery(float voltagePercent);
 
 private:
     Screen3Presenter();
