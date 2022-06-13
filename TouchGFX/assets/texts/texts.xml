@@ -6,6 +6,21 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_67PU" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Check your PC</Translation>
+      </Text>
+      <Text Id="__SingleUse_Q9UV" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Console ON</Translation>
+      </Text>
+      <Text Id="__SingleUse_CCOP" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Check your PC</Translation>
+      </Text>
+      <Text Id="__SingleUse_N4I1" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Console ON</Translation>
+      </Text>
+      <Text Id="__SingleUse_54Y7" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">&lt;&gt;</Translation>
+      </Text>
       <Text Id="__SingleUse_94WE" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">tempe</Translation>
       </Text>

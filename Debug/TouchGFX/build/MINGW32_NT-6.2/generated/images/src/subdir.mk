@@ -9,20 +9,13 @@ O_SRCS += \
 ../TouchGFX/build/MINGW32_NT-6.2/generated/images/src/image_air-pollution_1_mic.o \
 ../TouchGFX/build/MINGW32_NT-6.2/generated/images/src/image_arrow-left_mic.o \
 ../TouchGFX/build/MINGW32_NT-6.2/generated/images/src/image_arrow-right_mic.o \
-../TouchGFX/build/MINGW32_NT-6.2/generated/images/src/image_background.o \
-../TouchGFX/build/MINGW32_NT-6.2/generated/images/src/image_background_gray.o \
 ../TouchGFX/build/MINGW32_NT-6.2/generated/images/src/image_background_gray_vertical.o \
 ../TouchGFX/build/MINGW32_NT-6.2/generated/images/src/image_battery_3q_mic.o \
 ../TouchGFX/build/MINGW32_NT-6.2/generated/images/src/image_battery_full_mic.o \
 ../TouchGFX/build/MINGW32_NT-6.2/generated/images/src/image_battery_half_mic.o \
 ../TouchGFX/build/MINGW32_NT-6.2/generated/images/src/image_battery_low_mic.o \
-../TouchGFX/build/MINGW32_NT-6.2/generated/images/src/image_co2-cloud_3_mic.o \
 ../TouchGFX/build/MINGW32_NT-6.2/generated/images/src/image_co2_mic.o \
 ../TouchGFX/build/MINGW32_NT-6.2/generated/images/src/image_humidity_2_mic.o \
-../TouchGFX/build/MINGW32_NT-6.2/generated/images/src/image_icon00.o \
-../TouchGFX/build/MINGW32_NT-6.2/generated/images/src/image_left-arrow_mic.o \
-../TouchGFX/build/MINGW32_NT-6.2/generated/images/src/image_rectangle_mic.o \
-../TouchGFX/build/MINGW32_NT-6.2/generated/images/src/image_right-arrow_mic.o \
 ../TouchGFX/build/MINGW32_NT-6.2/generated/images/src/image_setting_mic.o \
 ../TouchGFX/build/MINGW32_NT-6.2/generated/images/src/image_thermometer_2_mic.o 
 

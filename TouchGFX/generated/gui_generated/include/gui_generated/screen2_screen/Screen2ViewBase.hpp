@@ -84,17 +84,7 @@ protected:
     touchgfx::Unicode::UnicodeChar textArea6Buffer[TEXTAREA6_SIZE];
 
 private:
-
-    /*
-     * Callback Declarations
-     */
-    touchgfx::Callback<Screen2ViewBase, const touchgfx::AbstractButton&> buttonCallback;
     touchgfx::Callback<Screen2ViewBase, touchgfx::DrawableListItemsInterface*, int16_t, int16_t> updateItemCallback;
-
-    /*
-     * Callback Handler Declarations
-     */
-    void buttonCallbackHandler(const touchgfx::AbstractButton& src);
     void updateItemCallbackHandler(touchgfx::DrawableListItemsInterface* items, int16_t containerIndex, int16_t itemIndex);
 
 };

@@ -7,7 +7,6 @@
 #include <texts/TextKeysAndLanguages.hpp>
 
 Screen2ViewBase::Screen2ViewBase() :
-    buttonCallback(this, &Screen2ViewBase::buttonCallbackHandler),
     updateItemCallback(this, &Screen2ViewBase::updateItemCallbackHandler)
 {
 
@@ -22,7 +21,6 @@ Screen2ViewBase::Screen2ViewBase() :
 
     button1.setXY(197, 273);
     button1.setBitmaps(touchgfx::Bitmap(BITMAP_ARROW_RIGHT_MIC_ID), touchgfx::Bitmap(BITMAP_ARROW_RIGHT_MIC_ID));
-    button1.setAction(buttonCallback);
 
     digitalClock1.setPosition(3, 5, 101, 26);
     digitalClock1.setColor(touchgfx::Color::getColorFromRGB(255, 67, 151));
@@ -144,17 +142,6 @@ void Screen2ViewBase::setupScreen()
     for (int i = 0; i < scrollList1ListItems.getNumberOfDrawables(); i++)
     {
         scrollList1ListItems[i].initialize();
-    }
-}
-
-void Screen2ViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
-{
-    if (&src == &button1)
-    {
-        //Interaction1
-        //When button1 clicked change screen to Screen3
-        //Go to Screen3 with no screen transition
-        application().gotoScreen3ScreenNoTransition();
     }
 }
 

@@ -8,6 +8,7 @@
 extern "C" {
 #include "peripheral_data.h"
 }
+extern uint8_t isConsoleStarted;
 #endif
 
 class ModelListener;

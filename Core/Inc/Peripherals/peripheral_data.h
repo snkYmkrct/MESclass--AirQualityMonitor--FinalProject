@@ -21,6 +21,16 @@ void peripheralInitValues();
 
 void peripheralUpdateValues();
 
+void peripheralUpdateNeopixelsfromCO2();
+
+void peripheralPrintTime();
+
+void peripheralPrintBattery();
+
+void peripheralPrintCo2();
+
+void peripheralPrintAQI();
+
 void peripheralGetTime(uint32_t *hour, uint32_t *minute, uint32_t *second);
 
 void peripheralGetDate(uint32_t *dayofweek, uint32_t *dayofmonth, uint32_t *month, uint32_t *year);
@@ -34,5 +44,7 @@ void peripheralGetCO2TempHum(uint16_t *co2, float *temperature, float *humidity)
 void peripheralGetBattery(float *voltage, float *percentage);
 
 void peripheralSetAllNeopixels(uint32_t colorHexRGB);
+
+void peripheralSetAllNeopixelsToRandom();
 
 #endif /* INC_PERIPHERALS_PERIPHERAL_DATA_H_ */

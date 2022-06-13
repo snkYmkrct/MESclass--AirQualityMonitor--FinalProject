@@ -2,7 +2,7 @@
   "Application": {
     "Screens": [
       {
-        "Name": "Screen1",
+        "Name": "IntroScreen",
         "Components": [
           {
             "Type": "Box",
@@ -84,8 +84,8 @@
           {
             "Type": "DigitalClock",
             "Name": "digitalClock1",
-            "X": 3,
-            "Y": 5,
+            "X": 4,
+            "Y": 4,
             "Width": 101,
             "Height": 26,
             "TextColor": {
@@ -130,267 +130,13 @@
             "Action": {
               "Type": "ActionGotoScreen",
               "ScreenTransitionType": "ScreenTransitionNone",
-              "ActionComponent": "Screen3"
+              "ActionComponent": "MainScreen"
             }
           }
         ]
       },
       {
-        "Name": "Screen2",
-        "Components": [
-          {
-            "Type": "Box",
-            "Name": "box1",
-            "Width": 240,
-            "Height": 320
-          },
-          {
-            "Type": "Image",
-            "Name": "image1",
-            "Y": 33,
-            "Width": 240,
-            "Height": 360,
-            "RelativeFilename": "background_gray_vertical.png"
-          },
-          {
-            "Type": "Button",
-            "Name": "button1",
-            "X": 197,
-            "Y": 273,
-            "Width": 40,
-            "Height": 40,
-            "Pressed": "arrow-right_mic.png",
-            "Released": "arrow-right_mic.png"
-          },
-          {
-            "Type": "DigitalClock",
-            "Name": "digitalClock1",
-            "X": 3,
-            "Y": 5,
-            "Width": 101,
-            "Height": 26,
-            "TextColor": {
-              "Red": 255,
-              "Green": 67,
-              "Blue": 151
-            },
-            "TextId": "__SingleUse_SAU0",
-            "DisplaySeconds": true,
-            "DisplayLeadingZeroForHourIndicator": true,
-            "InitialHour": 10,
-            "InitialMinute": 10
-          },
-          {
-            "Type": "Image",
-            "Name": "image2",
-            "X": 195,
-            "Y": -2,
-            "Width": 40,
-            "Height": 40,
-            "RelativeFilename": "battery_3q_mic.png"
-          },
-          {
-            "Type": "ScrollableContainer",
-            "Name": "scrollableContainer1",
-            "X": 19,
-            "Y": 47,
-            "Width": 138,
-            "Height": 157,
-            "HorizontalScrollEnabled": true,
-            "VerticalScrollEnabled": true,
-            "ScrollbarsVisibleOnPressed": true,
-            "ScrollbarsColor": {
-              "Red": 173,
-              "Green": 52,
-              "Blue": 52
-            },
-            "ScrollbarsAlpha": 255,
-            "Components": [
-              {
-                "Type": "TextArea",
-                "Name": "textArea1",
-                "X": 4,
-                "Y": 36,
-                "Width": 81,
-                "Height": 19,
-                "TextId": "__SingleUse_7DYV",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 227,
-                  "Green": 211,
-                  "Blue": 211
-                },
-                "AutoSize": true,
-                "Wildcard1": {
-                  "TextId": "t1w",
-                  "UseBuffer": true,
-                  "BufferSize": 10
-                }
-              },
-              {
-                "Type": "TextArea",
-                "Name": "textArea2",
-                "X": 1,
-                "Y": 68,
-                "Width": 81,
-                "Height": 19,
-                "TextId": "__SingleUse_E509",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 230,
-                  "Green": 207,
-                  "Blue": 207
-                },
-                "AutoSize": true,
-                "Wildcard1": {
-                  "UseBuffer": true,
-                  "BufferSize": 10
-                }
-              },
-              {
-                "Type": "TextArea",
-                "Name": "textArea3",
-                "X": 1,
-                "Y": 101,
-                "Width": 75,
-                "Height": 19,
-                "TextId": "__SingleUse_JSY4",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 230,
-                  "Green": 209,
-                  "Blue": 209
-                },
-                "AutoSize": true,
-                "Wildcard1": {
-                  "UseBuffer": true,
-                  "BufferSize": 10
-                }
-              },
-              {
-                "Type": "TextArea",
-                "Name": "textArea4",
-                "X": 115,
-                "Y": 36,
-                "Width": 86,
-                "Height": 19,
-                "TextId": "__SingleUse_QUZN",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 227,
-                  "Green": 211,
-                  "Blue": 211
-                },
-                "AutoSize": true,
-                "Wildcard1": {
-                  "UseBuffer": true,
-                  "BufferSize": 10
-                }
-              },
-              {
-                "Type": "TextArea",
-                "Name": "textArea5",
-                "X": 115,
-                "Y": 68,
-                "Width": 86,
-                "Height": 19,
-                "TextId": "__SingleUse_67DT",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 230,
-                  "Green": 207,
-                  "Blue": 207
-                },
-                "AutoSize": true,
-                "Wildcard1": {
-                  "UseBuffer": true,
-                  "BufferSize": 10
-                }
-              },
-              {
-                "Type": "TextArea",
-                "Name": "textArea6",
-                "X": 115,
-                "Y": 101,
-                "Width": 80,
-                "Height": 19,
-                "TextId": "__SingleUse_DDBN",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 230,
-                  "Green": 209,
-                  "Blue": 209
-                },
-                "AutoSize": true,
-                "Wildcard1": {
-                  "UseBuffer": true,
-                  "BufferSize": 10
-                }
-              }
-            ]
-          },
-          {
-            "Type": "ScrollWheel",
-            "Name": "scrollWheel1",
-            "X": -3,
-            "Y": 232,
-            "Width": 141,
-            "Height": 30,
-            "UseSelectedStyle": true,
-            "SelectedItemTemplateName": "MenuElement",
-            "ExtraSizeBefore": 1,
-            "ExtraSizeAfter": 1,
-            "MarginBefore": 1,
-            "MarginAfter": 1,
-            "ItemTemplateName": "MenuElement",
-            "NumberofItems": 12,
-            "Easing": "Back",
-            "EasingOption": "Out",
-            "SwipeAcceleration": 1.0,
-            "DragAcceleration": 1.0
-          },
-          {
-            "Type": "ScrollList",
-            "Name": "scrollList1",
-            "X": -3,
-            "Y": 269,
-            "Width": 141,
-            "Height": 50,
-            "ItemTemplateName": "MenuElement",
-            "NumberofItems": 10,
-            "Easing": "Back",
-            "EasingOption": "Out",
-            "SwipeAcceleration": 1.0,
-            "DragAcceleration": 1.0,
-            "Clickable": true
-          }
-        ],
-        "Interactions": [
-          {
-            "InteractionName": "Interaction1",
-            "Trigger": {
-              "Type": "TriggerClicked",
-              "TriggerComponent": "button1"
-            },
-            "Action": {
-              "Type": "ActionGotoScreen",
-              "ScreenTransitionType": "ScreenTransitionNone",
-              "ActionComponent": "Screen3"
-            }
-          },
-          {
-            "InteractionName": "Interaction2",
-            "Trigger": {
-              "Type": "TriggerNone"
-            },
-            "Action": {
-              "Type": "ActionNone"
-            }
-          }
-        ]
-      },
-      {
-        "Name": "Screen3",
+        "Name": "MainScreen",
         "CanvasBufferSize": 3600,
         "Components": [
           {
@@ -430,10 +176,40 @@
             "CapPrecision": "Butt"
           },
           {
+            "Type": "Button",
+            "Name": "button1",
+            "X": 6,
+            "Y": 273,
+            "Width": 40,
+            "Height": 40,
+            "Pressed": "arrow-left_mic.png",
+            "Released": "arrow-left_mic.png"
+          },
+          {
+            "Type": "Button",
+            "Name": "button2",
+            "X": 195,
+            "Y": 273,
+            "Width": 40,
+            "Height": 40,
+            "Pressed": "arrow-right_mic.png",
+            "Released": "arrow-right_mic.png"
+          },
+          {
+            "Type": "Button",
+            "Name": "button3",
+            "X": 100,
+            "Y": 273,
+            "Width": 40,
+            "Height": 40,
+            "Pressed": "setting_mic.png",
+            "Released": "setting_mic.png"
+          },
+          {
             "Type": "DigitalClock",
             "Name": "digitalClock1",
-            "X": 3,
-            "Y": 5,
+            "X": 4,
+            "Y": 4,
             "Width": 101,
             "Height": 26,
             "TextColor": {
@@ -759,35 +535,6 @@
             ]
           },
           {
-            "Type": "Button",
-            "Name": "button1",
-            "X": 6,
-            "Y": 273,
-            "Width": 40,
-            "Height": 40,
-            "Pressed": "arrow-left_mic.png",
-            "Released": "arrow-left_mic.png"
-          },
-          {
-            "Type": "Button",
-            "Name": "button2",
-            "X": 195,
-            "Y": 273,
-            "Width": 40,
-            "Height": 40,
-            "Pressed": "arrow-right_mic.png",
-            "Released": "arrow-right_mic.png"
-          },
-          {
-            "Type": "Image",
-            "Name": "image8",
-            "X": 100,
-            "Y": 273,
-            "Width": 40,
-            "Height": 40,
-            "RelativeFilename": "setting_mic.png"
-          },
-          {
             "Type": "Container",
             "Name": "container2",
             "X": -9,
@@ -837,7 +584,7 @@
             "Type": "Container",
             "Name": "container3",
             "X": 119,
-            "Y": 198,
+            "Y": 197,
             "Width": 118,
             "Height": 59,
             "Components": [
@@ -878,6 +625,356 @@
                 "RelativeFilename": "humidity_2_mic.png"
               }
             ]
+          },
+          {
+            "Type": "ModalWindow",
+            "Name": "modalWindow1",
+            "Width": 240,
+            "Height": 320,
+            "Visible": false,
+            "FileName": "background_gray_vertical.png",
+            "ModalY": -20,
+            "ModalWidth": 240,
+            "ModalHeight": 360,
+            "Alpha": 200,
+            "Components": []
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea5",
+            "X": 62,
+            "Y": 100,
+            "Width": 117,
+            "Height": 24,
+            "Visible": false,
+            "TextId": "__SingleUse_N4I1",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 67,
+              "Blue": 151
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea6",
+            "X": 47,
+            "Y": 154,
+            "Width": 146,
+            "Height": 24,
+            "Visible": false,
+            "TextId": "__SingleUse_CCOP",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 67,
+              "Blue": 151
+            },
+            "AutoSize": true
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "Interaction1",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "button2"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionNone",
+              "ActionComponent": "GraphScreen"
+            }
+          }
+        ]
+      },
+      {
+        "Name": "GraphScreen",
+        "CanvasBufferSize": 3600,
+        "Components": [
+          {
+            "Type": "Box",
+            "Name": "box3",
+            "Width": 240,
+            "Height": 320
+          },
+          {
+            "Type": "Image",
+            "Name": "image1",
+            "Y": 33,
+            "Width": 240,
+            "Height": 360,
+            "RelativeFilename": "background_gray_vertical.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "image2",
+            "X": 195,
+            "Y": -2,
+            "Width": 40,
+            "Height": 40,
+            "RelativeFilename": "battery_3q_mic.png"
+          },
+          {
+            "Type": "Box",
+            "Name": "box4",
+            "X": 191,
+            "Y": 108,
+            "Width": 43,
+            "Height": 35
+          },
+          {
+            "Type": "Circle",
+            "Name": "circle2",
+            "X": -14,
+            "Y": 253,
+            "Width": 80,
+            "Height": 80,
+            "CenterX": 40,
+            "CenterY": 40,
+            "Radius": 19,
+            "EndAngle": 360,
+            "CapPrecision": "Butt"
+          },
+          {
+            "Type": "Button",
+            "Name": "button1",
+            "X": 6,
+            "Y": 273,
+            "Width": 40,
+            "Height": 40,
+            "Pressed": "arrow-left_mic.png",
+            "Released": "arrow-left_mic.png"
+          },
+          {
+            "Type": "Button",
+            "Name": "button2",
+            "X": 195,
+            "Y": 273,
+            "Width": 40,
+            "Height": 40,
+            "Pressed": "arrow-right_mic.png",
+            "Released": "arrow-right_mic.png"
+          },
+          {
+            "Type": "Button",
+            "Name": "button3",
+            "X": 100,
+            "Y": 273,
+            "Width": 40,
+            "Height": 40,
+            "Pressed": "setting_mic.png",
+            "Released": "setting_mic.png"
+          },
+          {
+            "Type": "DigitalClock",
+            "Name": "digitalClock1",
+            "X": 3,
+            "Y": 5,
+            "Width": 101,
+            "Height": 26,
+            "TextColor": {
+              "Red": 255,
+              "Green": 67,
+              "Blue": 151
+            },
+            "TextId": "__SingleUse_54Y7",
+            "DisplaySeconds": true,
+            "DisplayLeadingZeroForHourIndicator": true,
+            "InitialHour": 10,
+            "InitialMinute": 10
+          },
+          {
+            "Type": "Image",
+            "Name": "image3",
+            "X": 3,
+            "Y": 45,
+            "Width": 50,
+            "Height": 50,
+            "RelativeFilename": "air-pollution_1_mic.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "image4",
+            "X": 3,
+            "Y": 164,
+            "Width": 40,
+            "Height": 40,
+            "RelativeFilename": "thermometer_2_mic.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "image5",
+            "X": 188,
+            "Y": 108,
+            "Width": 50,
+            "Height": 35,
+            "RelativeFilename": "co2_mic.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "image6",
+            "X": 195,
+            "Y": 215,
+            "Width": 40,
+            "Height": 40,
+            "RelativeFilename": "humidity_2_mic.png"
+          },
+          {
+            "Type": "DynamicGraph",
+            "Name": "dynamicGraph1",
+            "X": 56,
+            "Y": 45,
+            "Width": 180,
+            "Height": 50,
+            "DataSeed": 389393566,
+            "NumberOfValues": 100,
+            "MaxY": 200.0,
+            "Precision": "1",
+            "LastIndex": 99,
+            "XAxisScale": 1.0,
+            "GraphType": "GraphScroll",
+            "GraphDrawers": [
+              {
+                "Type": "AreaDrawer",
+                "Color": {
+                  "Red": 230,
+                  "Green": 233,
+                  "Blue": 237
+                }
+              }
+            ]
+          },
+          {
+            "Type": "DynamicGraph",
+            "Name": "dynamicGraph2",
+            "X": 10,
+            "Y": 100,
+            "Width": 180,
+            "Height": 50,
+            "DataSeed": 389393566,
+            "NumberOfValues": 100,
+            "MaxY": 3000.0,
+            "Precision": "1",
+            "LastIndex": 99,
+            "XAxisScale": 1.0,
+            "GraphType": "GraphScroll",
+            "GraphDrawers": [
+              {
+                "Type": "AreaDrawer",
+                "Color": {
+                  "Red": 212,
+                  "Green": 202,
+                  "Blue": 148
+                }
+              }
+            ]
+          },
+          {
+            "Type": "DynamicGraph",
+            "Name": "dynamicGraph3",
+            "X": 55,
+            "Y": 155,
+            "Width": 180,
+            "Height": 50,
+            "DataSeed": 389393566,
+            "NumberOfValues": 100,
+            "MaxY": 100.0,
+            "Precision": "1",
+            "LastIndex": 99,
+            "XAxisScale": 1.0,
+            "PaddingTop": 1,
+            "PaddingBottom": 1,
+            "PaddingLeft": 1,
+            "PaddingRight": 1,
+            "GraphType": "GraphScroll",
+            "GraphDrawers": [
+              {
+                "Type": "AreaDrawer",
+                "Color": {
+                  "Red": 255,
+                  "Green": 135,
+                  "Blue": 189
+                }
+              }
+            ]
+          },
+          {
+            "Type": "DynamicGraph",
+            "Name": "dynamicGraph4",
+            "X": 10,
+            "Y": 205,
+            "Width": 180,
+            "Height": 50,
+            "DataSeed": 389393566,
+            "NumberOfValues": 100,
+            "MaxY": 100.0,
+            "Precision": "1",
+            "LastIndex": 99,
+            "XAxisScale": 1.0,
+            "PaddingTop": 1,
+            "PaddingBottom": 1,
+            "PaddingLeft": 1,
+            "PaddingRight": 1,
+            "GraphType": "GraphScroll",
+            "GraphDrawers": [
+              {
+                "Type": "AreaDrawer",
+                "Color": {
+                  "Red": 140,
+                  "Green": 200,
+                  "Blue": 255
+                }
+              }
+            ]
+          },
+          {
+            "Type": "ModalWindow",
+            "Name": "modalWindow1",
+            "Width": 240,
+            "Height": 320,
+            "Visible": false,
+            "FileName": "background_gray_vertical.png",
+            "ModalY": -20,
+            "ModalWidth": 240,
+            "ModalHeight": 360,
+            "Alpha": 200,
+            "Components": []
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea5",
+            "X": 62,
+            "Y": 100,
+            "Width": 117,
+            "Height": 24,
+            "Visible": false,
+            "TextId": "__SingleUse_Q9UV",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 67,
+              "Blue": 151
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea6",
+            "X": 47,
+            "Y": 154,
+            "Width": 146,
+            "Height": 24,
+            "Visible": false,
+            "TextId": "__SingleUse_67PU",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 67,
+              "Blue": 151
+            },
+            "AutoSize": true
           }
         ],
         "Interactions": [
@@ -890,10 +987,242 @@
             "Action": {
               "Type": "ActionGotoScreen",
               "ScreenTransitionType": "ScreenTransitionNone",
-              "ActionComponent": "Screen2"
+              "ActionComponent": "MainScreen"
             }
           }
         ]
+      },
+      {
+        "Name": "Screen2",
+        "Components": [
+          {
+            "Type": "Box",
+            "Name": "box1",
+            "Width": 240,
+            "Height": 320
+          },
+          {
+            "Type": "Image",
+            "Name": "image1",
+            "Y": 33,
+            "Width": 240,
+            "Height": 360,
+            "RelativeFilename": "background_gray_vertical.png"
+          },
+          {
+            "Type": "Button",
+            "Name": "button1",
+            "X": 197,
+            "Y": 273,
+            "Width": 40,
+            "Height": 40,
+            "Pressed": "arrow-right_mic.png",
+            "Released": "arrow-right_mic.png"
+          },
+          {
+            "Type": "DigitalClock",
+            "Name": "digitalClock1",
+            "X": 3,
+            "Y": 5,
+            "Width": 101,
+            "Height": 26,
+            "TextColor": {
+              "Red": 255,
+              "Green": 67,
+              "Blue": 151
+            },
+            "TextId": "__SingleUse_SAU0",
+            "DisplaySeconds": true,
+            "DisplayLeadingZeroForHourIndicator": true,
+            "InitialHour": 10,
+            "InitialMinute": 10
+          },
+          {
+            "Type": "Image",
+            "Name": "image2",
+            "X": 195,
+            "Y": -2,
+            "Width": 40,
+            "Height": 40,
+            "RelativeFilename": "battery_3q_mic.png"
+          },
+          {
+            "Type": "ScrollableContainer",
+            "Name": "scrollableContainer1",
+            "X": 19,
+            "Y": 47,
+            "Width": 138,
+            "Height": 157,
+            "HorizontalScrollEnabled": true,
+            "VerticalScrollEnabled": true,
+            "ScrollbarsVisibleOnPressed": true,
+            "ScrollbarsColor": {
+              "Red": 173,
+              "Green": 52,
+              "Blue": 52
+            },
+            "ScrollbarsAlpha": 255,
+            "Components": [
+              {
+                "Type": "TextArea",
+                "Name": "textArea1",
+                "X": 4,
+                "Y": 36,
+                "Width": 81,
+                "Height": 19,
+                "TextId": "__SingleUse_7DYV",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 227,
+                  "Green": 211,
+                  "Blue": 211
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "t1w",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "textArea2",
+                "X": 1,
+                "Y": 68,
+                "Width": 81,
+                "Height": 19,
+                "TextId": "__SingleUse_E509",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 230,
+                  "Green": 207,
+                  "Blue": 207
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "textArea3",
+                "X": 1,
+                "Y": 101,
+                "Width": 75,
+                "Height": 19,
+                "TextId": "__SingleUse_JSY4",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 230,
+                  "Green": 209,
+                  "Blue": 209
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "textArea4",
+                "X": 115,
+                "Y": 36,
+                "Width": 86,
+                "Height": 19,
+                "TextId": "__SingleUse_QUZN",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 227,
+                  "Green": 211,
+                  "Blue": 211
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "textArea5",
+                "X": 115,
+                "Y": 68,
+                "Width": 86,
+                "Height": 19,
+                "TextId": "__SingleUse_67DT",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 230,
+                  "Green": 207,
+                  "Blue": 207
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "textArea6",
+                "X": 115,
+                "Y": 101,
+                "Width": 80,
+                "Height": 19,
+                "TextId": "__SingleUse_DDBN",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 230,
+                  "Green": 209,
+                  "Blue": 209
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              }
+            ]
+          },
+          {
+            "Type": "ScrollWheel",
+            "Name": "scrollWheel1",
+            "X": -3,
+            "Y": 232,
+            "Width": 141,
+            "Height": 30,
+            "UseSelectedStyle": true,
+            "SelectedItemTemplateName": "MenuElement",
+            "ExtraSizeBefore": 1,
+            "ExtraSizeAfter": 1,
+            "MarginBefore": 1,
+            "MarginAfter": 1,
+            "ItemTemplateName": "MenuElement",
+            "NumberofItems": 12,
+            "Easing": "Back",
+            "EasingOption": "Out",
+            "SwipeAcceleration": 1.0,
+            "DragAcceleration": 1.0
+          },
+          {
+            "Type": "ScrollList",
+            "Name": "scrollList1",
+            "X": -3,
+            "Y": 269,
+            "Width": 141,
+            "Height": 50,
+            "ItemTemplateName": "MenuElement",
+            "NumberofItems": 10,
+            "Easing": "Back",
+            "EasingOption": "Out",
+            "SwipeAcceleration": 1.0,
+            "DragAcceleration": 1.0,
+            "Clickable": true
+          }
+        ],
+        "Interactions": []
       }
     ],
     "CustomContainerDefinitions": [
@@ -933,7 +1262,7 @@
       "Height": 320
     },
     "SelectedColorDepth": 16,
-    "StartupScreenName": "Screen1",
+    "StartupScreenName": "IntroScreen",
     "SelectedStartupLanguage": "GB",
     "Skin": "Dark",
     "TouchGfxPath": "../Middlewares/ST/touchgfx",

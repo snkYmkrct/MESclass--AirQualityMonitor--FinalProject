@@ -17,6 +17,10 @@ public:
         model = m;
     }
 
+    virtual void startConsoleOverlay() {}
+
+    virtual void stopConsoleOverlay() {}
+
     virtual void updateTime(uint32_t hour, uint32_t minute, uint32_t second) {}
 
     virtual void updatePM25(uint16_t pm25, uint32_t color, uint8_t circle) {}

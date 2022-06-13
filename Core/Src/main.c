@@ -167,20 +167,34 @@ int main(void)
 	  GPIO_PinState UartPinConnected = HAL_GPIO_ReadPin(UART_CONNECTED_GPIO_Port, UART_CONNECTED_Pin);
 	  HAL_GPIO_WritePin(LD3_GPIO_Port, LD3_Pin, UartPinConnected);
 
+	  if (MyButtonPressed == GPIO_PIN_SET){
+		  if (isConsoleStarted){
+			  printf("   User button pressed   \r\n");
+			  ConsoleIoSendString(STR_ENDLINE);
+			  ConsoleIoSendString(CONSOLE_PROMPT);
+		  }
+		  else {
+			  if (UartPinConnected == GPIO_PIN_SET){
+				  ConsoleInit();
+				  ConsoleIoSendString(STR_ENDLINE);
+				  ConsoleIoSendString(CONSOLE_PROMPT);
+				  isConsoleStarted = 1u;
+			  }
+			  else {
+				  // test turn off pin
+				  HAL_GPIO_WritePin(TURN_OFF_GPIO_Port, TURN_OFF_Pin, GPIO_PIN_SET);
+			  }
+		  }
+		  MyButtonPressed = GPIO_PIN_RESET;
+	  }
+
 	  if (isConsoleStarted){
 		  ConsoleProcess();
 	  }
-
-	  if (MyButtonPressed == GPIO_PIN_SET){
-		  ConsoleInit();
-		  ConsoleIoSendString(STR_ENDLINE);
-		  ConsoleIoSendString(CONSOLE_PROMPT);
-		  isConsoleStarted = 1u;
-		  MyButtonPressed = GPIO_PIN_RESET;
-		  HAL_GPIO_WritePin(TURN_OFF_GPIO_Port, TURN_OFF_Pin, GPIO_PIN_SET);
+	  else {
+		  peripheralUpdateValues();
+		  peripheralUpdateNeopixelsfromCO2();
 	  }
-
-	  peripheralUpdateValues();
 
     /* USER CODE END WHILE */
 

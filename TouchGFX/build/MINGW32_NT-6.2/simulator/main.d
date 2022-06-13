@@ -65,10 +65,10 @@ build/MINGW32_NT-6.2/simulator/main.o: simulator/main.cpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp \
  gui/include/gui/model/Model.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/Color.hpp \
- gui/include/gui/screen1_screen/Screen1View.hpp \
- generated/gui_generated/include/gui_generated/screen1_screen/Screen1ViewBase.hpp \
+ gui/include/gui/introscreen_screen/IntroScreenView.hpp \
+ generated/gui_generated/include/gui_generated/introscreen_screen/IntroScreenViewBase.hpp \
  ../Middlewares/ST/touchgfx/framework/include/mvp/View.hpp \
- gui/include/gui/screen1_screen/Screen1Presenter.hpp \
+ gui/include/gui/introscreen_screen/IntroScreenPresenter.hpp \
  gui/include/gui/model/ModelListener.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Box.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Widget.hpp \
@@ -77,24 +77,9 @@ build/MINGW32_NT-6.2/simulator/main.o: simulator/main.cpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/clock/DigitalClock.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/clock/AbstractClock.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp \
- gui/include/gui/screen2_screen/Screen2View.hpp \
- generated/gui_generated/include/gui_generated/screen2_screen/Screen2ViewBase.hpp \
- gui/include/gui/screen2_screen/Screen2Presenter.hpp \
- ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Button.hpp \
- ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/AbstractButton.hpp \
- ../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/ScrollableContainer.hpp \
- ../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/scrollers/ScrollWheelWithSelectionStyle.hpp \
- ../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/scrollers/DrawableList.hpp \
- ../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/scrollers/ScrollWheelBase.hpp \
- ../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/scrollers/ScrollBase.hpp \
- ../Middlewares/ST/touchgfx/framework/include/touchgfx/EasingEquations.hpp \
- gui/include/gui/containers/MenuElement.hpp \
- generated/gui_generated/include/gui_generated/containers/MenuElementBase.hpp \
- ../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/scrollers/ScrollList.hpp \
- ../Middlewares/ST/touchgfx/framework/include/touchgfx/mixins/ClickListener.hpp \
- gui/include/gui/screen3_screen/Screen3View.hpp \
- generated/gui_generated/include/gui_generated/screen3_screen/Screen3ViewBase.hpp \
- gui/include/gui/screen3_screen/Screen3Presenter.hpp \
+ gui/include/gui/mainscreen_screen/MainScreenView.hpp \
+ generated/gui_generated/include/gui_generated/mainscreen_screen/MainScreenViewBase.hpp \
+ gui/include/gui/mainscreen_screen/MainScreenPresenter.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/Circle.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/CWRUtil.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/Utils.hpp \
@@ -110,6 +95,28 @@ build/MINGW32_NT-6.2/simulator/main.o: simulator/main.cpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/CanvasWidget.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/PainterRGB565.hpp \
  ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/AbstractPainterRGB565.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Button.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/AbstractButton.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/ModalWindow.hpp \
+ gui/include/gui/graphscreen_screen/GraphScreenView.hpp \
+ generated/gui_generated/include/gui_generated/graphscreen_screen/GraphScreenViewBase.hpp \
+ gui/include/gui/graphscreen_screen/GraphScreenPresenter.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/GraphScroll.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/AbstractDataGraph.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/GraphElements.hpp \
+ gui/include/gui/screen2_screen/Screen2View.hpp \
+ generated/gui_generated/include/gui_generated/screen2_screen/Screen2ViewBase.hpp \
+ gui/include/gui/screen2_screen/Screen2Presenter.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/ScrollableContainer.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/scrollers/ScrollWheelWithSelectionStyle.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/scrollers/DrawableList.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/scrollers/ScrollWheelBase.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/scrollers/ScrollBase.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/EasingEquations.hpp \
+ gui/include/gui/containers/MenuElement.hpp \
+ generated/gui_generated/include/gui_generated/containers/MenuElementBase.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/scrollers/ScrollList.hpp \
+ ../Middlewares/ST/touchgfx/framework/include/touchgfx/mixins/ClickListener.hpp \
  generated/gui_generated/include/gui_generated/common/SimConstants.hpp \
  ../Middlewares/ST/touchgfx/framework/include/platform/driver/touch/SDL2TouchController.hpp \
  generated/simulator/include/simulator/mainBase.hpp
@@ -246,13 +253,13 @@ gui/include/gui/model/Model.hpp:
 
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Color.hpp:
 
-gui/include/gui/screen1_screen/Screen1View.hpp:
+gui/include/gui/introscreen_screen/IntroScreenView.hpp:
 
-generated/gui_generated/include/gui_generated/screen1_screen/Screen1ViewBase.hpp:
+generated/gui_generated/include/gui_generated/introscreen_screen/IntroScreenViewBase.hpp:
 
 ../Middlewares/ST/touchgfx/framework/include/mvp/View.hpp:
 
-gui/include/gui/screen1_screen/Screen1Presenter.hpp:
+gui/include/gui/introscreen_screen/IntroScreenPresenter.hpp:
 
 gui/include/gui/model/ModelListener.hpp:
 
@@ -270,41 +277,11 @@ gui/include/gui/model/ModelListener.hpp:
 
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/TextAreaWithWildcard.hpp:
 
-gui/include/gui/screen2_screen/Screen2View.hpp:
+gui/include/gui/mainscreen_screen/MainScreenView.hpp:
 
-generated/gui_generated/include/gui_generated/screen2_screen/Screen2ViewBase.hpp:
+generated/gui_generated/include/gui_generated/mainscreen_screen/MainScreenViewBase.hpp:
 
-gui/include/gui/screen2_screen/Screen2Presenter.hpp:
-
-../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Button.hpp:
-
-../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/AbstractButton.hpp:
-
-../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/ScrollableContainer.hpp:
-
-../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/scrollers/ScrollWheelWithSelectionStyle.hpp:
-
-../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/scrollers/DrawableList.hpp:
-
-../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/scrollers/ScrollWheelBase.hpp:
-
-../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/scrollers/ScrollBase.hpp:
-
-../Middlewares/ST/touchgfx/framework/include/touchgfx/EasingEquations.hpp:
-
-gui/include/gui/containers/MenuElement.hpp:
-
-generated/gui_generated/include/gui_generated/containers/MenuElementBase.hpp:
-
-../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/scrollers/ScrollList.hpp:
-
-../Middlewares/ST/touchgfx/framework/include/touchgfx/mixins/ClickListener.hpp:
-
-gui/include/gui/screen3_screen/Screen3View.hpp:
-
-generated/gui_generated/include/gui_generated/screen3_screen/Screen3ViewBase.hpp:
-
-gui/include/gui/screen3_screen/Screen3Presenter.hpp:
+gui/include/gui/mainscreen_screen/MainScreenPresenter.hpp:
 
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/Circle.hpp:
 
@@ -335,6 +312,50 @@ gui/include/gui/screen3_screen/Screen3Presenter.hpp:
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/PainterRGB565.hpp:
 
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/canvas/AbstractPainterRGB565.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Button.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/AbstractButton.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/ModalWindow.hpp:
+
+gui/include/gui/graphscreen_screen/GraphScreenView.hpp:
+
+generated/gui_generated/include/gui_generated/graphscreen_screen/GraphScreenViewBase.hpp:
+
+gui/include/gui/graphscreen_screen/GraphScreenPresenter.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/GraphScroll.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/AbstractDataGraph.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/graph/GraphElements.hpp:
+
+gui/include/gui/screen2_screen/Screen2View.hpp:
+
+generated/gui_generated/include/gui_generated/screen2_screen/Screen2ViewBase.hpp:
+
+gui/include/gui/screen2_screen/Screen2Presenter.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/ScrollableContainer.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/scrollers/ScrollWheelWithSelectionStyle.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/scrollers/DrawableList.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/scrollers/ScrollWheelBase.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/scrollers/ScrollBase.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/EasingEquations.hpp:
+
+gui/include/gui/containers/MenuElement.hpp:
+
+generated/gui_generated/include/gui_generated/containers/MenuElementBase.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/scrollers/ScrollList.hpp:
+
+../Middlewares/ST/touchgfx/framework/include/touchgfx/mixins/ClickListener.hpp:
 
 generated/gui_generated/include/gui_generated/common/SimConstants.hpp:
 
