@@ -1,6 +1,8 @@
 ### Making Embedded Systems Class Final Project
 # --AirQualityMonitor--
 
+![PROJPIC](https://github.com/snkYmkrct/MESclass--AirQualityMonitor--FinalProject/blob/main/Images/03.jpg?raw=true)
+
 ## Link to the project video
 https://www.youtube.com/watch?v=IWltdPLce9k
 
